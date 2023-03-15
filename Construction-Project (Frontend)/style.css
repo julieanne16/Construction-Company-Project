@@ -204,8 +204,8 @@ html{
 }
 .about .column img{
     float: right;
-    padding-right: 0;
-    width: 450px;
+    padding: 0 0 0 110px;
+    width: 600px;
     height: 250px;
 }
 .about .column h1{
@@ -217,7 +217,7 @@ html{
     font-weight: 800;
 }
 .about .column p{
-    padding: 20px 20px 5px 15px;
+    padding: 20px 80px 5px 15px;
     font-size: 17px;
     line-height: 1.4;
     font-family: 'Montserrat';
