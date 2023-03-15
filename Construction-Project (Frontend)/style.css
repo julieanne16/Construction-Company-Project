@@ -1,0 +1,1028 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+:root{
+    --headerclr:#222533;
+    --mainclr:#ffcb0f;
+}
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    text-transform: capitalize;
+    box-sizing: border-box;
+    transition: .2s;
+}
+html{
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+.header{
+    padding: 0 160px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    display: flex;
+    background-color: #FFFFFF;
+    height: 50px;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10000;
+}
+.header .logo a{
+    color: #364A46;
+    font-size: 25px;
+    font-family: 'Montserrat';
+    font-style: italic;
+    font-weight: 800;
+}
+.header .logo a span{
+    color: #C4DD2A;
+    transition: all 0.3s ease;
+}
+.header.sticky .logo a span{
+    color: #fff;
+}
+.header .menu-btn{
+  position: absolute;
+  top: 14px;
+  color: #fff;
+  font-size: 26px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding-left: 1179px;
+}
+.nav{
+    width: 695px;
+}
+.nav a{
+    color: #184d21;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    font-size: 15px;
+    margin-left: 25px;
+    float: right;
+}
+.nav a:hover{
+    color: #E17371;
+}
+.icon-header div{
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+}
+.icon-header i{
+    margin-left: 15px;
+    font-size: 26px;
+}
+.icon-header i .fas .fa .bars{
+    display: none;
+}
+.background-image{
+    background: url(images/hero-bg.png);
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+}
+.inner-back-text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.inner-back-text h1{
+    font-size: 60px;
+    color: #C4DD2A;
+    text-align: center;
+    line-height: 1.3;
+    text-transform: uppercase;
+    font-family: 'Montserrat';
+    font-weight: 800;
+}
+.inner-back-text h1 span{
+    color: var(--mainclr);
+    text-transform: uppercase;
+}
+.inner-back-text p{
+    padding: 10px;
+    color: #ffffff;
+    margin-bottom: 15px;
+    line-height: 1.5;
+    font-size: 25px;
+    font-family: 'Montserrat';
+    font-weight: 400;
+}
+.inner-back-btn{
+    display: flex;
+    justify-content: center;
+}
+.inner-back-btn a{
+    margin-right: 10px;
+    font-size: 15px;
+    font-family: 'Montserrat';
+    font-weight: 700;
+}
+.first-btn{
+    padding: 1.5rem 4rem;
+    background: #C4DD2A;
+    font-weight: bold;
+    border-radius: 20px;
+    color: #121211;
+    font-size: 1.5rem;
+}
+.first-btn:hover, .second-btn:hover{
+    background: #184d21;
+    color: white;
+    letter-spacing: 3px;
+}
+/* products */
+.our-product{
+    padding: 4rem;
+    background-color: #f5f2f2;  
+}
+.our-product h1{
+    margin: auto;
+    text-align: center;
+    font-size: 40px;
+    font-family: 'Montserrat';
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #031f0f;
+}
+.main-product{
+  display: flex;
+  flex-wrap: wrap;
+ margin: 2px;
+ padding: 10px 0 5px 100px;
+}
+.inner-product{
+    margin: 25px;
+    width: 300px;
+    display: inline-block;
+    border-radius: 1px; 
+    background-color: #283E39;
+}
+.image img{
+  padding: 50px;
+  width: 100%;
+  height: 300px;
+  background-color: #D3D3D3;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+ }
+.title{
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+ }
+.title h1{
+  font-size: 30px;
+  text-transform: uppercase;
+  color: #E17371;
+  font-family: 'Montserrat';
+  font-weight: 800;
+ }
+/* about us */
+.about{
+    padding: 80px 90px 0 50px;
+    display: flex;
+    background-color: #E6E2DB;
+    width: 100%;
+    height: 400px;
+}
+.about:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.about .column{
+    float: left;
+    /*width: 48%;*/
+}
+.about .column img{
+    float: right;
+    padding-right: 0;
+    width: 450px;
+    height: 250px;
+}
+.about .column h1{
+    padding: 0 15px;
+    font-size: 50px;
+    text-transform: uppercase;
+    color: #364A46;
+    font-family: 'Montserrat';
+    font-weight: 800;
+}
+.about .column p{
+    padding: 20px 20px 5px 15px;
+    font-size: 17px;
+    line-height: 1.4;
+    font-family: 'Montserrat';
+    font-weight: 500;
+    text-align: left;
+    color: #293329;
+}
+
+/*company-perks */
+.company{
+    padding: 5rem 7%;
+    width: 100%;
+    height: 520px;
+}
+.company h1{
+    color: #031f0f;
+    font-size: 50px;
+    font-family: 'Montserrat';
+    font-weight: 800;
+    text-align: center;
+    padding: 10px ;
+}
+.main-company{
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 95px;
+}
+.company-content{
+    width: 20%;
+    display: inline-block; 
+    margin: 2%;
+    align-items: center;
+}
+.perks-img{
+    padding-left: 50px;
+}
+.perks-img img{
+   width: 130px;
+   height: 120px;
+   align-items: center;
+}
+.company-content .title h2{
+    font-size: 30px;
+    color: #031f0f;
+    font-family: 'Montserrat';
+    font-weight: 800;
+    font-style: italic;
+}
+.company-content .des p{
+    font-size: 12px;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* get in touch */
+.getintouch{
+    padding: 3rem 15rem;
+    margin: 0;
+    display: flex;
+    background-color: #283E39;
+}
+.getintouch:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.getintouch .column{
+    float: left;
+    width: 50%;
+    padding: 20px 10px 0 20px;
+}
+.getintouch-img img{
+    padding: 20px;
+    width: 100%;
+    height: 350px;
+}
+.getintouch .column h1{
+    font-size: 40px;
+    font-family: 'Montserrat';
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #E17371;
+}
+.getintouch .column .description p{
+    padding-top: 30PX;
+    font-size: 23px;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    color: #FFFFFF;
+}
+.getintouch .column .sub-description p{
+    padding-top: 25px;
+    font-size: 15px;
+    line-height: 1.5;
+    font-family: 'Montserrat';
+    font-weight: 300;
+    color: #FFFFFF;
+}
+.getintouch .column .sub-description i{
+    padding: 4px;
+    height: 15px;
+    float: left;
+    color: #E17371;
+}
+.getintouch.column .image{
+    width: 100%;
+}
+.getintouch-img img{
+    padding: 0;
+}
+.card {
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  padding: 25px;
+  margin: 20px;
+;}
+.getintouch .card h1{
+    font-size: 20px;
+    font-family: 'Montserrat';
+    text-align: center;
+    color: #031f0f;
+}
+.card label{
+    font-size: 15px;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    color: #031f0f;
+}
+input[type=text], textarea {
+  width: 100%;
+  margin: 6px 0 16px 0;
+  padding: 12px;
+  font-family: 'Montserrat';
+  border: 1px solid #ccc;
+  border-radius: 6px; 
+  box-sizing: border-box;
+  resize: vertical;
+}
+input[type=submit] {
+  margin: 0 125px;
+  padding: 12px 20px;
+  font-size: 15px;
+  font-family: 'Montserrat';
+  font-weight: 800;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  background-color: #C4DD2A;
+  color: #031f0f;
+}
+
+/* footer */
+footer .column {
+  float: left;
+  padding: 10px;
+  height: 300px;
+  background-color: #E6E2DB;
+}
+
+/* Clear floats after the columns */
+footer .row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+footer .logo{
+    padding-top: 40px;
+}
+footer .logo a{
+    padding-left: 150px;
+    font-family: 'Montserrat';
+    font-style: italic;
+    font-weight: 800;
+    color: #364A46;
+    font-size: 30px;
+}
+footer .logo a span{
+    color: #C4DD2A;
+    transition: all 0.3s ease;
+}
+.left{
+    width: 600px;
+}
+.center, .right{
+    width: 374.5px;
+}
+.tagline p{
+    padding: 10px 150px;
+    width: 100%;
+    font-size: 11px;
+    font-family: 'Montserrat';
+    font-style: italic;
+    font-weight: 500;
+}
+.socmed{
+    padding: 15px 140px;
+}
+.socmed img{
+    height: 25px;
+    margin: 5px;
+}
+.center h2{
+    padding-top: 40px;
+    font-weight: 600;
+    font-size: 15px;
+    color: #364A46;
+}
+.center i{
+    padding-top: 20px;
+    float: left;
+    font-size: 15px;
+    color: #364A46;
+}
+.center p{
+    padding: 20px 20px 5px 25px;
+    font-size: 12px;
+    line-height: 1.4;
+    font-family: 'Montserrat';
+    font-weight: 500;
+    text-align: left;
+    color: #293329;
+}
+.right h2{
+    padding-top: 40px;
+    font-weight: 600;
+    font-size: 15px;
+    color: #364A46;
+}
+.right p{
+    padding: 18px 0;
+    font-size: 12px;
+    font-family: 'Montserrat';
+    font-weight: 500;
+}
+.footer-bottom{
+    padding: 25px;
+    text-align: center;
+    font-size: 15px;
+    font-family: 'Montserrat';
+    font-weight: 100;
+    color: #ffffff;
+    background-color: #283E39;
+}
+
+/* Responsive Media Query */
+/* For 1024 Resolution */
+@media (max-width: 1024px){
+    .header {
+        padding: 0 100px;
+    }
+    .nav {
+        width: 490px;
+    }
+    .inner-back-text h1{
+        font-size: 55px;
+    }
+    .main-product{
+        padding-left: 50px;
+    }
+    .inner-product{
+        width: 260px;
+        margin: 15px;
+    }
+    .title h1{
+        font-size: 25px;
+    }
+    .about {
+        padding: 80px;
+        height: 450px;
+    }
+    .about .column img {
+        width: 100%;
+        height: 290px;
+    }
+    .about.column h1{
+        padding: 0 30px;
+        font-size: 50px;
+    }
+    .about .column p{
+        padding: 10px 0 0 15px;
+        font-size: 15px;
+    }
+    .perks-img{
+        padding-left: 28px;
+    }
+    .main-company{
+        gap: 95px;
+    }
+    .title{
+        padding-top: 20px;
+    }
+    .getintouch {
+        width: 100%;
+        padding: 30px 60px;
+    }
+    .getintouch .column {
+        padding-right: 0;
+    }
+    .getintouch .column .description p {
+        font-size: 20px;
+    }
+    .getintouch-img img {
+        padding: 10px;
+        height: 360px;
+    }
+    .card{
+        padding: 25px;
+    }
+    input[type=submit] {
+    margin: 0 90px;
+    }
+    footer .column{
+        padding: 0;
+    }
+    footer .logo a, .tagline p{
+    padding-left: 90px;
+    }
+    .tagline p{
+        padding-top: 8px;
+    }
+    .socmed {
+        padding: 25px 80px;
+
+    }
+    .left {
+        width: 480px;
+    }
+    .center, .right {
+        width: 272px;
+    }
+    .center p {
+        padding: 15px 2px 30px 25px;
+        font-size: 13px;
+    }
+    .right h2, .right p{
+        padding-left: 50px;
+    }
+    .right p{
+        padding-top: 29px;
+    }
+}
+
+/* For 768 Resolution */
+@media (max-width: 768px){
+  .header .logo a{
+        font-size: 20px;
+    }
+    .nav {
+        width: 0px;
+    }
+  .nav a{
+    position: fixed;
+    left: -100%;
+    top: 0;
+    background: #0E2431;
+    height: 100vh;
+    max-width: 400px;
+    width: 100%;
+    padding-top: 60px;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.5s ease;
+  }
+  .nav.active {
+    left: 0;
+  }
+  .nav a{
+    font-size: 15px;
+    display: block;
+    color: #fff;
+    margin: 10px 0;
+  }
+  .nav.sticky a:hover{
+    color: #4070f4;
+  }
+  .header .menu-btn{
+    top: 12px;
+    padding-left: 669px;
+    font-size: 29px;
+    color: #000000;
+  }
+  .icon-header {
+    padding-right: 10px;
+}
+  .inner-back-text h1{
+    width: 650px;
+    font-size: 55px;
+  }
+  .inner-back-text p{
+    padding: 0 40px;
+    font-size: 20px;
+  }
+  .our-product h1{
+    font-size: 35px;
+  }
+  .main-product {
+    padding-left: 50px;
+}
+  .inner-product{
+    width: 170px;
+    margin: 10px;
+  }
+  .image img {
+    padding: 20px;
+    width: 100%;
+    height: 200px;
+  }
+  .title {
+    padding-top: 10px;
+  }
+  .title h1 {
+    font-size: 15px;
+  }
+  .about {
+    padding: 80px 102px 0 102px;
+  }
+  .about .column img {
+    padding-right: 0;
+    width: 290px;
+    height: 290px;
+  }
+  .about .column h1{
+    font-size: 40px;
+  }
+  .about .column p{
+    padding: 15px 0 0 15px;
+    font-size: 13px;
+  }
+  .main-company {
+    gap: 55px;
+  }
+  .company h1{
+    font-size: 45px;
+  }
+  .perks-img img {
+    width: 100px;
+    height: 100px;
+  }
+  .company-content .title h2 {
+    font-size: 25px;
+  }
+  .getintouch {
+    padding: 35px 80px;
+  }
+  .getintouch .column h1 {
+    font-size: 30px;
+  }
+  .getintouch .card h1{
+    font-size: 18px;
+    padding-bottom: 10px;
+  }
+  .getintouch .column .description p {
+    font-size: 16px;
+    line-height: 1.3;
+  }
+  .card {
+    margin: 0;
+  }
+  .card label {
+    font-size: 13px;
+}
+  input[type=submit] {
+    margin: 0 30px;
+  }
+  .getintouch-img img {
+    padding-left: 0;
+    height: 340px;
+  }
+  footer .column {
+    height: 230px;
+  }
+  .left {
+    width: 330px;
+  }
+  .center, .right{
+    width: 219px;
+  }
+  footer .logo a {
+    padding-left: 100px;
+    font-size: 20px;
+  }
+  .tagline p{
+    padding: 10px 0 0 100px;
+    font-size: 11px;
+  }
+  .socmed {
+    padding: 20px 0 0 90px;
+    margin-top: 18px;
+  }
+  .socmed img {
+    height: 20px;
+  }
+  .center p{
+    padding: 10px;
+    margin-left: 10px;
+    font-size: 12px;
+  }
+  .center i{
+    padding-top: 11px;
+  }
+  .right p{
+    padding-top: 15px;
+    font-size: 12px;
+  }
+  .footer-bottom {
+    font-size: 13px;
+  }
+}
+
+/* For 640 Resolution */
+@media (max-width: 640px){
+  .header {
+    padding: 0 70px;
+  }
+  .icon-header {
+    padding-right: 50px;
+  }
+  .header .menu-btn {
+    padding-left: 470px;
+    font-size: 28px;
+  }
+  .inner-back-text h1 {
+    width: 500px;
+    font-size: 40px;
+  }
+  .inner-back-text p {
+    font-size: 15px;
+  }
+  .inner-back-btn a {
+    font-size: 15px;
+  }
+  .first-btn {
+    padding: 10px 12px;
+  }
+  .our-product h1 {
+    font-size: 30px;
+  }
+  .main-product {
+    padding-left: 20px;
+  }
+  .inner-product {
+    width: 150px;
+    margin: 10px;
+  }
+  .title h1 {
+    font-size: 15px;
+  }
+  .about .column img {
+    width: 240px;
+    height: 290px;
+  }
+  .about .column h1 {
+    font-size: 32px;
+  }
+  .about .column p {
+    font-size: 12px;
+  }
+  .company {
+    height: 420px;
+  }
+  .company h1 {
+    font-size: 40px;
+  }
+  .company-content {
+    margin: 0;
+    width: 140px;
+  }
+  .perks-img {
+    padding-left: 21px;
+  }
+  .perks-img img {
+    width: 90px;
+    height: 90px;
+  }
+  .company-content .title h2 {
+    font-size: 20px;
+  }
+  .company-content .des p {
+    font-size: 11px;
+  }
+  .getintouch {
+    padding: 35px 60px;
+  }
+  .getintouch .column{
+    padding: 20px 10px 0 9px;
+  }
+  .getintouch .column h1 {
+    font-size: 30px;
+  }
+  .getintouch .column .description p {
+    font-size: 15px;
+  }
+  .getintouch .column .sub-description p {
+    font-size: 12px;
+  }
+  .getintouch-img img {
+    height: 255px;
+  }
+  .getintouch .card h1 {
+    font-size: 16px;
+  }
+  .card label {
+    font-size: 13px;
+  }
+  input[type=text], textarea {
+    margin: 6px 0 10px 0;
+    padding: 5px;
+  }
+  input[type=submit] {
+    margin: 0 30px;
+    padding: 10px 20px;
+    font-size: 11px;
+  }
+  footer .column {
+    height: 200px;
+  }
+  footer .logo a {
+    padding-left: 46px;
+    font-size: 18px;
+  }
+  .tagline p {
+    padding-left: 46px;
+    font-size: 8px;
+  }
+  .socmed {
+    padding: 0px 0 0 40px;
+  }
+  .socmed img {
+    height: 15px;
+    margin: 2px;
+  }
+  .left {
+    width: 250px;
+  }
+  .center, .right {
+    width: 195px;
+  }
+  .center h2 {
+    font-size: 11px;
+  }
+  .center i {
+    font-size: 11px;
+  }
+  .center p {
+    font-size: 9px;
+  }
+  .right h2 {
+    font-size: 11px;
+  }
+  .right p{
+    font-size: 9px;
+  }
+  .footer-bottom {
+    font-size: 10px;
+  }
+  .footer-bottom {
+    padding: 13px;
+  }
+}
+
+/* For 375 Resolution */
+@media (max-width: 375px) {
+  html{
+    display: flex;
+  }
+  .header .logo a {
+    font-size: 20px;
+  }
+  .header {
+    padding: 0 20px;
+  }
+   .icon-header {
+    padding-right: 80px;
+  }
+  .header .menu-btn {
+    top: 14px;
+    padding-left: 365px;
+  }
+  .inner-back-text p {
+    padding: 0 50px;
+  }
+  .inner-back-btn a {
+    margin-right: 0;
+  }
+  .our-product {
+    background-color: #ffffff;
+    height: 800px;
+  }
+  .our-product h1 {
+    font-size: 40px;
+  }
+  .main-product {
+    padding-left: 0;
+  }
+  .inner-product{
+    width: 147px;
+  }
+  .image img {
+    height: 150px;
+  }
+  .title h1 {
+    font-size: 16px;
+  }
+  .about {
+    padding: 30px 20px 0 30px;
+    height: 600px;
+   }
+  .about.column {
+    position: absolute;
+    height: 500px;
+  }
+  .about .column h1 {
+    padding: 15px;
+    font-size: 35px;
+    text-align: center;
+  }
+  .about .column p {
+    padding: 0 12px;
+    font-size: 12px;
+    text-align: center;
+  }
+  .about .column img {
+    top: 1590px;
+    width: 370px;
+    position: absolute;
+    z-index: 100;
+  }
+  .getintouch {
+    display: flex;
+    flex-direction: column;
+    height: 1040px;
+    padding: 35px 50px;
+  }
+  .getintouch .column {
+    width: 100%;
+  }
+  .getintouch .column h1, .getintouch .column .description p,
+  .getintouch .column .sub-description p {
+    text-align: center;
+  }
+  input[type=submit] {
+    margin: 0 60px;
+  }
+  .card {
+    top: 480px;
+  }
+  .getintouch-img img {
+    width: 300px;
+    height: 255px;
+  }
+  .company {
+    padding: 50px;
+    height: 960px;
+  }
+  .company h1 {
+    font-size: 30px;
+  }
+  .perks-img {
+    padding-left: 75px;
+  }
+  .perks-img img {
+    width: 120px;
+    height: 120px;
+  }
+  .company-content {
+    width: 250px;
+  }
+  .main-company {
+    gap: 10px;
+  }
+  .left, .center, .right{
+    width: 100%;
+  }
+  .left, .center, .center p, .right{
+    text-align: center;
+  }
+  .center p{
+    padding-left: 0;
+  }
+  .center i{
+    display: none;
+  }
+  .socmed, .tagline p{
+    padding: 0;
+  }
+  footer .logo a{
+    padding-left: 0;
+  }
+  footer .column{
+    height: 120px;
+  }
+  .center h2, .right h2, .right p{
+    padding: 0;
+  }
+  .center p, .right p{
+    padding-top: 8px;
+  }
+
+}
+
+/* For 320 Resolution */
+@media (max-width: 320px)
