@@ -97,3 +97,76 @@ function displayCart($user_id)
 		return  "<strong>ERROR: </strong> " . $error->getMessage();
 	}
 }
+
+
+// CRUD FUNCTIONS
+// READ OR DISPLAY QUERY
+function read($table)
+{
+	try {
+		global $conn;
+
+		$stmt = $conn->prepare("SELECT * FROM $table");
+		$stmt->execute();
+
+		// Fetch results
+		$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+		return $results;
+	} catch (PDOException  $error) {
+		return  "<strong>ERROR: </strong> " . $error->getMessage();
+	}
+}
+
+// DELETE OR REMOVE QUERY
+function delete($table, $id_column, $id_value)
+{
+	global $conn;
+
+	try {
+		$stmt = $conn->prepare("DELETE FROM $table WHERE $id_column = :id_value");
+		$stmt->bindValue(':id_value', $id_value);
+		$stmt->execute();
+	} catch (PDOException  $error) {
+		return  "<strong>ERROR: </strong> " . $error->getMessage();
+	}
+}
+
+// ADD OR CREATE QUERY
+function create($table, $data)
+{
+	global $conn;
+
+	$fields = implode(',', array_keys($data));
+	$values = ':' . implode(',:', array_keys($data));
+	$sql = "INSERT INTO $table ($fields) VALUES ($values)";
+	$stmt = $conn->prepare($sql);
+	$stmt->execute($data);
+}
+
+// UPDATE OR EDIT QUERY
+function update($table, $idField, $idValue, $fieldsToUpdate)
+{
+	global $conn;
+
+	// Construct the SET clause of the SQL query
+	$setClause = '';
+	foreach ($fieldsToUpdate as $fieldName => $fieldValue) {
+		$setClause .= "`$fieldName` = :$fieldName, ";
+	}
+	$setClause = rtrim($setClause, ', ');
+
+	// Construct the SQL query
+	$sql = "UPDATE `$table` SET $setClause WHERE `$idField` = :$idField";
+
+	// Prepare the query
+	$stmt = $conn->prepare($sql);
+
+	// Bind the parameters
+	$stmt->bindParam(":$idField", $idValue, PDO::PARAM_INT);
+	foreach ($fieldsToUpdate as $fieldName => $fieldValue) {
+		$stmt->bindValue(":$fieldName", $fieldValue);
+	}
+	// Execute the query
+	$stmt->execute();
+}
