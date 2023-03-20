@@ -170,3 +170,31 @@ function update($table, $idField, $idValue, $fieldsToUpdate)
 	// Execute the query
 	$stmt->execute();
 }
+function checkOut($user_id)
+{
+	global $conn;
+
+	try {
+		// Retrieve all items in the cart table
+		$stmt = $conn->prepare("SELECT * FROM cart WHERE user_id = ?");
+		$stmt->execute([$user_id]);
+		$cart_items = $stmt->fetchAll();
+
+		// Insert into checkout table and update product quantity
+		$stmt = $conn->prepare("INSERT INTO checkout (user_id, product_id, quantity, purchase_date) VALUES (?, ?, ?, NOW())");
+		$update_stmt = $conn->prepare("UPDATE products SET quantity = quantity - ? WHERE product_id = ?");
+		foreach ($cart_items as $cart_item) {
+			$stmt->execute([$user_id, $cart_item['product_id'], $cart_item['quantity']]);
+			$update_stmt->execute([$cart_item['quantity'], $cart_item['product_id']]);
+		}
+
+		// Delete items from cart table
+		$stmt = $conn->prepare("DELETE FROM cart WHERE user_id = ?");
+		$stmt->execute([$user_id]);
+
+		return "Item(s) successfully checked out!";
+	} catch (PDOException  $error) {
+		// Rollback the transaction on error
+		return  "<strong>ERROR: </strong> " . $error->getMessage();
+	}
+}
