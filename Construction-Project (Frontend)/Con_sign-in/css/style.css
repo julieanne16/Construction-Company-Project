@@ -239,6 +239,205 @@ footer .logo a span{
     background-color: #283E39;
 }
 
+/* Responsive Media Query */
+@media (max-width: 1024px) {
+    .nav {
+        width: 440px;
+    }
+    .nav a {
+        margin-left: 15px;
+        font-size: 14px;
+    }
+    .header .logo a {
+        font-size: 24px;
+    }
+    .icon-header i {
+        margin-left: 0;
+        font-size: 20px;
+    }
+    .left {
+        width: 460px;
+    }
+    .tagline p {
+        padding-left: 150px;
+        font-size: 12px;
+    }
+    .center, .right {
+        width: 282px;
+    }
+    footer h2 {
+    text-align: left;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 0 140px;
+    }
+    .nav {
+        display: none;
+    }
+    .header .menu-btn {
+        top: 12px;
+        color: #000000;
+        font-size: 26px;
+        padding-left: 450px;
+    }
+    .icon-header i {
+        margin-right: 50px;
+        font-size: 24px;
+    }
+    footer .logo a {
+        font-size: 20px;
+    }
+    .tagline p {
+        padding: 5px 0 5px 150px;
+        font-size: 11px;
+    }
+    .socmed {
+        padding: 5px 0 0 140px;
+    }
+    .socmed i {
+        margin-left: 11px;
+        font-size: 20px;
+    }
+    .left {
+        width: 390px;
+    }
+    .center, .right {
+        width: 189px;
+    }
+    .center h2 {
+        padding-top: 50px;
+        font-size: 12px;
+    }
+    .center i {
+        font-size: 12px;
+    }
+    .center p {
+        padding: 20px 5px 5px 25px;
+        font-size: 10px;
+    }
+    .right h2 {
+        padding-top: 50px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 640px){
+    .header {
+        padding: 0 100px;
+    }
+    .header .menu-btn {
+        top: 11px;
+        padding-left: 410px;
+    }
+    .icon-header i {
+        margin-right: 40px;
+    }
+    h1 {
+        font-size: 40px;
+    }
+    .form p {
+        font-size: 14px;
+    }
+    footer .column {
+        padding: 0;
+    }
+    footer .logo a {
+        padding-left: 100px;
+        font-size: 16px;
+    }
+    .left {
+        width: 300px;
+    }
+    .tagline p {
+        padding: 2px 0 5px 100px;
+        font-size: 8px;
+    }
+    .socmed {
+        padding: 5px 0 0 100px;
+    }
+    .socmed i {
+        margin-left: 0;
+        font-size: 15px;
+    }
+    .center, .right {
+        width: 170px;
+    }
+    .center p {
+        padding: 20px 5px 5px 15px;
+        font-size: 9px;
+    }
+    .right p {
+        padding: 18px 0;
+        font-size: 10px;
+    }
+    .footer-bottom {
+        padding: 20px;
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 375px){
+    .header {
+        padding: 0 10px;
+    }
+    .header .logo a {
+        font-size: 20px;
+    }
+    .header .menu-btn {
+        padding-left: 330px;
+    }
+    .left, .center, .right {
+        width: 100%;
+    }
+    .left{
+        text-align: center;
+    }
+    footer .logo a, .tagline p, .socmed {
+        padding-left: 0;
+    }
+    .socmed i {
+        margin: 5px;
+    }
+    footer .column {
+        height: 130px;
+    }
+    .center h2 {
+        padding-top: 0;
+        font-size: 11px;
+    }
+    .center i {
+        padding-top: 5px;
+    }
+    .center p {
+        padding: 5px 5px 5px 15px;
+    }
+    .center h2, .center i, .center p{
+        text-align: center;
+    }
+    .right h2 {
+        padding-top: 0;
+        text-align: center;
+    }
+    .right p {
+        padding: 10px 0;
+        text-align: center;
+    }
+}
+
+@media (max-width: 320px){
+    .header .menu-btn {
+        padding-left: 270px;
+    }
+    h1 {
+        font-size: 30px;
+    }
+    .form p {
+        font-size: 12px;
+    }
+}
 
 
 
