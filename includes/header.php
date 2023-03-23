@@ -20,7 +20,7 @@ require_once 'functions.php';
 	  <header class="header">
         <div class="logo"><a href="#">Construction<span> Co.</span></a></div>
         <navbar class="nav">
-            <a href="#signin">SIGN IN</a>
+            <a href="login.php">SIGN IN</a>
             <a href="#contact">CONTACT US</a>
             <a href="products.php">PRODUCTS</a>
             <a href="#product">ABOUT US</a>
