@@ -12,7 +12,7 @@ require_once 'functions.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Construction</title>
-    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
    <script src="https://kit.fontawesome.com/0ebd665efa.js" crossorigin="anonymous" defer></script>
 </head>
