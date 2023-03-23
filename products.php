@@ -10,7 +10,6 @@ if (!isset($_SESSION['account_id'])) {
 	exit();
 }
 
-
 // Retrieve the account_id value from the session
 $user_id = $_SESSION['user_id'];
 

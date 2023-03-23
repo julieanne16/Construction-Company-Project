@@ -16,7 +16,11 @@
 	<header class="header">
 		<div class="logo"><a href="#">Construction<span> Co.</span></a></div>
 		<navbar class="nav">
-			<a href="login.php">SIGN IN</a>
+			<?php if (isset($_SESSION['user_id'])) : ?>
+				<a href="logout.php" onclick="return confirm('Are you sure you want to logout?');">SIGN OUT</a>
+			<?php else : ?>
+				<a href="login.php">SIGN IN</a>
+			<?php endif; ?>
 			<a href="#contact">CONTACT US</a>
 			<a href="products.php">PRODUCTS</a>
 			<a href="#product">ABOUT US</a>
