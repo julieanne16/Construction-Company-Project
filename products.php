@@ -23,7 +23,8 @@ print_r($user);
 <?php require_once 'includes/header.php' ?>
 
 <h1>This is the product page</h1>
-<h3>Welcome! <?php echo $account_id; ?></h3>
+<h3>Welcome! <?php echo $user['name']; ?></h3>
+<h3>My email: <?php echo $user['email']; ?></h3>
 
 
 
