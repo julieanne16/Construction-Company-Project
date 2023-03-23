@@ -1,11 +1,13 @@
 <?php
 
-require_once 'includes/header.php';
+require_once 'functions.php';
+
 
 $msg = "";
 
-if (isset($_POST['email']) && isset($_POST['password'])) {
-	$user = login($_POST['email'], $_POST['password']);
+
+if (isset($_POST['login'])) {
+	$user = login($conn, $_POST['email'], $_POST['password']);
 
 	if ($user) {
 		// Success login
@@ -17,11 +19,13 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 	}
 } ?>
 
+<?php require_once 'includes/header.php'; ?>
+
 <main>
 	<div class="form">
 		<h1>SIGN IN</h1>
 		<p>Please fill your email and password to login</p>
-		<form id="login-form" method="POST">
+		<form id="login-form" method="POST" action="login.php">
 
 			<!-- Show message if error -->
 			<?php if ($msg) : ?>
@@ -30,15 +34,15 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 			<!-- Show message if error -->
 
 			<div class="form-group">
-				<label>Email Address</label>
-				<input type="email" name="email" placeholder="your_mail@website.com" required>
+				<label for="email">Email Address</label>
+				<input type="email" id="email" name="email" placeholder="your_mail@website.com" required>
 			</div>
 			<div class="form-group">
-				<label>Password</label>
-				<input type="password" name="password" placeholder="*******" required>
+				<label for="password">Password</label>
+				<input type="password" id="password" name="password" placeholder="*******" required>
 			</div>
 
-			<button class="form-btn">SIGN IN</button>
+			<button type="submit" name="login" class="form-btn">SIGN IN</button>
 			<p>Don't have an account? <a href="#">Register here</a> </p>
 		</form>
 	</div>

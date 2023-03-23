@@ -1,14 +1,9 @@
 <?php
-require 'connections.php';
-?>
-
-<?php
-
+require 'connection.php';
 
 // USER LOGIN
-function login($email, $password)
+function login($conn, $email, $password)
 {
-	global $conn;
 	try {
 		$email = $_POST['email'];
 		$password = $_POST['password'];
