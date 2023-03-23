@@ -52,10 +52,8 @@ function register($name, $email, $password)
 }
 
 // GET ROW BY ID
-function getRow($row_id, $id, $table)
+function getRow($conn, $row_id, $id, $table)
 {
-	global $conn;
-
 	try {
 		$stmt = $conn->prepare("SELECT * FROM $table WHERE $row_id = :id");
 		$stmt->execute(array(':id' => $id));
