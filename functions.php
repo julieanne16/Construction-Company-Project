@@ -1,4 +1,9 @@
 <?php
+require 'connections.php';
+?>
+
+<?php
+
 
 // USER LOGIN
 function login($email, $password)
