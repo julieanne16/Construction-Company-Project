@@ -22,7 +22,7 @@ require_once 'functions.php';
         <navbar class="nav">
             <a href="#signin">SIGN IN</a>
             <a href="#contact">CONTACT US</a>
-            <a href="#about">PRODUCTS</a>
+            <a href="products.php">PRODUCTS</a>
             <a href="#product">ABOUT US</a>
             <a href="#home">HOME</a>  
         </navbar>
