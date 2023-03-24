@@ -27,7 +27,7 @@ if (isset($_POST['register'])) {
 
 			<!-- Show message if error -->
 			<?php if ($msg) : ?>
-				<small><?php echo $msg; ?></small>
+				<p class="error"><?php echo $msg; ?></p>
 			<?php endif; ?>
 			<!-- Show message if error -->
 
