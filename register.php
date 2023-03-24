@@ -42,14 +42,14 @@ if (isset($_POST['register'])) {
                  <input type="password" name="password" placeholder="*******">
              </div>
 
-             <button class="form-btn">SIGN UP</button> 
+             <button type="submit" name="register" class="form-btn">SIGN UP</button> 
              <p>I have read and agree to the <a href="#">Terms & Conditions</a> 
-                <br> Have an account? <a href="#">Login</a></p>   
+                <br> Have an account? <a href="login.php#">Login</a></p>   
            </form>
 		</div>
     </main>
 
     
 <?php require_once 'includes/footer.php' ?>
-</body>
+
 </html>
