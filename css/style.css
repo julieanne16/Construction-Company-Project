@@ -1,89 +1,249 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');
+
 :root {
-	--headerclr: #222533;
-	--mainclr: #ffcb0f;
+	/* Colors */
+	--color-pear: #c4dd2a;
+	--color-plantation: #304a43;
+	--color-tangerine: #ff9b71;
+	--color-storm: #faf8f4;
+	--color-satin: #e6e2db;
+	--color-mercury: #e5e5e5;
+	--color-dust: #939e9c;
+
+	--base-font-size: 16px;
 }
+
+/* Universal Styles */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
 *,
 html,
 body {
-	font-family: 'Montserrat';
+	font-family: 'Montserrat', sans-serif;
 }
-* {
-	margin: 0;
-	padding: 0;
-	text-decoration: none;
-	box-sizing: border-box;
-	transition: 0.2s;
-}
+
 html {
-	font-size: 62.5%;
 	scroll-behavior: smooth;
-	overflow-x: hidden;
+}
+
+body {
+	font-size: var(--base-font-size);
+	line-height: 1.5;
+	word-wrap: break-word;
+	height: 100%;
+	width: 100%;
+	color: var(--color-plantation);
+	background-color: var(--color-storm);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 700;
+	margin-bottom: 1.5rem;
+	line-height: 1.2;
+}
+
+h1 {
+	font-size: 2rem; /* 32px */
+}
+
+h2 {
+	font-size: 1.5rem; /* 24px */
+}
+
+p {
+	font-size: 1rem; /* 16px */
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+	font-size: 1rem; /* 16px */
+}
+
+button {
+	display: block;
+	margin: 0 auto;
+}
+
+a,
+button {
+	outline: none;
+	border: none;
+	cursor: pointer;
+}
+
+img {
+	display: block;
+	width: 100%;
+	max-width: 100%;
+	height: auto;
+	object-fit: cover;
+	object-position: 50% 50%;
+	margin: 0 auto;
+}
+
+label {
+	display: inline-block;
+	font-weight: 500;
+}
+
+input,
+textarea {
+	outline: none;
+	border: 1px solid #e5e5e5;
+	padding: 10px 12px;
+	width: 100%;
+	resize: none;
+	color: var(--color-plantation);
+}
+
+textarea {
+	min-height: 200px;
+}
+
+button {
+	border-radius: 25px;
+	padding: 12px 18px;
+	background-color: var(--color-pear);
+	font-weight: 700;
+	text-transform: uppercase;
+	color: var(--color-plantation);
+}
+
+iframe {
+	max-width: 100%;
+}
+
+.container {
+	overflow: hidden;
+	width: 100%;
+	max-width: 90%;
+	margin: 0 auto;
+	/* background-color: aquamarine; */
+}
+
+.container h1 {
+	margin-bottom: 2rem;
+}
+
+.form-group {
+	margin-bottom: 10px;
 }
 
 /* error message */
-.error {
-	background-color: #dc3545;
+.error,
+.success {
 	color: #fff;
 	padding: 5px;
 	margin-bottom: 8px;
 	border-radius: 4px;
 }
-.header {
-	padding: 0 160px;
-	position: fixed;
-	left: 0;
-	right: 0;
+.error {
+	background-color: #dc3545;
+}
+.success {
+	background-color: #28a745;
+}
+
+/* Navbar */
+nav {
+	position: sticky;
+	top: 0;
+	background-color: #fff;
+	z-index: 9;
+	padding: 20px 0;
+	box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+nav .container {
 	display: flex;
-	background-color: #ffffff;
-	height: 50px;
 	justify-content: space-between;
 	align-items: center;
-	z-index: 10000;
 }
-.header .logo a {
-	color: #364a46;
+
+.navbar-brand {
 	font-size: 25px;
-	font-style: italic;
 	font-weight: 800;
+	font-style: italic;
+	color: #364a46;
 }
-.header .logo a span {
+
+.navbar-brand span {
 	color: #c4dd2a;
-	transition: all 0.3s ease;
 }
-.header.sticky .logo a span {
-	color: #fff;
+
+.navbar-nav {
+	display: flex;
+	align-items: center;
 }
-.header .menu-btn {
-	position: absolute;
-	top: 14px;
-	color: #fff;
-	font-size: 26px;
-	cursor: pointer;
-	transition: all 0.3s ease;
-	padding-left: 1179px;
+
+.nav-item {
+	padding: 4px 12px;
 }
-.nav {
-	width: 695px;
+
+.nav-item i {
+	font-size: 25px;
 }
-.nav a {
-	color: #184d21;
-	font-weight: 600;
-	font-size: 15px;
-	margin-left: 25px;
-	float: right;
+
+.nav-item .fa-bars {
+	display: none;
 }
-.nav a:hover {
-	color: #e17371;
+
+.nav-item:hover .nav-link {
+	color: #ff9b71;
 }
-.icon-header div {
-	color: white;
-	font-size: 10px;
-	cursor: pointer;
+
+.nav-link {
+	font-size: 16px;
 }
-.icon-header i {
-	margin-left: 15px;
-	font-size: 26px;
+
+/* End of navbar */
+
+/* Hero section */
+.hero {
+	background-image: url('../img/assets/hero-bg-colored.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	height: 552px;
+	width: 100%;
+}
+
+.hero .container {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.hero h1 {
+	color: #c4dd2a;
+}
+
+.hero p {
+	color: #e6e2db;
+	font-size: 16px;
+	margin: 20px 0;
+	text-align: center;
+}
+
+.hero button {
+	display: inline-block;
+	border-radius: 20px;
+	padding: 12px 20px;
+	background-color: #c4dd2a;
+	border: none;
+	outline: none;
 }
 
 h2 {
@@ -251,20 +411,6 @@ footer .logo a span {
 
 /* Responsive Media Query */
 @media (max-width: 1024px) {
-	.nav {
-		width: 440px;
-	}
-	.nav a {
-		margin-left: 15px;
-		font-size: 14px;
-	}
-	.header .logo a {
-		font-size: 24px;
-	}
-	.icon-header i {
-		margin-left: 0;
-		font-size: 20px;
-	}
 	.left {
 		width: 460px;
 	}
@@ -282,22 +428,14 @@ footer .logo a span {
 }
 
 @media (max-width: 768px) {
-	.header {
-		padding: 0 140px;
+	.nav-item .fa-bars {
+		display: inline-block;
 	}
-	.nav {
+
+	.navbar-nav {
 		display: none;
 	}
-	.header .menu-btn {
-		top: 12px;
-		color: #000000;
-		font-size: 26px;
-		padding-left: 450px;
-	}
-	.icon-header i {
-		margin-right: 50px;
-		font-size: 24px;
-	}
+
 	footer .logo a {
 		font-size: 20px;
 	}
@@ -337,16 +475,6 @@ footer .logo a span {
 }
 
 @media (max-width: 640px) {
-	.header {
-		padding: 0 100px;
-	}
-	.header .menu-btn {
-		top: 11px;
-		padding-left: 410px;
-	}
-	.icon-header i {
-		margin-right: 40px;
-	}
 	h1 {
 		font-size: 40px;
 	}
@@ -393,15 +521,6 @@ footer .logo a span {
 }
 
 @media (max-width: 375px) {
-	.header {
-		padding: 0 10px;
-	}
-	.header .logo a {
-		font-size: 20px;
-	}
-	.header .menu-btn {
-		padding-left: 330px;
-	}
 	.left,
 	.center,
 	.right {
@@ -447,13 +566,30 @@ footer .logo a span {
 }
 
 @media (max-width: 320px) {
-	.header .menu-btn {
-		padding-left: 270px;
-	}
 	h1 {
 		font-size: 30px;
 	}
 	.form p {
 		font-size: 12px;
 	}
+}
+
+/* temporary */
+.profile {
+	padding: 20px 0;
+}
+
+.profile h1 {
+	font-size: 32px;
+	margin-bottom: 30px;
+}
+
+.profile p {
+	font-size: 20px;
+	margin-bottom: 8px;
+}
+
+.profile span {
+	color: #283e39;
+	font-weight: 700;
 }

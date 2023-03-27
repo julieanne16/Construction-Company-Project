@@ -13,23 +13,43 @@
 </head>
 
 <body>
-	<header class="header">
-		<div class="logo"><a href="#">Construction<span> Co.</span></a></div>
-		<navbar class="nav">
-			<?php if (isset($_SESSION['user_id'])) : ?>
-				<a href="logout.php" onclick="return confirm('Are you sure you want to logout?');">SIGN OUT</a>
-			<?php else : ?>
-				<a href="login.php">SIGN IN</a>
-			<?php endif; ?>
-			<a href="#contact">CONTACT US</a>
-			<a href="products.php">PRODUCTS</a>
-			<a href="#product">ABOUT US</a>
-			<a href="#home">HOME</a>
-		</navbar>
-		<div class="icon-header">
-			<i class="fa-solid fa-basket-shopping"></i>
+	<nav>
+		<div class="container">
+			<a href="#" class="navbar-brand">
+				Construction <span>Co.</span>
+			</a>
+			<li class="nav-item">
+				<a href="" class="nav-link">
+					<i class="fas fa-bars"></i>
+				</a>
+			</li>
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a href="index.php#home" class="nav-link">Home</a>
+				</li>
+				<li class="nav-item">
+					<a href="index.php#about" class="nav-link">About</a>
+				</li>
+				<li class="nav-item">
+					<a href="index.php#product" class="nav-link">Products</a>
+				</li>
+				<li class="nav-item">
+					<a href="index.php#contact" class="nav-link">Contact</a>
+				</li>
+				<?php if (isset($_SESSION['user_id'])) : ?>
+					<li class="nav-item">
+						<a href="logout.php" class="nav-link" onclick="return confirm('Are you sure you want to logout?');">Sign Out</a>
+					</li>
+				<?php else : ?>
+					<li class="nav-item">
+						<a href="login.php" class="nav-link">Login</a>
+					</li>
+					<li class="nav-item">
+						<a href="products.php" class="nav-link">
+							<i class="fa-solid fa-basket-shopping"></i>
+						</a>
+					</li>
+				<?php endif; ?>
+			</ul>
 		</div>
-		<div class="menu-btn">
-			<i class="fas fa-bars"></i>
-		</div>
-	</header>
+	</nav>

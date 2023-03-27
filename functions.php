@@ -26,7 +26,7 @@ function login($conn, $email, $password)
 }
 
 // REGISTRATION
-function register($name, $email, $password)
+function register($conn, $fname, $lname, $email, $password)
 {
 	global $conn;
 
@@ -42,8 +42,8 @@ function register($name, $email, $password)
 		} else {
 			// Email is not registered, insert new user into database
 			$hashed_password = password_hash($password, PASSWORD_BCRYPT);
-			$stmt = $conn->prepare("INSERT INTO users (name, email, password) VALUES (:name, :email, :password)");
-			$stmt->execute(array(':name' => $name, ':email' => $email, ':password' => $hashed_password));
+			$stmt = $conn->prepare("INSERT INTO users (fname, lname, email, password) VALUES (:fname, :lname, :email, :password)");
+			$stmt->execute(array(':fname' => $fname, ':lname' => $lname, ':email' => $email, ':password' => $hashed_password));
 			return true;
 		}
 	} catch (PDOException  $error) {

@@ -14,7 +14,7 @@ if (isset($_POST['login'])) {
 	if ($user) {
 		// Success login
 		$_SESSION['user_id'] = $user['user_id'];
-		header('Location: products.php');
+		header('Location: profile.php');
 		exit();
 	} else {
 		$msg = "Login Failed.";
@@ -27,6 +27,7 @@ if (isset($_POST['login'])) {
 	<div class="form">
 		<h1>SIGN IN</h1>
 		<p>Please fill your email and password to login</p>
+
 		<form id="login-form" method="POST" action="login.php">
 
 			<!-- Show message if error -->

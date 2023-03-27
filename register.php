@@ -4,15 +4,21 @@ session_start();
 
 $msg = "";
 
+$success = "";
+
 require_once 'functions.php';
 
 if (isset($_POST['register'])) {
-	$new_user = register($_POST['name'], $_POST['email'], $_POST['password']);
+	$fname = $_POST['fname'];
+	$lname = $_POST['lname'];
+	$email = $_POST['email'];
+	$password = $_POST['password'];
+
+	$new_user = register($conn, $fname, $lname, $email, $password);
 	if (!$new_user) {
 		$msg = "This email is already registered.";
 	} else {
-		header('Location: login.php');
-		exit();
+		$success = "Registration successful.";
 	}
 }
 
@@ -28,13 +34,23 @@ if (isset($_POST['register'])) {
 			<!-- Show message if error -->
 			<?php if ($msg) : ?>
 				<p class="error"><?php echo $msg; ?></p>
-			<?php endif; ?>
+			<?php endif;
+			unset($msg);
+			?>
+			<!-- Show message if error -->
+
+			<!-- Show message if error -->
+			<?php if ($success) : ?>
+				<p class="success"><?php echo $success; ?></p>
+			<?php endif;
+			unset($success);
+			?>
 			<!-- Show message if error -->
 
 			<div class="form-group">
 				<label>Your Name</label>
-				<input type="text" name="name" placeholder="First name" required>
-				<input type="text" name="name" placeholder="Last name" required>
+				<input type="text" name="fname" placeholder="First name" required>
+				<input type="text" name="lname" placeholder="Last name" required>
 			</div>
 			<div class="form-group">
 				<label>Email Address</label>
