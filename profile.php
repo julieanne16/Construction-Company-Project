@@ -7,7 +7,7 @@ require_once 'functions.php';
 // Check if the user is logged in
 if (!isset($_SESSION['user_id'])) {
 	header("Location: login.php");
-	exit();
+	// exit();
 }
 
 // Retrieve the account_id value from the session
