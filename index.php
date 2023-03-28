@@ -1,4 +1,11 @@
+<?php
+
+session_start();
+
+?>
+
 <?php require_once 'includes/header.php'; ?>
+<?php require_once 'includes/navbar.php'; ?>
 
 <section class="hero" id="home">
 	<div class="container">
@@ -10,56 +17,62 @@
 
 
 <!--products-->
-<section class="our-product" id="product">
-	<h1>Explore our product</h1>
-	<div class="main-product">
-		<div class="inner-product">
-			<div class="image">
-				<img src="img/images/Gravel-img.png" />
+<section class="product" id="products">
+	<div class="container">
+		<h1>explore our products</h1>
+		<div class="product-wrap">
+			<div class="card">
+				<div class="card-img">
+					<img src="img/products/gravel-sack.png" alt="Gravel">
+				</div>
+				<div class="card-info">
+					<span>gravel</span>
+				</div>
 			</div>
-			<div class="title">
-				<h1>GRAVEL</h1>
-			</div>
-		</div>
-		<div class="inner-product">
-			<div class="image">
-				<img src="img/images/cement-sack-img.png" />
-			</div>
-			<div class="title">
-				<h1>CEMENT</h1>
-			</div>
-		</div>
-		<div class="inner-product">
-			<div class="image">
-				<img src="img/images/metal-pipes-img.png" />
-			</div>
-			<div class="title">
-				<h1>PIPES</h1>
-			</div>
-		</div>
 
-		<div class="inner-product">
-			<div class="image">
-				<img src="img/images/paint-img.png" />
+			<div class="card">
+				<div class="card-img">
+					<img src="img/products/gravel-sack.png" alt="Gravel">
+				</div>
+				<div class="card-info">
+					<span>gravel</span>
+				</div>
 			</div>
-			<div class="title">
-				<h1>PAINT</h1>
+
+			<div class="card">
+				<div class="card-img">
+					<img src="img/products/gravel-sack.png" alt="Gravel">
+				</div>
+				<div class="card-info">
+					<span>gravel</span>
+				</div>
 			</div>
-		</div>
-		<div class="inner-product">
-			<div class="image">
-				<img src="img/images/plyboard-img.png" />
+
+			<div class="card">
+				<div class="card-img">
+					<img src="img/products/gravel-sack.png" alt="Gravel">
+				</div>
+				<div class="card-info">
+					<span>gravel</span>
+				</div>
 			</div>
-			<div class="title">
-				<h1>PLYBOARD</h1>
+
+			<div class="card">
+				<div class="card-img">
+					<img src="img/products/gravel-sack.png" alt="Gravel">
+				</div>
+				<div class="card-info">
+					<span>gravel</span>
+				</div>
 			</div>
-		</div>
-		<div class="inner-product">
-			<div class="image">
-				<img src="img/images/cinderblock-img.png" />
-			</div>
-			<div class="title">
-				<h1>CINDERBLOCK</h1>
+
+			<div class="card">
+				<div class="card-img">
+					<img src="img/products/gravel-sack.png" alt="Gravel">
+				</div>
+				<div class="card-info">
+					<span>gravel</span>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -67,96 +80,95 @@
 
 <!--about us-->
 <section class="about" id="about">
-	<div class="column">
-		<img src="img/images/about-us-img.png" />
-	</div>
-	<div class="column">
-		<h1>About Us</h1>
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Integer quis auctor elit
-			sed. Totor consequat id porta nibh venenatis. Viverra ipsumnunc aliquet bibendum. Massa sapien faucibus et molestie ac feugiat sed lectus. Ut sem
-			viverra aliquet eget sit. Vel eros donec ac odio tempor orci dapibus ultrices in.
-		</p>
+	<div class="container">
+		<div class="about-wrap">
+			<div class="about-text">
+				<h1>about us</h1>
+				<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus rerum fugiat non ratione repellendus dolore nostrum quisquam nulla perferendis voluptatibus.</p>
+				<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus rerum fugiat non ratione repellendus dolore nostrum quisquam nulla perferendis voluptatibus.</p>
+			</div>
+			<div class="about-img">
+				<img src="img/assets/about-img.jpg" alt="About">
+			</div>
+		</div>
 	</div>
 </section>
 
 <!--company-perks-->
-<section class="company" id="company">
-	<h1>COMPANY PERKS</h1>
-	<div class="main-company">
-		<div class="company-content">
-			<div class="perks-img">
-				<img src="img/images/check-icon.png" alt="" />
-			</div>
-			<div class="title">
-				<h2>EXCELENT QUALITY</h2>
-			</div>
-			<div class="des">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-			</div>
-		</div>
+<section class="perks" id="perks">
+	<div class="container">
+		<h1>company perks</h1>
+		<div class="perks-wrap">
 
-		<div class="company-content">
-			<div class="perks-img">
-				<img src="img/images/handshake-icon.png" alt="" />
+			<div class="perks-item">
+				<div class="perks-icon">
+					<img src="img/icons/quality.png" alt="Quality">
+				</div>
+				<h2>excellent quality</h2>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod voluptas doloremque iure alias nostrum fugit.</p>
 			</div>
-			<div class="title">
-				<h2>TRUSTED PARTNERS</h2>
-			</div>
-			<div class="des">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-			</div>
-		</div>
 
-		<div class="company-content">
-			<div class="perks-img">
-				<img src="img/images/delivery-icon.png" alt="" />
+			<div class="perks-item">
+				<div class="perks-icon">
+					<img src="img/icons/quality.png" alt="Quality">
+				</div>
+				<h2>excellent quality</h2>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod voluptas doloremque iure alias nostrum fugit.</p>
 			</div>
-			<div class="title">
-				<h2>FAST DELIVERY</h2>
-			</div>
-			<div class="des">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+			<div class="perks-item">
+				<div class="perks-icon">
+					<img src="img/icons/quality.png" alt="Quality">
+				</div>
+				<h2>excellent quality</h2>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod voluptas doloremque iure alias nostrum fugit.</p>
 			</div>
 		</div>
 	</div>
 </section>
 
 <!--get-in-touch-->
-<section class="getintouch" id="contact">
-	<div class="column">
-		<h1>
-			Get in touch <br />
-			With us!
-		</h1>
-		<div class="description">
+<section class="contact" id="contact">
+	<div class="container">
+		<div class="contact-location">
+			<h1>get in touch with us!</h1>
 			<p>Need to ask? Fill out the form to inquire! Or visit us at our Head Office</p>
-		</div>
-		<div class="sub-description">
 			<p><i class="fas fa-map-marker-alt"></i> Head office located at 1017 Vicente Cruz St. Sampaloc Manila, Philippines</p>
+
+			<div class="contact-maps">
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3840.3960685452566!2d120.92528443471957!3d15.730173215193783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3390d6454e46b4e3%3A0x9dae6dfa8f1f690f!2sCLSU%20Main%20Gate!5e0!3m2!1sen!2sph!4v1679921885423!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+			</div>
 		</div>
-		<div class="getintouch-img">
-			<img src="img/images/Map.png" alt="" />
+
+		<div class="contact-form">
+			<form action="">
+				<h2>send us a message</h2>
+
+				<div class="form-group">
+					<label for="">Your Name</label>
+					<input type="text" name="fname" id="fname" placeholder="First name" class="mb-3">
+					<input type="text" name="lname" id="lname" placeholder="Last name">
+				</div>
+
+				<div class="form-group">
+					<label for="email">Email Address</label>
+					<input type="email" name="email" id="email" placeholder="your.mail@website.com">
+				</div>
+
+				<div class="form-group">
+					<label for="phone">Contact Number</label>
+					<input type="tel" name="phone" id="phone" placeholder="#### ### ####">
+				</div>
+
+				<div class="form-group">
+					<label for="message">Message</label>
+					<textarea name="message" id="message" cols="30" rows="10" placeholder="Say something here ..."></textarea>
+				</div>
+
+				<button>send message</button>
+			</form>
 		</div>
 	</div>
-	<div class="column">
-		<div class="card">
-			<h1>SEND US A MESSAGE</h1>
-			<label for="fname">Your Name</label>
-			<input type="text" id="fname" name="firstname" placeholder="First name" />
-			<input type="text" id="lname" name="lastname" placeholder="Last name" />
-
-			<label for="emailadd">Email Address</label>
-			<input type="text" id="emailadd" name="emailadd" placeholder="your_mail@website.com" />
-
-			<label for="contactnum">Contact Number</label>
-			<input type="text" id="contactnum" name="contactnum" placeholder="#### ### ####" />
-
-			<label for="message">Message</label>
-			<textarea id="subject" name="subject" placeholder="Your message here.." style="height: 100px"></textarea>
-
-			<input type="submit" value="SEND MESSAGE" />
-		</div>
 	</div>
 </section>
 

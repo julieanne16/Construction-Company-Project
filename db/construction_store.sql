@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 17, 2023 at 06:16 AM
+-- Generation Time: Mar 28, 2023 at 04:56 PM
 -- Server version: 10.4.27-MariaDB
--- PHP Version: 8.1.12
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `construction_store`
 --
-CREATE DATABASE IF NOT EXISTS `construction_store` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `construction_store`;
 
 -- --------------------------------------------------------
 
@@ -38,34 +36,12 @@ CREATE TABLE `cart` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Truncate table before insert `cart`
---
-
-TRUNCATE TABLE `cart`;
---
 -- Dumping data for table `cart`
 --
 
-INSERT DELAYED IGNORE INTO `cart` (`cart_id`, `user_id`, `product_id`, `quantity`, `date_added`) VALUES
-(49, 3, 3, 1, '2023-03-10 18:22:35'),
-(50, 2, 0, 1, '2023-03-15 13:59:28');
+INSERT INTO `cart` (`cart_id`, `user_id`, `product_id`, `quantity`, `date_added`) VALUES
+(49, 3, 3, 1, '2023-03-10 18:22:35');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `category`
---
-
-CREATE TABLE `category` (
-  `cat_id` int(11) NOT NULL,
-  `cat_name` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Truncate table before insert `category`
---
-
-TRUNCATE TABLE `category`;
 -- --------------------------------------------------------
 
 --
@@ -81,15 +57,10 @@ CREATE TABLE `checkout` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Truncate table before insert `checkout`
---
-
-TRUNCATE TABLE `checkout`;
---
 -- Dumping data for table `checkout`
 --
 
-INSERT DELAYED IGNORE INTO `checkout` (`order_id`, `user_id`, `product_id`, `quantity`, `purchase_date`) VALUES
+INSERT INTO `checkout` (`order_id`, `user_id`, `product_id`, `quantity`, `purchase_date`) VALUES
 (9, 3, 4, 1, '2023-03-10 17:58:00'),
 (10, 3, 3, 1, '2023-03-10 17:58:00'),
 (11, 3, 2, 1, '2023-03-10 18:05:28'),
@@ -97,7 +68,13 @@ INSERT DELAYED IGNORE INTO `checkout` (`order_id`, `user_id`, `product_id`, `qua
 (13, 3, 5, 1, '2023-03-10 18:05:28'),
 (14, 3, 6, 1, '2023-03-10 18:05:28'),
 (15, 3, 2, 2, '2023-03-10 18:05:43'),
-(16, 3, 4, 2, '2023-03-10 18:14:11');
+(16, 3, 4, 2, '2023-03-10 18:14:11'),
+(17, 2, 3, 1, '2023-03-10 18:37:20'),
+(18, 2, 7, 2, '2023-03-10 18:38:24'),
+(19, 2, 7, 1, '2023-03-10 18:38:45'),
+(20, 4, 6, 1, '2023-03-10 18:44:24'),
+(21, 4, 2, 4, '2023-03-10 18:44:24'),
+(22, 4, 3, 1, '2023-03-10 18:44:24');
 
 -- --------------------------------------------------------
 
@@ -114,22 +91,17 @@ CREATE TABLE `products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Truncate table before insert `products`
---
-
-TRUNCATE TABLE `products`;
---
 -- Dumping data for table `products`
 --
 
-INSERT DELAYED IGNORE INTO `products` (`product_id`, `name`, `price`, `quantity`, `img`) VALUES
+INSERT INTO `products` (`product_id`, `name`, `price`, `quantity`, `img`) VALUES
 (1, 'Blocks', 35, 4988, 'blocks.jpg'),
-(2, 'Cement', 260, 2987, 'cement.jpg'),
-(3, 'Grinder', 1200, 486, 'grinder.jpg'),
+(2, 'Cement', 260, 2983, 'cement.jpg'),
+(3, 'Grinder', 1200, 484, 'grinder.jpg'),
 (4, 'Paint', 600, 787, 'paint.jpg'),
 (5, 'Pipe', 800, 494, 'pipe.jpg'),
-(6, 'Plyboard', 1070, 396, 'plyboard.jpg'),
-(7, 'Sink', 800, 192, 'sink.jpg');
+(6, 'Plyboard', 1070, 395, 'plyboard.jpg'),
+(7, 'Sink', 800, 189, 'sink.jpg');
 
 -- --------------------------------------------------------
 
@@ -139,24 +111,21 @@ INSERT DELAYED IGNORE INTO `products` (`product_id`, `name`, `price`, `quantity`
 
 CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
-  `name` varchar(50) NOT NULL,
+  `fname` varchar(50) NOT NULL,
+  `lname` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Truncate table before insert `users`
---
-
-TRUNCATE TABLE `users`;
---
 -- Dumping data for table `users`
 --
 
-INSERT DELAYED IGNORE INTO `users` (`user_id`, `name`, `email`, `password`) VALUES
-(2, 'Cathy Leen', 'cat@gmail.com', '$2y$10$O74jqsG6zpe.VSYmpXhzQey64CLcUGMn90AsCTfxlUzcwfUdmBVQ.'),
-(3, 'Jerome Nel Populi', 'jerome@gmail.com', '$2y$10$xBgmdAN850DIJd00LoHOGurKk6BgunMqRsqlzRpj7cUf9VfwfyR5K'),
-(4, 'Sean Jerico', 'sean@gmail.com', '$2y$10$bN9D/Nb1cPuuzbzVspCZHOONa4fWYIwpl50TdQduzq31i41JsGkGO');
+INSERT INTO `users` (`user_id`, `fname`, `lname`, `email`, `password`) VALUES
+(1, 'Jerome', 'Populi', 'jeromerandom@gmail.com', '$2y$10$zX4asCShpPfNKcKhQLh.weLy8uBZbkkphyhElPUe/fITNzVu0Fj1O'),
+(2, 'Cathleen', 'Avilla', 'cat@gmail.com', '$2y$10$0yHSbfZHG36N3aevXrCksOTfDpbT7liETk3KQ1PnejfvODMyL5oii'),
+(3, '', '', '', '$2y$10$22ObfwJ6pLDlhjUKkYVyBeCC2g7u63ko54eldQO.KDudXzTKSbOz6'),
+(4, 'Jerome', 'Populi', 'sean@gmail.com', '$2y$10$XNkuQZAYK3aFXOiDZ27qNudEtJaini/RRGZQ5ZeBYnDDbAbUVfGha');
 
 --
 -- Indexes for dumped tables
@@ -167,12 +136,6 @@ INSERT DELAYED IGNORE INTO `users` (`user_id`, `name`, `email`, `password`) VALU
 --
 ALTER TABLE `cart`
   ADD PRIMARY KEY (`cart_id`);
-
---
--- Indexes for table `category`
---
-ALTER TABLE `category`
-  ADD PRIMARY KEY (`cat_id`);
 
 --
 -- Indexes for table `checkout`
@@ -200,19 +163,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
-
---
--- AUTO_INCREMENT for table `category`
---
-ALTER TABLE `category`
-  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT for table `checkout`
 --
 ALTER TABLE `checkout`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `products`

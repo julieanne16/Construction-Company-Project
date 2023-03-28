@@ -11,17 +11,24 @@ if (isset($_POST['registration'])) {
 	$new_account = register($conn, $fname, $lname, $email, $password);
 
 	echo json_encode($new_account);
+	exit;
 }
 
 ?>
 
 <?php require_once 'includes/header.php'; ?>
+<?php require_once 'includes/navbar.php'; ?>
+
 <section class="forms">
 	<div class="container">
 		<h1>SIGN UP</h1>
 		<p>Please fill out the form to register</p>
 		<form id="register" method="POST">
 			<input type="hidden" name="registration">
+
+			<!-- Show message if error -->
+			<div class="invalid-form"></div>
+			<!-- Show message if error -->
 
 			<div class="form-group">
 				<label class="fname">First Name</label>
@@ -49,7 +56,7 @@ if (isset($_POST['registration'])) {
 
 			<div class="form-group">
 				<label class="cPassword">Confirm Password</label>
-				<input type="password" class="form-control" id="cPassword" name="confirm_password" placeholder="*******">
+				<input type="password" class="form-control" id="confirm-password" name="confirm_password" placeholder="*******">
 				<span class="invalid-feedback"></span>
 			</div>
 
@@ -62,8 +69,7 @@ if (isset($_POST['registration'])) {
 			</div>
 
 			<button type="submit" name="register" class="form-btn">SIGN UP</button>
-			<br>Have an account? <a href="login.php">Login</a>
-			</p>
+			<p>Already have an account? <a href="login.php">Sign In here</a></p>
 		</form>
 	</div>
 </section>

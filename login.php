@@ -1,10 +1,9 @@
 <?php
 
+session_start();
+
 
 require_once 'functions.php';
-
-
-$msg = "";
 
 
 if (isset($_POST['email']) && isset($_POST['password'])) {
@@ -25,6 +24,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 } ?>
 
 <?php require_once 'includes/header.php'; ?>
+<?php require_once 'includes/navbar.php'; ?>
 
 <section class="forms">
 	<div class="container">
@@ -49,7 +49,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 			</div>
 
 			<button type="submit" name="login" id="loginBtn" class="form-btn">SIGN IN</button>
-			<p>Don't have an account? <a href="register.php">Register here</a> </p>
+			<p>Don't have an account? <a href="register.php">Sign Up here</a> </p>
 		</form>
 	</div>
 </section>
