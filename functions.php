@@ -5,20 +5,29 @@ require 'connection.php';
 function login($conn, $email, $password)
 {
 	try {
-		$email = $_POST['email'];
-		$password = $_POST['password'];
-
 		$stmt = $conn->prepare("SELECT * FROM users WHERE email = :email");
 		$stmt->execute(array(':email' => $email));
-		$user = $stmt->fetch(PDO::FETCH_ASSOC);
+		$account = $stmt->fetch(PDO::FETCH_ASSOC);
 
-		// Verify password
-		if ($user && password_verify($password, $user['password'])) {
-			// Password is correct, return user information
-			return $user;
+		// if email not exist
+		if (!$account) {
+			return array(
+				'status' => false,
+				'message' => 'This email is not registered yet.'
+			);
+		} elseif (!password_verify($password, $account['password'])) {
+			return array(
+				'status' => false,
+				'message' => 'Incorrect password.'
+			);
 		} else {
-			// Password is incorrect or user doesn't exist, return false
-			return false;
+			// Password is correct
+			$_SESSION['account_id'] = $account['user_id'];
+			$_SESSION['name'] = $account['fname'] . " " . $account['lname'];
+			$_SESSION['email'] = $account['email'];
+			return array(
+				'status' => true
+			);
 		}
 	} catch (PDOException  $error) {
 		return  "<strong>ERROR: </strong> " . $error->getMessage();
@@ -28,23 +37,26 @@ function login($conn, $email, $password)
 // REGISTRATION
 function register($conn, $fname, $lname, $email, $password)
 {
-	global $conn;
-
 	try {
 		// Check if email is already registered
 		$stmt = $conn->prepare("SELECT COUNT(*) FROM users WHERE email = :email");
 		$stmt->execute(array(':email' => $email));
 		$count = $stmt->fetchColumn();
 
+		// Email is already registered
 		if ($count > 0) {
-			// Email is already registered
-			return false;
+			return array(
+				'status' => 'false',
+				'message' => 'This email is already registered'
+			);
 		} else {
 			// Email is not registered, insert new user into database
 			$hashed_password = password_hash($password, PASSWORD_BCRYPT);
 			$stmt = $conn->prepare("INSERT INTO users (fname, lname, email, password) VALUES (:fname, :lname, :email, :password)");
 			$stmt->execute(array(':fname' => $fname, ':lname' => $lname, ':email' => $email, ':password' => $hashed_password));
-			return true;
+			return array(
+				'status' => 'true'
+			);
 		}
 	} catch (PDOException  $error) {
 		return  "<strong>ERROR: </strong> " . $error->getMessage();
