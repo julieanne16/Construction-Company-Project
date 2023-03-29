@@ -3,7 +3,14 @@ require_once 'functions.php';
 
 ?>
 
-<!DOCTYPE html>
+
+
+<?php require_once 'includes/header.php'; ?>
+<?php require_once 'includes/navbar.php'; ?>
+
+
+
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -23,7 +30,7 @@ require_once 'functions.php';
             <a href="#contact">REGISTER</a>
             <a href="#about">PRODUCTS</a>
             <a href="#product">ABOUT US</a>
-            <a href="#home">HOME</a>  
+            <a href="index.php">HOME</a>  
         </nav>
         <div class="icon-header">
             <i class="fa-solid fa-basket-shopping"></i>
@@ -31,7 +38,7 @@ require_once 'functions.php';
         <div class="menu-btn">
             <i class="fas fa-bars"></i>
         </div>
-    </header>
+    </header> -->
 
     <main>
         <div class="container">
