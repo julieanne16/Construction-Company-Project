@@ -7,29 +7,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Construction</title>
 
+
+	<!-- Reset default styles -->
 	<link rel="stylesheet" href="css/reset.css">
+
+	<!-- Custom stylesheets -->
 	<link rel="stylesheet" href="css/style.css">
-	<script src="https://kit.fontawesome.com/0ebd665efa.js" crossorigin="anonymous" defer></script>
 </head>
 
 <body>
-	<header class="header">
-		<div class="logo"><a href="#">Construction<span> Co.</span></a></div>
-		<navbar class="nav">
-			<?php if (isset($_SESSION['user_id'])) : ?>
-				<a href="logout.php" onclick="return confirm('Are you sure you want to logout?');">SIGN OUT</a>
-			<?php else : ?>
-				<a href="login.php">SIGN IN</a>
-			<?php endif; ?>
-			<a href="#contact">CONTACT US</a>
-			<a href="products.php">PRODUCTS</a>
-			<a href="#product">ABOUT US</a>
-			<a href="#home">HOME</a>
-		</navbar>
-		<div class="icon-header">
-			<i class="fa-solid fa-basket-shopping"></i>
-		</div>
-		<div class="menu-btn">
-			<i class="fas fa-bars"></i>
-		</div>
-	</header>
