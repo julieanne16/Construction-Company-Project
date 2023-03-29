@@ -1,3 +1,8 @@
+<?php
+require_once 'functions.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,7 +54,7 @@
                         foreach ($products as $product) : ?>
                         <div class="card">
                             <div class="image gravel">
-                            <img src="products/<?php echo $product['img'] ?>">
+                            <img src="img/products/<?php echo $product['img'] ?>">
                             </div>
                             <div class="title">
                             <h2><?php echo $product['description']; ?></h2>
@@ -57,7 +62,8 @@
                             </div>
                         </div>
                         <?php endforeach ?>
-                        <div class="card">
+                        
+                        <!-- <div class="card">
                             <div class="image gravel">
                                 <img src="images/Gravel-img.png">
                             </div>
@@ -88,7 +94,7 @@
                                 <h2>RIVER JACK 3/4"(1cbm)</h2>
                                 <p>₱1,050.00</p>
                             </div>
-                        </div>   
+                        </div>    -->
                     </div>
                 </div>
         </div>
@@ -138,3 +144,4 @@
 
 </body>
 </html>
+
