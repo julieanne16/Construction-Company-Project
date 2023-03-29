@@ -26,7 +26,7 @@ session_start();
 					<img src="img/products/gravel-sack.png" alt="Gravel">
 				</div>
 				<div class="card-info">
-					<span>gravel</span>
+					<a href="prod-list.php"><span>gravel</span></a>
 				</div>
 			</div>
 
@@ -35,7 +35,7 @@ session_start();
 					<img src="img/products/gravel-sack.png" alt="Gravel">
 				</div>
 				<div class="card-info">
-					<span>gravel</span>
+				<a href="prod-list.php"><span>gravel</span></a>
 				</div>
 			</div>
 
@@ -44,7 +44,7 @@ session_start();
 					<img src="img/products/gravel-sack.png" alt="Gravel">
 				</div>
 				<div class="card-info">
-					<span>gravel</span>
+				<a href="prod-list.php"><span>gravel</span></a>
 				</div>
 			</div>
 
@@ -53,7 +53,7 @@ session_start();
 					<img src="img/products/gravel-sack.png" alt="Gravel">
 				</div>
 				<div class="card-info">
-					<span>gravel</span>
+				<a href="prod-list.php"><span>gravel</span></a>
 				</div>
 			</div>
 
@@ -62,7 +62,7 @@ session_start();
 					<img src="img/products/gravel-sack.png" alt="Gravel">
 				</div>
 				<div class="card-info">
-					<span>gravel</span>
+				<a href="prod-list.php"><span>gravel</span></a>
 				</div>
 			</div>
 
@@ -71,7 +71,7 @@ session_start();
 					<img src="img/products/gravel-sack.png" alt="Gravel">
 				</div>
 				<div class="card-info">
-					<span>gravel</span>
+				<a href="prod-list.php"><span>gravel</span></a>
 				</div>
 			</div>
 		</div>
