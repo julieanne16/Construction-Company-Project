@@ -23,6 +23,12 @@ $(document).ready(function () {
 		return password.length >= 6;
 	}
 
+	function validateName(name) {
+		let regex = /^[a-zA-Z ]+$/;
+
+		return regex.test(name);
+	}
+
 	// check if empty fields
 	function isEmptyField(id) {
 		applyValidationStyle(id, 'This field is required.');
@@ -182,6 +188,18 @@ $(document).ready(function () {
 	$('#password').on('blur', function () {
 		if (!validatePassword($(this).val())) {
 			applyValidationStyle('#password', 'Password must at least 6 characters');
+		}
+	});
+
+	$('#fname').on('blur', function () {
+		if (!validateName($(this).val())) {
+			applyValidationStyle('#fname', 'Only alphabets and spaces.');
+		}
+	});
+
+	$('#lname').on('blur', function () {
+		if (!validateName($(this).val())) {
+			applyValidationStyle('#lname', 'Only alphabets and spaces.');
 		}
 	});
 
