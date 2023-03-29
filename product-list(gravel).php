@@ -44,17 +44,19 @@
                         </div>
                     </div>
                     <div class="product-details">
+                    <?php
+                        $products = read('products'); 
+                        foreach ($products as $product) : ?>
                         <div class="card">
                             <div class="image gravel">
-                                <img src="images/Gravel-img.png">
+                            <img src="products/<?php echo $product['img'] ?>">
                             </div>
-                            <p>GRAVEL</p>
                             <div class="title">
-                                <h2>MEXICAN BEACH PEBBLE 3/4"(1cbm)</h2>
-                                <p>₱1,550.00</p>
+                            <h2><?php echo $product['description']; ?></h2>
+                                <p>₱ <?php echo $product['price']; ?></p>
                             </div>
                         </div>
-
+                        <?php endforeach ?>
                         <div class="card">
                             <div class="image gravel">
                                 <img src="images/Gravel-img.png">
