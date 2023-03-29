@@ -10,23 +10,8 @@
    <script src="https://kit.fontawesome.com/0ebd665efa.js" crossorigin="anonymous" defer></script>
 </head>
 <body>
-	  <header class="header">
-        <div class="logo"><a href="#">Construction<span> Co.</span></a></div>
-        <nav class="nav">
-            <a href="#signin">CONTACT US</a>
-            <a href="#signin">LOGIN</a>
-            <a href="#contact">REGISTER</a>
-            <a href="#about">PRODUCTS</a>
-            <a href="#product">ABOUT US</a>
-            <a href="#home">HOME</a>  
-        </nav>
-        <div class="icon-header">
-            <i class="fa-solid fa-basket-shopping"></i>
-        </div>
-        <div class="menu-btn">
-            <i class="fas fa-bars"></i>
-        </div>
-    </header>
+    
+<?php require_once 'includes/header.php'; ?>
 
     <main>
         <div class="container">
