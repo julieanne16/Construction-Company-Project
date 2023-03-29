@@ -42,6 +42,16 @@ $(document).ready(function () {
 		$(id).html(message).show();
 	}
 
+	// function to toggle css classes for validation
+	function onInputValidation(id) {
+		$(id).on('input', function () {
+			if ($(this).val().trim() !== '') {
+				$(this).siblings('.invalid-feedback').hide();
+				$(this).removeClass('is-invalid');
+			}
+		});
+	}
+
 	// Login
 	$('#login').submit(function (event) {
 		event.preventDefault();
@@ -73,7 +83,7 @@ $(document).ready(function () {
 				.then(function (response) {
 					console.log(response);
 					if (response.status) {
-						window.location.href = 'products.php';
+						window.location.href = 'cart.php';
 					} else {
 						$('#password').val('');
 						displayWarning('.invalid-form', response.message);
@@ -89,7 +99,6 @@ $(document).ready(function () {
 	onInputValidation('#password');
 	onInputValidation('#fname');
 	onInputValidation('#lname');
-	onInputValidation('#email');
 
 	// function to validate terms and conditions
 	$('#terms').change(function () {
@@ -97,16 +106,6 @@ $(document).ready(function () {
 			$('.terms .invalid-feedback').hide();
 		}
 	});
-
-	// function to toggle css classes for validation
-	function onInputValidation(id) {
-		$(id).on('input', function () {
-			if ($(this).val().trim() !== '') {
-				$(this).siblings('.invalid-feedback').hide();
-				$(this).removeClass('is-invalid');
-			}
-		});
-	}
 
 	function classValidation(id, message) {
 		$(id).siblings('.invalid-feedback').html(message).show();
@@ -154,18 +153,7 @@ $(document).ready(function () {
 					console.log(response);
 					if (response.status) {
 						console.log(response.status);
-						// window.location.href = 'loading-screen.php';
-						// Countdown
-						// let count = 10;
-						// let countDown = setInterval(function () {
-						// 	if (count < 0) {
-						// 		clearInterval(countDown);
-						// 		window.location.href = 'login.php';
-						// 	} else {
-						// 		$('#count-text').html(count);
-						// 		count--;
-						// 	}
-						// }, 1000);
+						window.location.href = 'loading-screen.php';
 					} else {
 						console.log(response.status);
 						$('.invalid-form').html(response.message).show();
@@ -202,6 +190,7 @@ $(document).ready(function () {
 
 	$('#logoutBtn').click(function () {
 		$('#confirm-modal').fadeIn('fast');
+		$('.profile-dropdown').slideToggle('fast');
 	});
 
 	$('#cancel').click(function () {

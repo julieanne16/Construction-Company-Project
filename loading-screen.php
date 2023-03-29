@@ -1,12 +1,15 @@
 <?php
 
+//  checks if a session has already been started
+if (session_status() == PHP_SESSION_NONE) {
+	session_start();
+}
+
 require_once 'functions.php';
 
-// if (isset($_SESSION['registered'])) {
-// 	// 
-// } else {
-// 	header('Location: register.php');
-// }
+if (!isset($_SESSION['registered'])) {
+	header('Location: register.php');
+}
 
 ?>
 
@@ -28,5 +31,19 @@ require_once 'functions.php';
 		<a href="login.php">Skip here</a>
 	</div>
 </section>
+
+<script>
+	// Countdown;
+	let count = 5;
+	let countDown = setInterval(function() {
+		if (count < 0) {
+			clearInterval(countDown);
+			window.location.href = 'login.php';
+		} else {
+			$('#count-text').html(count);
+			count--;
+		}
+	}, 1000);
+</script>
 
 <?php require_once 'includes/footer.php' ?>

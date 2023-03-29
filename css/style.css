@@ -302,6 +302,9 @@ nav .container {
 }
 
 .hero p {
+	max-width: 800px;
+	text-align: center;
+	margin: 0 auto;
 	padding: 0 15px;
 	color: var(--color-storm);
 }
@@ -392,6 +395,7 @@ nav .container {
 .contact .container {
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
 	gap: 20px;
 }
 
@@ -432,6 +436,7 @@ footer {
 
 .footer-main {
 	display: flex;
+	justify-content: center;
 	flex-direction: column;
 	gap: 25px;
 }

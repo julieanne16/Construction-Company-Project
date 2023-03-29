@@ -1,4 +1,10 @@
 <?php
+
+//  checks if a session has already been started
+if (session_status() == PHP_SESSION_NONE) {
+	session_start();
+}
+
 require 'connection.php';
 
 // USER LOGIN
@@ -46,7 +52,7 @@ function register($conn, $fname, $lname, $email, $password)
 		// Email is already registered
 		if ($count > 0) {
 			return array(
-				'status' => 'false',
+				'status' => false,
 				'message' => 'This email is already registered'
 			);
 		} else {
@@ -56,9 +62,9 @@ function register($conn, $fname, $lname, $email, $password)
 			$stmt = $conn->prepare("INSERT INTO users (fname, lname, email, password) VALUES (:fname, :lname, :email, :password)");
 			$stmt->execute(array(':fname' => $fname, ':lname' => $lname, ':email' => $email, ':password' => $hashed_password));
 
-			// $_SESSION['registered'] = 'registered';
+			$_SESSION['registered'] = true;
 			return array(
-				'status' => 'true',
+				'status' => true,
 			);
 		}
 	} catch (PDOException  $error) {
