@@ -40,6 +40,7 @@ $(document).ready(function () {
 
 	function displayWarning(id, message) {
 		$(id).html(message).show();
+		$('html,body').animate({ scrollTop: 0 }, 'slow');
 	}
 
 	// function to toggle css classes for validation
