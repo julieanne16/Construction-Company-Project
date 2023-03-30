@@ -16,6 +16,44 @@ if (isset($_POST['registration'])) {
 
 ?>
 
+<?php
+require_once ('connection.php');
+$rand = rand(9999,1000);
+if(isset($_REQUEST['login']))
+{
+
+
+	$email = $_REQUEST['email'];
+	$password = $_REQUEST['password'];
+	$captcha = $_REQUEST['captcha'];
+	$captcharandom = $_REQUEST['captcha-rand'];
+	if($captcha!=$captcharandom)
+	{?>
+		<script type="text/javascript"> alert("Invalid")</script>
+	<?php
+	}
+	else
+	{
+		$select_query = mysql_query($connection, "SELECT * from users where email = '$email' and password = '$password'");
+		$result = mysql_num_rows($select_query);
+		if($result>0)
+	{?>
+			<script type="text/javascript">
+				alert("Login Success");
+			</script>
+<?php
+		}
+		else
+		{?>
+			<script type="text/javascript">
+				alert("Invalid Captcha");
+			</script>
+			<?php
+		}
+	}	
+}
+?>
+
 <?php require_once 'includes/header.php'; ?>
 <?php require_once 'includes/navbar.php'; ?>
 
@@ -66,6 +104,16 @@ if (isset($_POST['registration'])) {
 					<p>I agree to the <a href="#">terms and conditions</a></p>
 				</div>
 				<span class="invalid-feedback">Please agree</span>
+			</div>
+
+			<div class="form-group">
+				<label for="captcha">Captcha</label>
+				<input type="text" class="form-control" name="captcha" id="" placeholder="Enter Captcha" required> 
+				<input type="hidden" name="captcha-rand" value="<?php echo $rand; ?>">
+			</div>
+			<div class="form-group">
+				<label for="captcha" class="form-control" >Captcha Code</label>
+				<div class="captcha" class="form-control" ><?php echo $rand; ?></div> 
 			</div>
 
 			<button type="submit" name="register" class="form-btn">SIGN UP</button>
