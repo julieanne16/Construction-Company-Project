@@ -105,7 +105,7 @@ if(isset($_REQUEST['login']))
 			</div>
 			<div class="form-group">
 				<label for="captcha" class="form-control" >Captcha Code</label>
-				<div class="captcha" class="form-btn" ><?php echo $rand; ?></div> 
+				<div class="captcha" ><?php echo $rand; ?></div> 
 			</div>
 
 			<div class="form-group terms">
