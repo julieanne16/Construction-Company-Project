@@ -2,52 +2,56 @@
 
 session_start();
 
+
 require_once 'functions.php';
 
 
-$msg = "";
+if (isset($_POST['email']) && isset($_POST['password'])) {
 
+	$email = trim($_POST['email']);
+	$password = trim($_POST['password']);
 
-if (isset($_POST['login'])) {
-	$user = login($conn, $_POST['email'], $_POST['password']);
+	// sanitize email input
+	$email = filter_var($email, FILTER_SANITIZE_EMAIL);
 
-	if ($user) {
-		// Success login
-		$_SESSION['user_id'] = $user['user_id'];
-		header('Location: products.php');
-		exit();
-	} else {
-		$msg = "Login Failed.";
-	}
+	// sanitize password
+	$password = htmlspecialchars($password, ENT_QUOTES);
+
+	$account = login($conn, $email, $password);
+
+	echo json_encode($account);
+	exit;
 } ?>
 
 <?php require_once 'includes/header.php'; ?>
+<?php require_once 'includes/navbar.php'; ?>
 
-<main>
-	<div class="form">
+<section class="forms">
+	<div class="container">
 		<h1>SIGN IN</h1>
 		<p>Please fill your email and password to login</p>
-		<form id="login-form" method="POST" action="login.php">
+
+		<form id="login" method="POST">
 
 			<!-- Show message if error -->
-			<?php if ($msg) : ?>
-				<p class="error"><?php echo $msg; ?></p>
-			<?php endif; ?>
+			<div class="invalid-form"></div>
 			<!-- Show message if error -->
 
 			<div class="form-group">
 				<label for="email">Email Address</label>
-				<input type="email" id="email" name="email" placeholder="your_mail@website.com" required>
+				<input type="email" class="form-control" id="email" name="email" placeholder="your_mail@website.com">
+				<span class="invalid-feedback"></span>
 			</div>
 			<div class="form-group">
 				<label for="password">Password</label>
-				<input type="password" id="password" name="password" placeholder="*******" required>
+				<input type="password" class="form-control" id="password" name="password" placeholder="*******">
+				<span class="invalid-feedback"></span>
 			</div>
 
-			<button type="submit" name="login" class="form-btn">SIGN IN</button>
-			<p>Don't have an account? <a href="register.php">Register here</a> </p>
+			<button type="submit" name="login" id="loginBtn" class="form-btn">SIGN IN</button>
+			<p>Don't have an account? <a href="register.php">Sign Up here</a> </p>
 		</form>
 	</div>
-</main>
+</section>
 
 <?php require_once 'includes/footer.php' ?>
