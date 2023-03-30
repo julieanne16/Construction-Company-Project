@@ -98,14 +98,6 @@ if(isset($_REQUEST['login']))
 				<span class="invalid-feedback"></span>
 			</div>
 
-			<div class="form-group terms">
-				<div class="form-terms">
-					<input type="checkbox" name="terms" id="terms">
-					<p>I agree to the <a href="#">terms and conditions</a></p>
-				</div>
-				<span class="invalid-feedback">Please agree</span>
-			</div>
-
 			<div class="form-group">
 				<label for="captcha">Captcha</label>
 				<input type="text" class="form-control" name="captcha" id="" placeholder="Enter Captcha" required> 
@@ -113,7 +105,15 @@ if(isset($_REQUEST['login']))
 			</div>
 			<div class="form-group">
 				<label for="captcha" class="form-control" >Captcha Code</label>
-				<div class="captcha" class="form-control" ><?php echo $rand; ?></div> 
+				<div class="captcha" class="form-btn" ><?php echo $rand; ?></div> 
+			</div>
+
+			<div class="form-group terms">
+				<div class="form-terms">
+					<input type="checkbox" name="terms" id="terms">
+					<p>I agree to the <a href="#">terms and conditions</a></p>
+				</div>
+				<span class="invalid-feedback">Please agree</span>
 			</div>
 
 			<button type="submit" name="register" class="form-btn">SIGN UP</button>
