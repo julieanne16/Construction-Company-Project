@@ -34,7 +34,7 @@ if (!isset($_SESSION['registered'])) {
 
 <script>
 	// Countdown;
-	let count = 5;
+	let count = 10;
 	let countDown = setInterval(function() {
 		if (count < 0) {
 			clearInterval(countDown);
