@@ -60,6 +60,7 @@ require_once 'functions.php';
                         $products = read('products'); 
                         foreach ($products as $product) : ?>
                         <div class="card">
+                        <a href="prod-details.php"><h2 class="card-title"><?php echo $product['name'] ?></h2></a>
                             <div class="image gravel">
                             <img src="img/products/<?php echo $product['img'] ?>">
                             </div>
@@ -67,6 +68,7 @@ require_once 'functions.php';
                             <h2><?php echo $product['description']; ?></h2>
                                 <p>₱ <?php echo $product['price']; ?></p>
                             </div>
+
                         </div>
                         <?php endforeach ?>
                         
