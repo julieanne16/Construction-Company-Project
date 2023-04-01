@@ -217,3 +217,34 @@ function checkOut($user_id)
 		return  "<strong>ERROR: </strong> " . $error->getMessage();
 	}
 }
+
+function updateUser($conn, $fname, $lname, $email, $password)
+{
+	try {
+		// Check if email is already registered
+		$stmt = $conn->prepare("SELECT COUNT(*) FROM users WHERE email = :email");
+		$stmt->execute(array(':email' => $email));
+		$count = $stmt->fetchColumn();
+
+		// Email is already registered
+		if ($count > 0) {
+			return array(
+				'status' => false,
+				'message' => 'This email is already registered'
+			);
+		} else {
+			// Email is not registered, insert new user into database
+
+			$hashed_password = password_hash($password, PASSWORD_BCRYPT);
+			$stmt = $conn->prepare("UPDATE = users (fname, lname, email, password) VALUES (:fname, :lname, :email, :password)");
+			$stmt->execute(array(':fname' => $fname, ':lname' => $lname, ':email' => $email, ':password' => $hashed_password));
+
+			$_SESSION['registered'] = true;
+			return array(
+				'status' => true,
+			);
+		}
+	} catch (PDOException  $error) {
+		return  "<strong>ERROR: </strong> " . $error->getMessage();
+	}
+}

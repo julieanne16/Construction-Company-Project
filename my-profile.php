@@ -5,7 +5,7 @@ if (session_status() == PHP_SESSION_NONE) {
 	session_start();
 }
 
-require_once 'db/functions.php';
+require_once 'functions.php';
 
 ?>
 
@@ -39,12 +39,12 @@ require_once 'db/functions.php';
 			<ul class="profile-info">
 				<li>
 					<i class="fa-solid fa-user"></i>
-					<p>Name: Julie Ann Sapla</p>
+					<p>Name: <?php echo $_SESSION['name'] ?></p>
 				</li>
 
 				<li>
 					<i class="fa-solid fa-user"></i>
-					<p>Email: juli@gmail.com</p>
+					<p><?php echo $_SESSION['email'] ?></p>
 				</li>
 
 				<li>

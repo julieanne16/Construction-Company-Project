@@ -26,13 +26,15 @@
 							<div class="profile-dropdown">
 								<div class="profile-heading">
 									<i class="fa-solid fa-user-circle"></i>
+									<a href="my-profile.php">
 									<div>
 										<p><?php echo $_SESSION['name'] ?></p>
 										<p><?php echo $_SESSION['email'] ?></p>
 									</div>
+									</a>
 								</div>
 								<ul>
-									<li><a href="#">Settings</a></li>
+									<li><a href="settings.php">Settings</a></li>
 									<li><a id="logoutBtn">Sign Out</a></li>
 								</ul>
 							</div>
