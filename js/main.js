@@ -59,6 +59,23 @@ $(document).ready(function () {
 		});
 	}
 
+	function randomCharacters() {
+		let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+		let result = '';
+		for (let i = 0; i < 6; i++) {
+			result += characters.charAt(Math.floor(Math.random() * characters.length));
+		}
+		return result;
+	}
+
+	let random = randomCharacters();
+
+	$('#captcha').text(random);
+
+	$('#reset').click(function () {
+		$('#captcha').text(randomCharacters());
+	});
+
 	// Login
 	$('#login').submit(function (event) {
 		event.preventDefault();
@@ -90,9 +107,10 @@ $(document).ready(function () {
 				.then(function (response) {
 					console.log(response);
 					if (response.status) {
-						window.location.href = 'cart.php';
+						window.location.href = 'profile.php';
 					} else {
 						$('#password').val('');
+						applyValidationStyle('#' + response.field, response.message);
 						displayWarning('.invalid-form', response.message);
 					}
 				})
@@ -141,7 +159,17 @@ $(document).ready(function () {
 
 		// if terms is not checked
 		if (!$('#terms').is(':checked')) {
-			$('.terms .invalid-feedback').html('Please agree.').show();
+			$('.terms .invalid-feedback').html('This checkbox is required.').show();
+		}
+
+		// validate captcha
+		if (random === $('#captcha-input').val()) {
+			console.log('same');
+		} else {
+			console.log('not same');
+			random = randomCharacters();
+			$('#captcha').text(random);
+			applyValidationStyle($('#captcha-input'), 'Captcha not match. Please try again');
 		}
 
 		// count warning
