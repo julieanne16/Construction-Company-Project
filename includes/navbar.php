@@ -11,13 +11,13 @@
 					<a href="index.php#home" class="nav-link">Home</a>
 				</li>
 				<li class="nav-item">
-					<a href="index.php#about" class="nav-link">About</a>
+					<a href="index.php#about" class="nav-link">About Us</a>
 				</li>
 				<li class="nav-item">
 					<a href="index.php#products" class="nav-link">Products</a>
 				</li>
 				<li class="nav-item">
-					<a href="index.php#contact" class="nav-link">Contact</a>
+					<a href="index.php#contact" class="nav-link">Contact Us</a>
 				</li>
 				<?php if (isset($_SESSION['account_id'])) : ?>
 					<li class="nav-item dropdown-toggle">
@@ -27,10 +27,10 @@
 								<div class="profile-heading">
 									<i class="fa-solid fa-user-circle"></i>
 									<a href="my-profile.php">
-									<div>
-										<p><?php echo $_SESSION['name'] ?></p>
-										<p><?php echo $_SESSION['email'] ?></p>
-									</div>
+										<div>
+											<p><?php echo $_SESSION['name'] ?></p>
+											<p><?php echo $_SESSION['email'] ?></p>
+										</div>
 									</a>
 								</div>
 								<ul>
@@ -43,6 +43,9 @@
 				<?php else : ?>
 					<li class="nav-item">
 						<a href="login.php" class="nav-link">Login</a>
+					</li>
+					<li class="nav-item">
+						<a href="register.php" class="nav-link">Register</a>
 					</li>
 				<?php endif; ?>
 			</ul>
