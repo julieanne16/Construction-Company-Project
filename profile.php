@@ -21,11 +21,51 @@ $user = getRow($conn, 'user_id', $user_id, 'users');
 
 <?php require_once 'includes/header.php' ?>
 
-<div class="container profile">
-	<h1>Profile</h1>
-	<p>Welcome! <span><?php echo $user['fname'] . " " . $user['lname']; ?></span></p>
-	<p>My email: <span><?php echo $user['email']; ?></span></p>
-</div>
+<section class="profile">
+	<div class="container">
+
+		<ul class="profile-tabs">
+			<li class="tab-active">
+				<i class="fa-solid fa-user"></i>
+				<a href="#">Profile</a>
+			</li>
+			<li>
+				<i class="fa-solid fa-cart-shopping"></i>
+				<a href="#">My Orders</a>
+			</li>
+			<li>
+				<i class="fa-solid fa-arrow-right-arrow-left"></i>
+				<a href="#">My Transactions</a>
+			</li>
+		</ul>
+
+		<div class="profile-content">
+			<p>my profile</p>
+			<div class="profile-img">
+				<img src="src/img/products/cement.png" alt="">
+			</div>
+
+			<ul class="profile-info">
+				<li>
+					<i class="fa-solid fa-user"></i>
+					<p>Name: <?php echo $_SESSION['name'] ?></p>
+				</li>
+
+				<li>
+					<i class="fa-solid fa-user"></i>
+					<p><?php echo $_SESSION['email'] ?></p>
+				</li>
+
+				<li>
+					<i class="fa-solid fa-user"></i>
+					<p>Mobile: 09955945857</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+	</div>
+
+</section>
 
 
 
