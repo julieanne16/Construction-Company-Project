@@ -60,6 +60,7 @@ require_once 'functions.php';
                         $products = read('products'); 
                         foreach ($products as $product) : ?>
                         <div class="card">
+                        <a href="prod-details.php"><h2 class="card-title"><?php echo $product['name'] ?></h2></a>
                             <div class="image gravel">
                             <img src="img/products/<?php echo $product['img'] ?>">
                             </div>
@@ -67,6 +68,8 @@ require_once 'functions.php';
                             <h2><?php echo $product['description']; ?></h2>
                                 <p>₱ <?php echo $product['price']; ?></p>
                             </div>
+                            <button class="con-btn">ADD TO CART</button>
+
                         </div>
                         <?php endforeach ?>
                         
@@ -107,7 +110,8 @@ require_once 'functions.php';
         </div>
     </main>
 
-     <footer>
+
+     <!-- <footer>
         <div class="row">
           <div class="column left">
             <div class="logo"><a href="#">Construction<span> Co.</span></a></div>
@@ -147,8 +151,9 @@ require_once 'functions.php';
         <div class="footer-bottom">
             <p>Copyright &copy; Construction Co. | Designed by MAJJCS - Powered by Tech2serv</p>
         </div>
-    </footer>
+    </footer> -->
 
+    <?php require_once 'includes/footer.php' ?>
 </body>
 </html>
 
