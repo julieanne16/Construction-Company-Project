@@ -127,6 +127,7 @@ $(document).ready(function () {
 	onInputValidation('#password');
 	onInputValidation('#fname');
 	onInputValidation('#lname');
+	onInputValidation('#captcha-input');
 
 	// function to validate terms and conditions
 	$('#terms').change(function () {
