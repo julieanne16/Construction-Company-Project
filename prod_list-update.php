@@ -1,3 +1,9 @@
+<?php
+require_once 'functions.php';
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,17 +49,20 @@
                             <button class="conbtn" onclick="openList(event, 'cinderblock')" id="defaultOpen">CINDERBLOCK</button>
                     </div>
                     <p>Showing ALL products</p>
+            <?php
+                $products = read('products'); 
+                foreach ($products as $product) : ?>
 
                 <div id="all" class="list">
                     <div class="product-details">
                         <div class="card">
                             <div class="image cement">
-                                <img src="images/cement-sack-img.png">
+                            <img src="img/products/<?php echo $product['img'] ?>">
                             </div>
                            <p>CEMENT</p>
                             <div class="title">
-                                <h2>ORDINARY PORTLAND CEMENT 40kg</h2>
-                                <p>₱261.00</p>
+                            <h2><?php echo $product['description']; ?></h2>
+                            <p>₱ <?php echo $product['price']; ?></p>
                             </div>
 
                                 <button class="cart-btn">Add to cart <i class="fa-solid fa-basket-shopping"></i></button>
@@ -246,6 +255,8 @@
                         </div>
                     </div>
                 </div>
+
+                <?php endforeach ?>
 
                 <div id="gravel" class="list">
                     <div class="product-details">

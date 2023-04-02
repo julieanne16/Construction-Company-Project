@@ -1,16 +1,11 @@
 <?php
 
-<<<<<<< HEAD
-require_once 'changepass.php';
-// require_once 'functions.php';
-=======
 //  checks if a session has already been started
 if (session_status() == PHP_SESSION_NONE) {
 	session_start();
 }
 
 require_once 'functions.php';
->>>>>>> d8280b0dc03935166f0e7495cacdc2a480889a02
 
 if (isset($_POST['registration'])) {
 	$fname = $_POST['fname'];
