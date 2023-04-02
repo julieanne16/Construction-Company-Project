@@ -1,12 +1,15 @@
 $(document).ready(function () {
 	// Responsive Navbar Toggler
 	$('#navToggler').on('click', function () {
-		if ($('.navbar-nav').is(':visible')) {
-			$('.navbar-nav').slideUp(300);
+		if ($('.navbar-nav').css('display') === 'none') {
+			$('.navbar-nav').css('display', 'block');
+			$('#navbar-dim').fadeIn(300);
+			$('.overlay').css('display', 'block');
 		} else {
-			$('.navbar-nav').slideDown(300);
+			$('.navbar-nav').css('display', 'none');
+			$('#navbar-dim').fadeOut(300);
+			$('.overlay').css('display', 'none');
 		}
-
 		// Change icons (vice versa)
 		$(this).toggleClass('fa-bars fa-times');
 	});
@@ -235,13 +238,17 @@ $(document).ready(function () {
 		$('.profile-dropdown').slideToggle('fast');
 	});
 
+	// show the modal and overlay when logout button is clicked
 	$('#logoutBtn').click(function () {
 		$('#confirm-modal').fadeIn('fast');
 		$('.profile-dropdown').slideToggle('fast');
+		$('.overlay').css('display', 'block');
 	});
 
+	// hide the modal and overlay when close button is clicked
 	$('#cancel').click(function () {
 		$('#confirm-modal').fadeOut('fast');
+		$('.overlay').css('display', 'none');
 	});
 
 	$('#confirm').click(function () {

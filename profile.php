@@ -5,13 +5,13 @@ session_start();
 require_once 'functions.php';
 
 // Check if the user is logged in
-if (!isset($_SESSION['user_id'])) {
-	header("Location: login.php");
-	// exit();
-}
+// if (!isset($_SESSION['user_id'])) {
+// 	header("Location: login.php");
+// 	// exit();
+// }
 
 // Retrieve the account_id value from the session
-$user_id = $_SESSION['user_id'];
+$user_id = $_SESSION['account_id'];
 
 // Get user info
 $user = getRow($conn, 'user_id', $user_id, 'users');
@@ -20,6 +20,7 @@ $user = getRow($conn, 'user_id', $user_id, 'users');
 ?>
 
 <?php require_once 'includes/header.php' ?>
+<?php require_once 'includes/navbar.php' ?>
 
 <section class="profile">
 	<div class="container">
@@ -27,22 +28,22 @@ $user = getRow($conn, 'user_id', $user_id, 'users');
 		<ul class="profile-tabs">
 			<li class="tab-active">
 				<i class="fa-solid fa-user"></i>
-				<a href="#">Profile</a>
+				<a href="#">MY PROFILE</a>
 			</li>
 			<li>
 				<i class="fa-solid fa-cart-shopping"></i>
-				<a href="#">My Orders</a>
+				<a href="#">MY ORDERS</a>
 			</li>
 			<li>
 				<i class="fa-solid fa-arrow-right-arrow-left"></i>
-				<a href="#">My Transactions</a>
+				<a href="#">MY TRANSACTIONS</a>
 			</li>
 		</ul>
 
 		<div class="profile-content">
-			<p>my profile</p>
+			<p class="profile-heading">my profile</p>
 			<div class="profile-img">
-				<img src="src/img/products/cement.png" alt="">
+				<i class="fa-solid fa-file-image"></i>
 			</div>
 
 			<ul class="profile-info">
@@ -52,13 +53,13 @@ $user = getRow($conn, 'user_id', $user_id, 'users');
 				</li>
 
 				<li>
-					<i class="fa-solid fa-user"></i>
-					<p><?php echo $_SESSION['email'] ?></p>
+					<i class="fa-solid fa-envelope"></i>
+					<p>Email: <?php echo $_SESSION['email'] ?></p>
 				</li>
 
 				<li>
-					<i class="fa-solid fa-user"></i>
-					<p>Mobile: 09955945857</p>
+					<i class="fa-solid fa-phone"></i>
+					<p>Mobile: </p>
 				</li>
 			</ul>
 		</div>
