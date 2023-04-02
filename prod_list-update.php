@@ -68,10 +68,10 @@ require_once 'functions.php';
                                 <button class="cart-btn">Add to cart <i class="fa-solid fa-basket-shopping"></i></button>
                                 <button class="view-btn">View details  <i class="fa-solid fa-circle-info"></i></button>
                         </div>
-
-                        <div class="card">
+                        
+                         <div class="card">
                             <div class="image cement">
-                                <img src="images/cement-sack-img.png">
+                            <img src="img/products/<?php echo $product['img'] ?>">
                             </div>
                             <p>CEMENT</p>
                             <div class="title">
@@ -255,8 +255,7 @@ require_once 'functions.php';
                         </div>
                     </div>
                 </div>
-
-                <?php endforeach ?>
+   
 
                 <div id="gravel" class="list">
                     <div class="product-details">
@@ -470,6 +469,7 @@ require_once 'functions.php';
                                 <button class="view-btn">View details  <i class="fa-solid fa-circle-info"></i></button>
                         </div>
                     </div>
+                    <?php endforeach ?>
                 </div>
                     </div>
 
