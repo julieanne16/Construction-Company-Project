@@ -4,11 +4,11 @@ session_start();
 
 require_once 'functions.php';
 
-// Check if the user is logged in
-if (!isset($_SESSION['account_id'])) {
-	header("Location: login.php");
-	// exit();
-}
+// // Check if the user is logged in
+// if (!isset($_SESSION['account_id'])) {
+// 	header("Location: login.php");
+// 	// exit();
+// }
 
 // Retrieve the account_id value from the session
 $user_id = $_SESSION['account_id'];
@@ -41,7 +41,7 @@ $user = getRow($conn, 'user_id', $user_id, 'users');
 		</ul>
 
 		<div class="profile-content">
-			<p class="profile-heading">my profile</p>
+			<p>MY PROFILE</p>
 			<div class="profile-img">
 				<i class="fa-solid fa-file-image"></i>
 			</div>
