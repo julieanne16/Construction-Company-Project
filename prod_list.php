@@ -44,6 +44,7 @@
                         </div>
                     </div>
                     <div class="product-details">
+                        
                         <div class="card">
                             <div class="image cement">
                                 <img src="images/cement-sack-img.png">

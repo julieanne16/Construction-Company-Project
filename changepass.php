@@ -74,7 +74,7 @@ if(isset($_POST['changePassBtn'], $_POST['token'])){
         }
     }
 }else{
-    $result = flashMessage("An error occured". $error->getMessage());
+    echo "Error";
 }
 
 

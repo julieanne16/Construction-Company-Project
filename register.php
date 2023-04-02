@@ -1,6 +1,7 @@
 <?php
 
-require_once 'functions.php';
+require_once 'changepass.php';
+// require_once 'functions.php';
 
 if (isset($_POST['registration'])) {
 	$fname = $_POST['fname'];

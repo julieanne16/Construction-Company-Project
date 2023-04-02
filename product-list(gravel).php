@@ -5,12 +5,10 @@ require_once 'functions.php';
 
 
 
-<?php require_once 'includes/header.php'; ?>
-<?php require_once 'includes/navbar.php'; ?>
 
 
 
-<!-- <!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -38,7 +36,7 @@ require_once 'functions.php';
         <div class="menu-btn">
             <i class="fas fa-bars"></i>
         </div>
-    </header> -->
+    </header> 
 
     <main>
         <div class="container">

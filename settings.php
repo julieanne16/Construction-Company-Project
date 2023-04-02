@@ -1,5 +1,5 @@
 <?php 
-
+// require_once 'changepass.php';
 require_once 'functions.php';
 
 if(isset($_POST['update'])){
@@ -14,6 +14,8 @@ if(isset($_POST['update'])){
 // 	$res = $editUsers->update_record('users',$where,['first_name'=>$fname,'last_name'=>$lname,'email'=>$email,'passord'=>$password]);
  }
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -85,7 +87,7 @@ if(isset($_POST['update'])){
                             <form method="POST">
                                 <div class="form-group">
                                     <label>Current Email Address *</label>
-                                    <input type="email" name="email placeholder="Current Email Address">
+                                    <input type="email" name="email" placeholder="Current Email Address">
                                 </div>
                                 <div class="form-group">
                                     <label>New Email Address *</label>
@@ -115,8 +117,8 @@ if(isset($_POST['update'])){
                                     <input type="password" name="con-pass" placeholder="Confirm New Password">
                                 </div>
 
-                                <input type="hidden" name="hidden_id"  value="<?php if(isset($id))?>">
-                                <button class="form-btn" name="changepass">SAVE CHANGES</button> 
+                                <input type="hidden" name="hidden_id">
+                                <button class="form-btn" name="updateUser">SAVE CHANGES</button> 
                                 <button class="form-btn-cancel">CANCEL</button> 
                             </form>  
                     </div>
