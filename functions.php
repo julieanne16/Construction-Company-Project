@@ -220,26 +220,25 @@ function checkOut($user_id)
 	}
 }
 
-function updateUser($conn, $fname, $lname, $email, $password)
+function editPass($conn, $password)
 {
 	try {
-		// Check if email is already registered
-		$stmt = $conn->prepare("SELECT COUNT(*) FROM users WHERE email = :email");
-		$stmt->execute(array(':email' => $email));
-		$count = $stmt->fetchColumn();
 
-		// Email is already registered
-		if ($count > 0) {
+		$current_password = $_POST['c-pass'];
+		$password1 = $_POST['n-pass'];
+		$password2 = $_POST['con-pass'];
+
+		if ($password1 != $password2) {
 			return array(
 				'status' => false,
-				'message' => 'This email is already registered'
+				'message' => 'Password does not match'
 			);
 		} else {
-			// Email is not registered, insert new user into database
+			
 
 			$hashed_password = password_hash($password, PASSWORD_BCRYPT);
-			$stmt = $conn->prepare("UPDATE = users (fname, lname, email, password) VALUES (:fname, :lname, :email, :password)");
-			$stmt->execute(array(':fname' => $fname, ':lname' => $lname, ':email' => $email, ':password' => $hashed_password));
+			$stmt = $conn->prepare("UPDATE users SET password = :password WHERE id =id");
+			$stmt->execute(array(':password' => $hashed_password));
 
 			$_SESSION['registered'] = true;
 			return array(
