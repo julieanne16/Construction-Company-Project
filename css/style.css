@@ -203,6 +203,23 @@ nav .container i {
 	background-color: var(--color-storm);
 }
 
+.cart {
+	position: relative;
+}
+
+.cart span {
+	height: 20px;
+	width: 20px;
+	position: absolute;
+
+	top: 8px;
+	right: 15px;
+	background-color: var(--color-pear);
+	font-size: 0.8rem;
+	font-weight: 700;
+	border-radius: 50%;
+}
+
 .overlay {
 	position: fixed;
 	z-index: 1;
@@ -561,6 +578,7 @@ footer {
 	color: var(--color-tangerine);
 	text-decoration: underline;
 }
+
 .forms .container {
 	width: 90%;
 	max-width: 400px;

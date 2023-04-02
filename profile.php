@@ -5,10 +5,10 @@ session_start();
 require_once 'functions.php';
 
 // Check if the user is logged in
-// if (!isset($_SESSION['user_id'])) {
-// 	header("Location: login.php");
-// 	// exit();
-// }
+if (!isset($_SESSION['account_id'])) {
+	header("Location: login.php");
+	// exit();
+}
 
 // Retrieve the account_id value from the session
 $user_id = $_SESSION['account_id'];
@@ -67,8 +67,6 @@ $user = getRow($conn, 'user_id', $user_id, 'users');
 	</div>
 
 </section>
-
-
 
 
 <?php require_once 'includes/footer.php' ?>

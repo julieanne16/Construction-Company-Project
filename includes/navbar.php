@@ -61,8 +61,15 @@
 			<?php endif; ?>
 			<!-- Basket Icon -->
 			<li class="nav-item">
-				<a href="cart.php" class="nav-link">
+				<a href="" class="nav-link">
+					<i class="fa-solid fa-magnifying-glass"></i>
+				</a>
+			</li>
+			<!-- Basket Icon -->
+			<li class="nav-item">
+				<a href="cart.php" class="nav-link cart">
 					<i class="fa-solid fa-basket-shopping"></i>
+					<span>0</span>
 				</a>
 			</li>
 		</ul>

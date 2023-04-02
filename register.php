@@ -81,7 +81,7 @@ if (isset($_POST['registration'])) {
 			<div class="form-group terms">
 				<div class="form-terms">
 					<input type="checkbox" name="terms" id="terms">
-					<p>I agree to the <a href="#">terms and conditions</a></p>
+					<p>I agree to the <a href="terms-and-conditions.php" target="_blank">terms and conditions</a></p>
 				</div>
 				<span class="invalid-feedback"></span>
 			</div>
