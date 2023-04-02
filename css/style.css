@@ -592,6 +592,10 @@ footer {
 	padding: 0;
 }
 
+.form-terms p {
+	margin: 0;
+}
+
 .form-terms input {
 	height: 15px;
 	width: 15px;

@@ -55,8 +55,8 @@
 				<li id="register-link" class="nav-item">
 					<a href="register.php" class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'register.php') ? 'active' : ''; ?>">REGISTER</a>
 				</li>
-				<li id="login-link <?php echo (basename($_SERVER['PHP_SELF']) == 'login.php') ? 'active' : ''; ?>" class="nav-item">
-					<a href="login.php">LOGIN</a>
+				<li id="login-link" class="nav-item">
+					<a href="login.php" class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'login.php') ? 'active' : ''; ?>">LOGIN</a>
 				</li>
 			<?php endif; ?>
 			<!-- Basket Icon -->
