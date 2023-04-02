@@ -461,14 +461,15 @@
                     </div>
                 </div>
                     </div>
-                </div>
 
-                <div id="plyboard" class="list">
+                    <div id="plyboard" class="list">
                     <div class="product-details"></div>
                 </div>
 
                 <div id="cinderblock" class="list">
                     <div class="product-details"></div>
+                </div>
+                
                 </div>
 
             </div>
