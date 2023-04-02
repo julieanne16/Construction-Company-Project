@@ -1,7 +1,16 @@
 <?php
 
+<<<<<<< HEAD
 require_once 'changepass.php';
 // require_once 'functions.php';
+=======
+//  checks if a session has already been started
+if (session_status() == PHP_SESSION_NONE) {
+	session_start();
+}
+
+require_once 'functions.php';
+>>>>>>> d8280b0dc03935166f0e7495cacdc2a480889a02
 
 if (isset($_POST['registration'])) {
 	$fname = $_POST['fname'];
@@ -17,43 +26,7 @@ if (isset($_POST['registration'])) {
 
 ?>
 
-<?php
-require_once ('connection.php');
-$rand = rand(9999,1000);
-if(isset($_REQUEST['login']))
-{
 
-
-	$email = $_REQUEST['email'];
-	$password = $_REQUEST['password'];
-	$captcha = $_REQUEST['captcha'];
-	$captcharandom = $_REQUEST['captcha-rand'];
-	if($captcha!=$captcharandom)
-	{?>
-		<script type="text/javascript"> alert("Invalid")</script>
-	<?php
-	}
-	else
-	{
-		$select_query = mysql_query($connection, "SELECT * from users where email = '$email' and password = '$password'");
-		$result = mysql_num_rows($select_query);
-		if($result>0)
-	{?>
-			<script type="text/javascript">
-				alert("Login Success");
-			</script>
-<?php
-		}
-		else
-		{?>
-			<script type="text/javascript">
-				alert("Invalid Captcha");
-			</script>
-			<?php
-		}
-	}	
-}
-?>
 
 <?php require_once 'includes/header.php'; ?>
 <?php require_once 'includes/navbar.php'; ?>
@@ -100,21 +73,22 @@ if(isset($_REQUEST['login']))
 			</div>
 
 			<div class="form-group">
-				<label for="captcha">Captcha</label>
-				<input type="text" class="form-control" name="captcha" id="" placeholder="Enter Captcha" required> 
-				<input type="hidden" name="captcha-rand" value="<?php echo $rand; ?>">
-			</div>
-			<div class="form-group">
-				<label for="captcha" class="form-control" >Captcha Code</label>
-				<div class="captcha" ><?php echo $rand; ?></div> 
+				<div class="wrap">
+					<div class="captcha-wrap">
+						<span id="captcha"></span>
+					</div>
+					<i id="reset" class="fa-solid fa-arrows-rotate"></i>
+				</div>
+				<input type="text" name="captcha" id="captcha-input" class="form-control" placeholder="Please retype the code above">
+				<span class="invalid-feedback"></span>
 			</div>
 
 			<div class="form-group terms">
 				<div class="form-terms">
 					<input type="checkbox" name="terms" id="terms">
-					<p>I agree to the <a href="#">terms and conditions</a></p>
+					<p>I agree to the <a href="terms-and-conditions.php" target="_blank">terms and conditions</a></p>
 				</div>
-				<span class="invalid-feedback">Please agree</span>
+				<span class="invalid-feedback"></span>
 			</div>
 
 			<button type="submit" name="register" class="form-btn">SIGN UP</button>

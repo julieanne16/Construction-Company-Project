@@ -19,11 +19,13 @@ function login($conn, $email, $password)
 		if (!$account) {
 			return array(
 				'status' => false,
+				'field' => 'email',
 				'message' => 'This email is not registered yet.'
 			);
 		} elseif (!password_verify($password, $account['password'])) {
 			return array(
 				'status' => false,
+				'field' => 'password',
 				'message' => 'Incorrect password.'
 			);
 		} else {

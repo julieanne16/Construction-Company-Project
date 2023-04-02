@@ -1,0 +1,687 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+:root{
+    --headerclr:#222533;
+    --mainclr:#ffcb0f;
+}
+*,html,body{
+  font-family: 'Montserrat';
+}
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: .2s;
+}
+html{
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+/*Header*/
+.header{
+    padding: 10px 160px 0 160px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    display: flex;
+    background-color: #FFFFFF;
+    height: 70px;
+    justify-content: space-between;
+    align-items: top;
+    z-index: 10000;
+}
+.header .logo a{
+    color: #364A46;
+    font-size: 25px;
+    font-style: italic;
+    font-weight: 800;
+}
+.header .logo a span{
+    color: #C4DD2A;
+    transition: all 0.3s ease;
+}
+.header.sticky .logo a span{
+    color: #fff;
+}
+.header .menu-btn{
+  position: absolute;
+  top: 14px;
+  color: #fff;
+  font-size: 26px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding-left: 1179px;
+}
+.nav{
+    width: 70%;
+}
+.nav a{
+    color: #184d21;
+    font-weight: 600;
+    font-size: 15px;
+    margin-left: 28px;
+    float: right;
+}
+.nav a:hover{
+    color: #FF9B71;
+}
+.icon-header div{
+    color: #ffffff;
+    font-size: 10px;
+    cursor: pointer;
+}
+.icon-header i{
+    margin-left: 15px;
+    font-size: 20px;
+}
+
+main{
+  padding: 100px 0;
+}
+
+.container{
+    margin: 0 auto;
+    width: 76%;
+}
+.details p{
+    font-size: 15px;
+    color: #304A43;
+}
+.products h1{
+    padding: 0 0 40px 0;
+    font-size: 50px;
+    font-weight: 800;
+    text-align: center;
+    color: #364A46;
+}
+.products p{
+    padding-bottom: 20px;
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+}
+.con-items{
+    padding: 15px 20px; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.con-items button{
+    margin: 10px;
+}
+.conbtn{
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: 800;
+    color: #304A43;
+    background-color: #E6E2DB;
+    border-radius: 15px;
+    border: none;
+}
+.conbtn:hover{
+     color: #ffffff;
+    background-color: #C4DD2A;
+}
+
+.product-details{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px; 
+}
+.card{
+    width: 23%;
+    height: 530px;
+}
+.image {
+    height: 300px;
+    text-align: center;
+    background-color: #E6E2DB;
+}
+.image img{
+    width: 80%;       
+}
+.cement img{
+    position: relative;
+    top: 15px;
+}
+.gravel img{
+    position: relative;
+    top: 50px;
+}
+.pipes img{
+    position: relative;
+    top: 100px;
+}
+.paint img{
+    position: relative;
+    top: 40px;
+}
+.product-details h2{
+    color: #304A43;
+}
+.card p{
+    padding-bottom: 0;
+    text-align: left;
+    font-size: 15px;
+    color: #939E9C;
+}
+.title{
+    height: 100px;
+}
+.title h2{
+    padding: 10px 0;
+    text-align: top;
+    font-size: 15px;
+    color: #304A43;
+}
+.title p{
+    color: #FF9B71;
+}
+.cart-btn{
+    margin: 10px 0 5px 0;
+    padding: 10px;
+    width: 100%;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    border-radius: 15px;
+    color: #304A43;
+    background-color: #C4DD2A;
+}
+.view-btn{
+    padding: 10px;
+    width: 100%;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    border-radius: 15px;
+    color: #fff;
+    background-color: #304A43;
+}
+
+/* footer */
+footer .column {
+  float: left;
+  padding: 10px;
+  background-color: #E6E2DB;
+}
+
+/* Clear floats after the columns */
+footer .row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+footer .logo{
+    padding-top: 40px;
+}
+footer .logo a{
+    padding-left: 150px;
+    font-family: 'Montserrat';
+    font-style: italic;
+    font-weight: 800;
+    color: #364A46;
+    font-size: 30px;
+}
+footer .logo a span{
+    color: #C4DD2A;
+    transition: all 0.3s ease;
+}
+.left{
+    width: 600px;
+    align-items: center;
+}
+.center, .left{
+    height: 289px;
+}
+.center, .right{
+    width: 374px;
+}
+.tagline p{
+    padding: 10px 150px;
+    width: 100%;
+    font-size: 11px;
+    font-family: 'Montserrat';
+    font-style: italic;
+    font-weight: 500;
+}
+.socmed{
+    padding: 15px 140px;
+}
+.socmed i{
+    margin-left: 20px;
+    color: #364A46;
+    height: 25px;
+    font-size: 30px;
+}
+.socmed img{
+    height: 25px;
+}
+.center h2{
+    padding-top: 40px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 15px;
+    color: #364A46;
+}
+.center i{
+    padding-top: 20px;
+    float: left;
+    font-size: 15px;
+    color: #364A46;
+}
+.center p{
+    padding: 20px 20px 5px 25px;
+    font-size: 12px;
+    line-height: 1.4;
+    font-family: 'Montserrat';
+    font-weight: 500;
+    text-align: left;
+    color: #293329;
+}
+.right h2{
+    padding-top: 40px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 15px;
+    color: #364A46;
+}
+.right p{
+    padding: 10px 0;
+    font-size: 12px;
+    font-family: 'Montserrat';
+    font-weight: 500;
+}
+.policy{
+    padding: 10px;
+    text-align: center;
+    background-color: #E6E2DB;
+}
+.policy p{
+     margin: 20px;
+    display: inline;
+    font-size: 15px;
+}
+.footer-bottom{
+    padding: 25px;
+    text-align: center;
+    font-size: 15px;
+    font-family: 'Montserrat';
+    font-weight: 100;
+    color: #ffffff;
+    background-color: #283E39;
+}
+
+/*Responsive Media Query*/
+@media (max-width: 1024px) {
+    .nav {
+        width: 450px;
+    }
+    .nav a {
+        margin-left: 12px;
+        font-size: 12px;
+    }
+    .header .logo a {
+        font-size: 20px;
+    }
+    .icon-header i {
+        margin-left: 12px;
+    }
+    .container {
+        width: 69%;
+    }
+    .card {
+        margin-right: 0;
+        width: 23%;
+        height: 430px;
+    }
+    .product-details {
+        gap: 18px;
+    }
+    .image {
+        padding: 30px 20px;
+        height: 200px;
+    }
+    .cement img{
+        top: 0;
+    }
+    .gravel img{
+        top: 20px;
+    }
+    .pipes img{
+        top: 50px;
+    }
+    .paint img{
+        top: 20px;
+    }
+    .title{
+        height: 100px;
+    }
+    footer .column {
+        padding: 0;
+    }
+    .left {
+        width: 42%;
+        height: 290px;
+    }
+    .center, .right {
+        width: 29%;
+        height: 290px;
+    }
+    footer .logo a {
+        font-size: 25px;
+    }
+    .tagline p {
+        padding: 5px 0 10px 150px;
+        font-size: 12px;
+    }
+    .socmed {
+        padding: 0 0 0 140px;
+    }
+    .socmed i {
+        margin-left: 8px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 20px 120px 0 120px;
+    }
+    .nav {
+        display: none;
+    }
+    .header .menu-btn {
+        top: 18px;
+        color: #000;
+        font-size: 23px;
+        padding-left: 500px;
+    }
+    .icon-header{
+        margin-right: 45px;
+    }
+    .products h1{
+        padding: 0;
+        font-size: 45px;
+    }
+    .con-items button {
+        margin: 5px;
+    }
+    .conbtn {
+        padding: 10px 13px;
+        font-size: 15px;
+    }
+    .card {
+        width: 22%;
+        height: 390px;  
+        margin-right: 0;
+    }
+    .product-details {
+        gap: 20px;
+    }
+    .title{
+        height: 120px;
+    }
+    .title h2 {
+        font-size: 16px;
+    }
+    .cart-btn, .view-btn{
+        font-size: 12px;
+    }
+    .image {
+        padding: 20px 10px;
+        height: 150px;
+    }
+    footer .logo a {
+        padding-left: 120px;
+        font-size: 20px;
+    }
+    .tagline p {
+        padding: 5px 0 10px 120px;
+        font-size: 9px;
+    }
+    .socmed {
+        padding: 0 0 0 115px;
+    }
+    .socmed i {
+        margin-left: 4px;
+        font-size: 25px;
+    }
+    .center h2, .right h2{ 
+        font-size: 13px;
+    }
+    .center i{
+        font-size: 12px;
+    }
+    .center p {
+        padding: 20px 20px 5px 15px;
+    }
+}
+
+@media (max-width: 640px){
+    .header {
+        padding: 10px 100px 0 100px;
+        height: 50px;
+    }
+    .header .menu-btn {
+        top: 9px;
+        padding-left: 414px;
+    }
+    .products h1 {
+        padding: 0;
+        font-size: 35px;
+    }
+    .con-items {
+        padding: 15px 0;
+    }
+    .card {
+        margin-right: 0;
+    }
+    .cart-btn, .view-btn {
+        font-size: 10px;
+    }
+    .product-details {
+        gap: 11.6px;
+    }
+    .title {
+        height: 100px;
+    }
+    .card {
+        width: 23%;
+        height: 360px;
+    }
+    .title h2 {
+        font-size: 14px;
+    }
+    .gravel img {
+        top: 25px;
+    }
+    .pipes img{
+        top: 40px;
+    }
+    .paint img{
+        top: 20px;
+    }
+    .products p {
+        font-size: 13px;
+    }
+    .title h2 {
+        font-size: 13px;
+    }
+    footer .logo a {
+        padding-left: 100px;
+        font-size: 16px;
+    }
+    .tagline p {
+        padding: 5px 0 10px 100px;
+        font-size: 7px;
+    }
+    .socmed {
+        padding: 0 0 0 97px;
+    }
+    .socmed i {
+        margin-left: 2px;
+        font-size: 18px;
+    }
+    .center h2, .right h2 {
+        font-size: 11px;
+    }
+    .center p {
+        padding: 15px 20px 5px 15px;
+        font-size: 9px;
+    }
+    .center i {
+        padding-top: 15px;
+        font-size: 9px;
+    }
+    .right p {
+        padding: 13px 0;
+        font-size: 9px;
+    }
+    .policy p{
+        font-size: 10px;
+    }
+    .footer-bottom{
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 375px){
+    .header {
+        padding: 5px 20px 0 20px;
+    }
+    .header .logo a{
+        font-size: 20px ;
+    }
+    .icon-header {
+        margin-right: 40px;
+    }
+    .icon-header i {
+        font-size: 20px;
+    }
+    .header .menu-btn {
+        top: 3px;
+        padding-left: 310px;
+        font-size: 24px;
+    }
+    .container {
+        width: 88%;
+    }
+    .conbtn {
+        font-size: 12px;
+    }
+    .card {
+        width: 48%;
+        height: 390px;
+        margin-right: 0;
+    }
+    .product-details {
+        gap: 12px;
+    }
+
+    .gravel img {
+        top: 13px;
+    }
+    .paint img {
+        top: 10px;
+    }
+    .image {
+        height: 180px;
+    }
+    .title {
+        height: 90px;
+    }
+    .title h2 {
+        text-align: left;
+    }
+    .left, .center, .right{
+        width: 100%;
+    }
+    footer .logo a{
+        text-align: center;
+    }
+    .tagline p, .socmed {
+        padding-left: 0;
+        text-align: center;
+    }
+    .tagline p{
+        font-size: 9px;
+    }
+    .center, .left{
+        height: 120px;
+    }
+    .center i{
+        padding-left: 100px;
+    }
+    .center h2 {
+        padding: 0 0 10px 0;
+        text-align: center;
+    }
+    .center p {
+        padding: 5px 20px 5px 120px;
+    }
+    .center i {
+        padding-top: 10px;
+        text-align: center;
+    }
+    .right{
+        height: 210px;
+    }
+    .right h2 {
+        padding-top: 10px;
+        text-align: center;
+    }
+    .right p {
+        padding: 10px 0;
+        text-align: center;
+    }
+    .policy{
+        border-top: 1px solid #000;
+    }
+    .policy p{
+        margin: 10px;
+        display: list-item;
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 320px){
+    .header .menu-btn {
+        top: 5px;
+        padding-left: 260px;
+        font-size: 22px;
+    }
+    .header .logo a {
+        font-size: 18px;
+    }
+    .card {
+        width: 47%;
+    }
+    .products h1 {
+        font-size: 25px;
+    }
+    .conbtn {
+        font-size: 10px;
+    }
+    .con-items button {
+        margin: 2px;
+    }
+    .product-details {
+        gap: 16px;
+    }
+    .cement img {
+        top: 10PX;
+    }
+    .gravel img {
+        top: 27px;
+    }
+    .pipes img {
+        top: 50px;
+    }
+    .paint img {
+        top: 20px;
+    }
+}
+
+
+
