@@ -93,10 +93,8 @@ function getRow($conn, $row_id, $id, $table)
 
 
 // DISPLAY CART
-function displayCart($user_id)
+function displayCart($conn, $user_id)
 {
-	global $conn;
-
 	try {
 
 		$stmt = $conn->prepare("SELECT products.product_id, products.img, products.name, products.price, cart.cart_id, cart.quantity, (cart.quantity * products.price) AS total FROM cart INNER JOIN products ON cart.product_id = products.product_id WHERE cart.user_id = :user_id");
@@ -110,9 +108,11 @@ function displayCart($user_id)
 				$total_amount += $row['total'];
 			}
 			unset($row);
-			return array('rows' => $rows, 'total_amount' => $total_amount,);
+			// return array('rows' => $rows, 'total_amount' => $total_amount,);
+			return $rows;
 		} else {
-			return array('message' => "There are no items in your cart.", 'total_amount' => 0);
+			$empty = [];
+			return $empty;
 		}
 	} catch (PDOException  $error) {
 		return  "<strong>ERROR: </strong> " . $error->getMessage();
@@ -298,6 +298,20 @@ function addToCart($conn, $user_id, $product_id)
 			$stmt->bindParam(':product_id', $product_id);
 			$stmt->execute();
 		}
+	} catch (PDOException  $error) {
+		return  "<strong>ERROR: </strong> " . $error->getMessage();
+	}
+}
+
+// Count products
+function countCartItems($conn, $user_id)
+{
+	try {
+		$stmt = $conn->prepare("SELECT COUNT(*) as count FROM cart WHERE user_id = :user_id");
+		$stmt->execute(array('user_id' => $user_id));
+		$row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+		return $row['count'];
 	} catch (PDOException  $error) {
 		return  "<strong>ERROR: </strong> " . $error->getMessage();
 	}

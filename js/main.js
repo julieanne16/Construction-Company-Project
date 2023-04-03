@@ -1,4 +1,7 @@
 $(document).ready(function () {
+	// Call the updateCartCount() function every 5 seconds
+	updateCartCount();
+
 	// Responsive Navbar Toggler
 	$('#navToggler').on('click', function () {
 		if ($('.navbar-nav').css('display') === 'none') {
@@ -289,12 +292,30 @@ $(document).ready(function () {
 			data: { product_id: productId },
 		})
 			.then(function (response) {
-				console.log(response);
+				// update cart count
+				updateCartCount();
 			})
 			.catch(function (error) {
 				console.log(error);
 			});
 	});
+
+	function updateCartCount() {
+		$.ajax({
+			url: 'ajax.php',
+			type: 'POST',
+			data: { action: 'update_cart_count' },
+			dataType: 'json',
+		})
+			.then(function (response) {
+				console.log(response);
+				// Update the cart count in the HTML code
+				$('#cart-count').text(response);
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
+	}
 
 	// End
 });

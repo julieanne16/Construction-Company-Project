@@ -70,7 +70,7 @@
 			<li class="nav-item">
 				<a href="cart.php" class="nav-link cart">
 					<i class="fa-solid fa-basket-shopping"></i>
-					<span>0</span>
+					<span id="cart-count"></span>
 				</a>
 			</li>
 		</ul>
