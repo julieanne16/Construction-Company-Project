@@ -257,13 +257,11 @@ $(document).ready(function () {
 	});
 
 	// Filtering
-
 	$('.category-item').click(function () {
 		$('.category-item').removeClass('category-active');
 		$(this).addClass('category-active');
 
 		let category = $(this).text().toLowerCase();
-		console.log(category);
 
 		$.ajax({
 			url: 'get-products.php',
@@ -272,8 +270,26 @@ $(document).ready(function () {
 			data: { category: category },
 		})
 			.then(function (response) {
-				console.log(response);
 				$('#product-wrap').html(response);
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
+	});
+
+	// Add items to cart
+	$('.add-to-cart').click(function (e) {
+		e.preventDefault();
+
+		let productId = $(this).data('product-id');
+
+		$.ajax({
+			url: 'add-to-cart.php',
+			type: 'POST',
+			data: { product_id: productId },
+		})
+			.then(function (response) {
+				console.log(response);
 			})
 			.catch(function (error) {
 				console.log(error);

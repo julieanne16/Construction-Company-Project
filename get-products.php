@@ -24,9 +24,12 @@ $products = filter($conn, $category);
 				<p>$ <?php echo $product['price'] ?></p>
 			</div>
 			<div class="btn-group">
-				<a href="cart.php">Add Cart <i class="fa-solid fa-basket-shopping"></i></a>
+				<a href="#" class="add-to-cart" data-product-id="<?php echo $product['product_id'] ?>">Add Cart <i class="fa-solid fa-basket-shopping"></i></a>
 				<a href="details.php">View Details <i class="fa-solid fa-info"></i></a>
 			</div>
 		</div>
 	<?php endforeach; ?>
 <?php endif; ?>
+
+<script src="js/jquery-3.6.0.min.js"></script>
+<script src="js/main.js"></script>

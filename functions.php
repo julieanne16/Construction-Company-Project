@@ -189,6 +189,7 @@ function update($table, $idField, $idValue, $fieldsToUpdate)
 	// Execute the query
 	$stmt->execute();
 }
+
 function checkOut($user_id)
 {
 	global $conn;
@@ -232,7 +233,7 @@ function editPass($conn, $password)
 				'message' => 'Password does not match'
 			);
 		} else {
-			
+
 
 			$hashed_password = password_hash($password, PASSWORD_BCRYPT);
 			$stmt = $conn->prepare("UPDATE users SET password = :password WHERE id =id");
@@ -272,5 +273,32 @@ function filter($conn, $category)
 		return $products;
 	} catch (PDOException $error) {
 		return "<strong>ERROR: </strong> " . $error->getMessage();
+	}
+}
+
+// ADD CART
+function addToCart($conn, $user_id, $product_id)
+{
+	try {
+		// Check if item already exists in cart
+		$stmt = $conn->prepare("SELECT * FROM cart WHERE user_id = :user_id AND product_id = :product_id");
+		$stmt->bindParam(':user_id', $user_id);
+		$stmt->bindParam(':product_id', $product_id);
+		$stmt->execute();
+		$row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+		if ($row) { // If item already exists in cart, update the quantity
+			$stmt = $conn->prepare("UPDATE cart SET quantity = quantity + 1 WHERE user_id = :user_id AND product_id = :product_id");
+			$stmt->bindParam(':user_id', $user_id);
+			$stmt->bindParam(':product_id', $product_id);
+			$stmt->execute();
+		} else { // Otherwise, insert a new row into the cart table
+			$stmt = $conn->prepare("INSERT INTO cart (user_id, product_id, quantity, date_added) VALUES (:user_id, :product_id, 1, NOW())");
+			$stmt->bindParam(':user_id', $user_id);
+			$stmt->bindParam(':product_id', $product_id);
+			$stmt->execute();
+		}
+	} catch (PDOException  $error) {
+		return  "<strong>ERROR: </strong> " . $error->getMessage();
 	}
 }
