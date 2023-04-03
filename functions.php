@@ -122,11 +122,9 @@ function displayCart($user_id)
 
 // CRUD FUNCTIONS
 // READ OR DISPLAY QUERY
-function read($table)
+function read($conn, $table)
 {
 	try {
-		global $conn;
-
 		$stmt = $conn->prepare("SELECT * FROM $table");
 		$stmt->execute();
 
@@ -247,5 +245,32 @@ function editPass($conn, $password)
 		}
 	} catch (PDOException  $error) {
 		return  "<strong>ERROR: </strong> " . $error->getMessage();
+	}
+}
+
+// Fetch function
+function filter($conn, $category)
+{
+	try {
+		if ($category == 'all') {
+			$sql = "SELECT * FROM products";
+		} else {
+			$sql = "SELECT * FROM products WHERE category = :category";
+		}
+
+		// Prepare the SQL statement
+		$stmt = $conn->prepare($sql);
+
+		// Bind the category parameter (if applicable)
+		if ($category != 'all') {
+			$stmt->bindParam(':category', $category);
+		}
+
+		// Execute the statement and fetch the results
+		$stmt->execute();
+		$products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		return $products;
+	} catch (PDOException $error) {
+		return "<strong>ERROR: </strong> " . $error->getMessage();
 	}
 }
