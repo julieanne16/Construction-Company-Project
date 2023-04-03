@@ -255,4 +255,30 @@ $(document).ready(function () {
 	$('#confirm').click(function () {
 		window.location.href = 'logout.php';
 	});
+
+	// Filtering
+
+	$('.category-item').click(function () {
+		$('.category-item').removeClass('category-active');
+		$(this).addClass('category-active');
+
+		let category = $(this).text().toLowerCase();
+		console.log(category);
+
+		$.ajax({
+			url: 'get-products.php',
+			type: 'GET',
+			cache: false,
+			data: { category: category },
+		})
+			.then(function (response) {
+				console.log(response);
+				$('#product-wrap').html(response);
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
+	});
+
+	// End
 });
