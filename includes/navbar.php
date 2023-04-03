@@ -45,7 +45,8 @@
 								</div>
 							</div>
 							<ul>
-								<li><a href="#">Settings</a></li>
+								<li><a href="profile.php">Profile</a></li>
+								<li><a href="settings.php">Settings</a></li>
 								<li><a id="logoutBtn">Sign Out</a></li>
 							</ul>
 						</div>
