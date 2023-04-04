@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 04, 2023 at 04:19 AM
+-- Generation Time: Apr 04, 2023 at 09:36 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -91,7 +91,10 @@ INSERT INTO `cart` (`cart_id`, `user_id`, `product_id`, `quantity`, `date_added`
 (106, 5, 10, 2, '2023-04-04 10:02:12'),
 (107, 5, 8, 2, '2023-04-04 10:02:15'),
 (108, 5, 9, 4, '2023-04-04 10:02:16'),
-(109, 5, 1, 2, '2023-04-04 10:02:21');
+(109, 5, 1, 2, '2023-04-04 10:02:21'),
+(110, 9, 1, 1, '2023-04-04 15:18:07'),
+(111, 9, 3, 2, '2023-04-04 15:18:19'),
+(112, 9, 7, 15, '2023-04-04 15:35:34');
 
 -- --------------------------------------------------------
 
@@ -187,7 +190,8 @@ INSERT INTO `users` (`user_id`, `fname`, `lname`, `email`, `password`) VALUES
 (6, 'Jerome', 'Nel', 'jerome@gmail.com', '$2y$10$qZdMuKztDq3lSErqWPQZSeRGZ75C6dtK39Sm3Z6lA.XVk/9Y54waC'),
 (7, 'Sean', 'Centro', 'sean123@gmail.com', '$2y$10$8P774NYTWB4Q4VTa3VRsPe.N4xMyiaLFLs23jAC8ARwsdY3ZY1CBy'),
 (8, 'Kelly', 'Centro', 'kelly@gmail.com', '$2y$10$RH2B9Z2fwc5828SgjlZn5elgTPYCYdBYY3sbz324XPgukTQZAUrGi'),
-(9, 'Jerome', 'Nel', 'jerome1234@gmail.com', '$2y$10$uj0/ZU48p3nlJSYHJ3EFeuQodSrQheRsczp4inN6mVHZabhe77LfK');
+(9, 'Jerome', 'Nel', 'jerome1234@gmail.com', '$2y$10$uj0/ZU48p3nlJSYHJ3EFeuQodSrQheRsczp4inN6mVHZabhe77LfK'),
+(10, 'Jerome', 'Nel', 'jerome123456@gmail.com', '$2y$10$/FnfUkhu7m8g07QaU75s2OxId/q12.xpHqDicwz49EO0ZrpyGl5rq');
 
 --
 -- Indexes for dumped tables
@@ -225,7 +229,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
 
 --
 -- AUTO_INCREMENT for table `checkout`
@@ -243,7 +247,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
