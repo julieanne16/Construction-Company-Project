@@ -32,6 +32,12 @@
 			<li class="nav-item">
 				<a href="index.php#contact" class="nav-link">CONTACT US</a>
 			</li>
+			<!-- Search Icon -->
+			<li class="nav-item">
+				<a href="" class="nav-link">
+					<i class="fa-solid fa-magnifying-glass"></i>
+				</a>
+			</li>
 			<?php if (isset($_SESSION['account_id'])) : ?>
 				<li class="nav-item dropdown-toggle">
 					<a class="nav-link">
@@ -45,9 +51,9 @@
 								</div>
 							</div>
 							<ul>
-								<li><a href="profile.php">Profile</a></li>
-								<li><a href="settings.php">Settings</a></li>
-								<li><a id="logoutBtn">Sign Out</a></li>
+								<li><a href="profile.php">VIEW PROFILE</a></li>
+								<li><a href="settings.php">SETTINGS</a></li>
+								<li><a id="logoutBtn">SIGN OUT</a></li>
 							</ul>
 						</div>
 					</a>
@@ -62,15 +68,11 @@
 			<?php endif; ?>
 			<!-- Basket Icon -->
 			<li class="nav-item">
-				<a href="" class="nav-link">
-					<i class="fa-solid fa-magnifying-glass"></i>
-				</a>
-			</li>
-			<!-- Basket Icon -->
-			<li class="nav-item">
 				<a href="cart.php" class="nav-link cart">
 					<i class="fa-solid fa-basket-shopping"></i>
-					<span id="cart-count"></span>
+					<?php if (isset($_SESSION['account_id'])) : ?>
+						<span id="cart-count"></span>
+					<?php endif; ?>
 				</a>
 			</li>
 		</ul>
