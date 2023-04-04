@@ -25,6 +25,7 @@ require_once 'functions.php';
 			<li class="category-item">plyboard</li>
 			<li class="category-item">cinderblock</li>
 		</ul>
+		<h3 class="category-selected">Showing <span id="category-value">ALL</span> products</h3>
 
 		<div id="product-wrap" class="products">
 			<!-- fetch the products here using ajax -->
