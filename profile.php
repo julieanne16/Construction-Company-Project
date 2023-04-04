@@ -14,7 +14,7 @@ require_once 'functions.php';
 $user_id = $_SESSION['account_id'];
 
 // Get user info
-$user = getRow($conn, 'user_id', $user_id, 'users');
+// $user = getRow($conn, 'user_id', $user_id, 'users');
 
 // print_r($user);
 ?>
