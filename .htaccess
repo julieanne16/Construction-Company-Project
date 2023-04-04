@@ -1,5 +1,6 @@
+Options -Indexes
 RewriteEngine On
 
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php/$1 [L]
+# Rewrite requests for "login" to "login.php"
+RewriteRule ^login login.php [NC,L]
+RewriteRule ^register register.php [NC,L]
