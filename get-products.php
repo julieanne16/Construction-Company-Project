@@ -1,5 +1,10 @@
 <?php
 
+//  checks if a session has already been started
+if (session_status() == PHP_SESSION_NONE) {
+	session_start();
+}
+
 require_once 'functions.php';
 
 // Set default category to "All" if none is provided
@@ -21,10 +26,14 @@ $products = filter($conn, $category);
 			<div class="product-info">
 				<p><?php echo $product['name'] ?></p>
 				<p><?php echo $product['category'] ?></p>
-				<p>$ <?php echo $product['price'] ?></p>
+				<p>₱ <?php echo $product['price'] . ".00" ?></p>
 			</div>
 			<div class="btn-group">
-				<a href="#" class="add-to-cart" data-product-id="<?php echo $product['product_id'] ?>">Add Cart <i class="fa-solid fa-basket-shopping"></i></a>
+				<?php if (!isset($_SESSION['account_id'])) : ?>
+					<a href="login.php">Add to Cart <i class="fa-solid fa-basket-shopping"></i></a>
+				<?php else : ?>
+					<a class="add-to-cart" data-product-id="<?php echo $product['product_id'] ?>">Add to Cart <i class="fa-solid fa-basket-shopping"></i></a>
+				<?php endif; ?>
 				<a href="details.php">View Details <i class="fa-solid fa-info"></i></a>
 			</div>
 		</div>
