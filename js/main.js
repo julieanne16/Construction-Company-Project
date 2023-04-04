@@ -274,6 +274,8 @@ $(document).ready(function () {
 		})
 			.then(function (response) {
 				$('#product-wrap').html(response);
+				$('#category-value').html(category);
+				$('#category-value').css('text-transform', 'uppercase');
 			})
 			.catch(function (error) {
 				console.log(error);
@@ -308,7 +310,7 @@ $(document).ready(function () {
 			dataType: 'json',
 		})
 			.then(function (response) {
-				console.log(response);
+				// console.log(response);
 				// Update the cart count in the HTML code
 				$('#cart-count').text(response);
 			})
@@ -316,6 +318,22 @@ $(document).ready(function () {
 				console.log(error);
 			});
 	}
+
+	// Quantity
+	let valueElement = $('.quantity-value');
+	let value = parseInt(valueElement.text());
+
+	$('i.fa-plus').click(function () {
+		value++;
+		valueElement.text(value);
+	});
+
+	$('i.fa-minus').click(function () {
+		if (value > 1) {
+			value--;
+			valueElement.text(value);
+		}
+	});
 
 	// End
 });
