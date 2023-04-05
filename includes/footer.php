@@ -19,7 +19,7 @@
 				<ul>
 					<li>
 						<i class="fa-solid fa-location-dot"></i>
-						<span>1017 Vicente Cruz St. Sampaloc, Manila Philippines</span>
+						<span>1017 Vicente Cruz St. Sampaloc,<br> Manila Philippines</span>
 					</li>
 					<li>
 						<i class="fa-solid fa-phone"></i>
@@ -36,19 +36,22 @@
 				<p class="footer-heading">Site Map</p>
 				<ul>
 					<li>
-						<a href="#">Home</a>
+						<a href="index.php#home">Home</a>
 					</li>
 					<li>
-						<a href="#">About</a>
+						<a href="index.php#about">About Us</a>
 					</li>
 					<li>
-						<a href="#">Products</a>
+						<a href="index.php#products">Products</a>
 					</li>
 					<li>
-						<a href="#">Contact Us</a>
+						<a href="register.php">Register</a>
 					</li>
 					<li>
-						<a href="#">Login</a>
+						<a href="login.php">Login</a>
+					</li>
+					<li>
+						<a href="index.php#contact">Contact Us</a>
 					</li>
 				</ul>
 			</div>

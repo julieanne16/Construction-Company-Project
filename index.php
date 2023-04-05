@@ -26,52 +26,52 @@ session_start();
 					<img src="img/products/gravel-sack.png" alt="Gravel">
 				</div>
 				<div class="card-info">
-					<a href="product-list(gravel).php"><span>gravel</span></a>
+					<a href="product-list.php"><span>gravel</span></a>
 				</div>
 			</div>
 
 			<div class="card">
 				<div class="card-img">
-					<img src="img/products/gravel-sack.png" alt="Gravel">
+					<img src="img/products/cement-sack.png" alt="Gravel">
 				</div>
 				<div class="card-info">
-				<a href="product-list(gravel).php"><span>gravel</span></a>
+					<a href="product-list.php"><span>cement</span></a>
 				</div>
 			</div>
 
 			<div class="card">
 				<div class="card-img">
-					<img src="img/products/gravel-sack.png" alt="Gravel">
+					<img src="img/products/metal-pipes.png" alt="Gravel">
 				</div>
 				<div class="card-info">
-				<a href="product-list(gravel).php"><span>gravel</span></a>
+					<a href="product-list.php"><span>pipes</span></a>
 				</div>
 			</div>
 
 			<div class="card">
 				<div class="card-img">
-					<img src="img/products/gravel-sack.png" alt="Gravel">
+					<img src="img/products/paint-bucket.png" alt="Gravel">
 				</div>
 				<div class="card-info">
-				<a href="product-list(gravel).php"><span>gravel</span></a>
+					<a href="product-list.php"><span>paint</span></a>
 				</div>
 			</div>
 
 			<div class="card">
 				<div class="card-img">
-					<img src="img/products/gravel-sack.png" alt="Gravel">
+					<img src="img/products/plyboard.png" alt="Gravel">
 				</div>
 				<div class="card-info">
-				<a href="product-list(gravel).php"><span>gravel</span></a>
+					<a href="product-list.php"><span>plyboard</span></a>
 				</div>
 			</div>
 
 			<div class="card">
 				<div class="card-img">
-					<img src="img/products/gravel-sack.png" alt="Gravel">
+					<img src="img/products/cinderblock.png" alt="Gravel">
 				</div>
 				<div class="card-info">
-				<a href="product-list(gravel).php"><span>gravel</span></a>
+					<a href="product-list.php"><span>cinderblock</span></a>
 				</div>
 			</div>
 		</div>

@@ -1,0 +1,6 @@
+Options -Indexes
+RewriteEngine On
+
+# Rewrite requests for "login" to "login.php"
+RewriteRule ^login login.php [NC,L]
+RewriteRule ^register register.php [NC,L]
