@@ -85,7 +85,7 @@ if (isset($_POST['update'])) {
 						</div>
 
 						<input type="hidden" name="hidden_id">
-						<button class="form-btn" name="editPass">SAVE CHANGES</button>
+						<button class="form-btn" name="editEmail">SAVE CHANGES</button>
 						<button class="form-btn-cancel">CANCEL</button>
 					</form>
 				</div>
@@ -110,7 +110,7 @@ if (isset($_POST['update'])) {
 						</div>
 
 						<input type="hidden" name="hidden_id">
-						<button class="form-btn" name="updateUser">SAVE CHANGES</button>
+						<button class="form-btn" name="editPass">SAVE CHANGES</button>
 						<button class="form-btn-cancel">CANCEL</button>
 					</form>
 				</div>

@@ -316,3 +316,33 @@ function countCartItems($conn, $user_id)
 		return  "<strong>ERROR: </strong> " . $error->getMessage();
 	}
 }
+function editEmail($conn, $email)
+{
+	try {
+		// Check if email is already registered
+		$stmt = $conn->prepare("SELECT COUNT(*) FROM users WHERE email = :email");
+		$stmt->execute(array(':email' => $email));
+		$count = $stmt->fetchColumn();
+
+		// Email is already registered
+		if ($count > 0) {
+			return array(
+				'status' => false,
+				'message' => 'This email is already registered'
+			);
+		} else {
+			// Email is not registered, insert new user into database
+
+			$hashed_password = password_hash($password, PASSWORD_BCRYPT);
+			$stmt = $conn->prepare("UPDATE INTO users (email) VALUES (:email,");
+			$stmt->execute(array(':email' => $email));
+
+			$_SESSION['registered'] = true;
+			return array(
+				'status' => true,
+			);
+		}
+	} catch (PDOException  $error) {
+		return  "<strong>ERROR: </strong> " . $error->getMessage();
+	}
+}
