@@ -346,3 +346,29 @@ function editEmail($conn, $email)
 		return  "<strong>ERROR: </strong> " . $error->getMessage();
 	}
 }
+
+function updatUser($conn, $fname, $lname)
+{
+	try {	
+
+		$data = [
+			'name' => $fname,
+			'surname' => $lname,
+		];
+		$sql = "UPDATE users SET fname=:fname, lname=:lname WHERE id=:id";
+		$stmt= $pdo->prepare($sql);
+		$stmt->execute($data);
+
+			// $stmt = $conn->prepare("INSERT INTO users (fname, lname) VALUES (:fname, :lname");
+			// $stmt->execute(array(':fname' => $fname, ':lname' => $lname));
+
+
+			// $_SESSION['registered'] = true;
+			// return array(
+			// 	'status' => true,
+			// );
+		
+	} catch (PDOException  $error) {
+		return  "<strong>ERROR: </strong> " . $error->getMessage();
+	}
+}
