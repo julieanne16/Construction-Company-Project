@@ -352,8 +352,8 @@ function updatUser($conn, $fname, $lname)
 	try {	
 
 		$data = [
-			'name' => $fname,
-			'surname' => $lname,
+			'fname' => $fname,
+			'lname' => $lname,
 		];
 		$sql = "UPDATE users SET fname=:fname, lname=:lname WHERE id=:id";
 		$stmt= $pdo->prepare($sql);
