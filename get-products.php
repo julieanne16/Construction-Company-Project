@@ -25,7 +25,7 @@ $products = filter($conn, $category);
 			</div>
 			<div class="product-info">
 				<p><?php echo $product['name'] ?></p>
-				<p><?php echo $product['category'] ?></p>
+				<!-- <p><?php echo $product['category'] ?></p> -->
 				<p>₱ <?php echo $product['price'] . ".00" ?></p>
 			</div>
 			<div class="btn-group">
