@@ -63,6 +63,29 @@ if (isset($_POST['update'])) {
 							<input type="contact" name="contact" placeholder="Contact Number">
 						</div>
 
+						<div class="form-group">
+							<label>Current Email Address *</label>
+							<input type="email" name="email" placeholder="Current Email Address">
+						</div>
+						<div class="form-group">
+							<label>New Email Address *</label>
+							<input type="new-email" name="new-email" placeholder="New Email Address">
+						</div>
+
+						<p>Password must be atleast 6 characters</p>
+						<div class="form-group">
+							<label>Current Password *</label>
+							<input type="password" name="c-pass" placeholder="Current Password">
+						</div>
+						<div class="form-group">
+							<label>New Password *</label>
+							<input type="password" name="n-pass" placeholder="New Password">
+						</div>
+						<div class="form-group">
+							<label>Confirm New Password *</label>
+							<input type="password" name="con-pass" placeholder="Confirm New Password">
+						</div>
+
 						<button class="form-btn" name="updateUser">SAVE CHANGES</button>
 						<button class="form-btn-cancel">CANCEL</button>
 						<input type="hidden" name="update">
@@ -72,7 +95,7 @@ if (isset($_POST['update'])) {
 
 
 			<!-- Email Content -->
-			<div id="Email" class="tabcontent">
+			<!-- <div id="Email" class="tabcontent">
 				<div class="form">
 					<form method="POST">
 						<div class="form-group">
@@ -89,10 +112,10 @@ if (isset($_POST['update'])) {
 						<button class="form-btn-cancel">CANCEL</button>
 					</form>
 				</div>
-			</div>
+			</div> -->
 
 			<!-- Password Content -->
-			<div id="Password" class="tabcontent">
+			<!-- <div id="Password" class="tabcontent">
 				<div class="form">
 					<form method="POST">
 						<p>Password must be atleast 6 characters</p>
@@ -114,7 +137,7 @@ if (isset($_POST['update'])) {
 						<button class="form-btn-cancel">CANCEL</button>
 					</form>
 				</div>
-			</div>
+			</div> -->
 		</div>
 
 	</div>
