@@ -334,7 +334,7 @@ function editEmail($conn, $email)
 			// Email is not registered, insert new user into database
 
 			$hashed_password = password_hash($password, PASSWORD_BCRYPT);
-			$stmt = $conn->prepare("UPDATE INTO users (email) VALUES (:email,");
+			$stmt = $conn->prepare("UPDATE INTO users (email) VALUES (:email");
 			$stmt->execute(array(':email' => $email));
 
 			$_SESSION['registered'] = true;
