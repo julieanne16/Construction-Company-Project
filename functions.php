@@ -372,3 +372,33 @@ function updatUser($conn, $fname, $lname)
 		return  "<strong>ERROR: </strong> " . $error->getMessage();
 	}
 }
+
+if(isset($_POST['update_User']))
+{
+    $student_id = mysqli_real_escape_string($con, $_POST['user_id']);
+
+	$profile = mysqli_real_escape_string($con, $_POST['profile']);
+    $fname = mysqli_real_escape_string($con, $_POST['fname']);
+	$lname = mysqli_real_escape_string($con, $_POST['lname']);
+	$phone = mysqli_real_escape_string($con, $_POST['phone']);
+    $email = mysqli_real_escape_string($con, $_POST['email']);
+    $password = mysqli_real_escape_string($con, $_POST['password']);
+    
+
+    $query = "UPDATE students SET profile='$profile',fname='$fname',lname='$lname', phone='$phone', email='$email', password='$password' WHERE id='$user_id' ";
+    $query_run = mysqli_query($con, $query);
+
+    if($query_run)
+    {
+        $_SESSION['message'] = "Updated User Successfully";
+        header("Location: index.php");
+        exit(0);
+    }
+    else
+    {
+        $_SESSION['message'] = "User Not Updated";
+        header("Location: index.php");
+        exit(0);
+    }
+
+}
