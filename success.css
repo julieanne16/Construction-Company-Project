@@ -94,6 +94,7 @@ main{
     padding-bottom: 12px;
 }
 .success h1{
+    margin-bottom: 20px;
     text-align: center;
     color:  #364A46;
     font-size: 50px;
@@ -103,6 +104,7 @@ main{
     color:  #364A46;
     font-size: 16px;
     font-weight: 500;
+    line-height: 1.5;
 }
 .success span{
     font-size: 16px;
@@ -125,7 +127,10 @@ main{
     color: #364A46;
     font-weight: 600;
 }
-
+.btn .form-btn:hover{
+    color: #ffffff;
+    background-color: #364A46;
+}
 
 
 /* footer */
@@ -245,14 +250,24 @@ footer .logo a span{
 
 /*Responsive Media Query*/
 @media (max-width: 1024px) {
+    .header .logo a{
+        font-size: 22px;
+    }
     .nav {
-        width: 420px;
+        width: 380px;
     }
     .nav a{
-        font-size: 13px;
+        font-size: 12px;
+        margin-left: 10px;
     }
    .btn {
-    padding-left: 410px;
+    padding-left: 250px;
+   }
+   .container{
+    width: 69%;
+   }
+   .success h1{
+    font-size: 37px;
    }
     footer .column {
         padding: 0;
@@ -298,23 +313,26 @@ footer .logo a span{
         top: 17px;
         color: #000;
         font-size: 23px;
-        padding-left: 470px;
+        padding-left: 370px;
     }
     .icon-header{
         margin-right: 25px;
     }
     .container {
-        margin: 0 120px;
-        width: 80%;
+        margin: 0 110px;
+        width: 70%;
     }
    .success h1{
-        font-size: 33px;
+        font-size: 27px;
    }
    .success p{
         font-size: 15px;
     }
+    .top i{
+        font-size: 60px;
+    }
     .btn{
-        padding-left: 210px;
+        padding-left: 170px;
     }
     footer .logo a {
         padding-left: 120px;
@@ -349,7 +367,7 @@ footer .logo a span{
     }
     .header .menu-btn {
         top: 6px;
-        padding-left: 310px;
+        padding-left: 285px;
     }
     .container {
         width: 70%;
@@ -369,7 +387,7 @@ footer .logo a span{
     }
     .btn {
         padding-top: 10px;
-        padding-left: 150px;
+        padding-left: 130px;
     }
     .btn .form-btn{
         font-size: 12px;
@@ -428,27 +446,33 @@ footer .logo a span{
     }
     .header .menu-btn {
         top: 3px;
-        padding-left: 230px;
+        padding-left: 262px;
         font-size: 20px;
     }
     .container {
-        width: 88%;
+        width: 90%;
         margin: 0 20px;
     }
     .success h1{
-        font-size: 16px;
+        font-size: 15px;
     }
     .success p{
         font-size: 8px;
     }
    .btn{
-    padding-left: 115px;
+    padding-left: 75px;
    }
    .btn .form-btn{
     font-size: 8px;
    }
+   .top i{
+    margin-left: 20px;
+   }
     footer .logo a{
         text-align: center;
+    }
+    .left, .center, .right{
+        width: 100%;
     }
     .tagline p, .socmed {
         padding-left: 0;
