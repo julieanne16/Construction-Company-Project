@@ -62,17 +62,21 @@ require_once 'functions.php';
 						</div>
 						<div class="form-group">
 							<label>Contact Number *</label>
-							<input type="contact" name="contact" placeholder="Contact Number">
+							<input type="phone" name="phone" placeholder="Contact Number">
 						</div>
 
-						<div class="form-group">
+						<!-- <div class="form-group">
 							<label>Current Email Address *</label>
 							<input type="email" name="email" placeholder="Current Email Address">
 						</div>
 						<div class="form-group">
 							<label>New Email Address *</label>
 							<input type="new-email" name="new-email" placeholder="New Email Address">
-						</div>
+						</div> -->
+						
+						<input type="hidden" name="hidden_id">
+						<button class="form-btn" name="updateName">SAVE CHANGES</button>
+						<button class="form-btn-cancel">CANCEL</button>
 
 						
 					</form>
@@ -81,24 +85,24 @@ require_once 'functions.php';
 
 
 			<!-- Email Content -->
-			<!-- <div id="Email" class="tabcontent">
+			<div id="Email" class="tabcontent">
 				<div class="form">
 					<form method="POST">
 						<div class="form-group">
 							<label>Current Email Address *</label>
-							<input type="email" name="email" placeholder="Current Email Address">
+							<input type="email" name="cmail" placeholder="Current Email Address">
 						</div>
 						<div class="form-group">
 							<label>New Email Address *</label>
-							<input type="new-email" name="new-email" placeholder="New Email Address">
+							<input type="newmail" name="newmail" placeholder="New Email Address">
 						</div>
 
 						<input type="hidden" name="hidden_id">
-						<button class="form-btn" name="editEmail">SAVE CHANGES</button>
+						<button class="form-btn" name="updateEmail">SAVE CHANGES</button>
 						<button class="form-btn-cancel">CANCEL</button>
 					</form>
 				</div>
-			</div> -->
+			</div>
 
 			<!-- Password Content -->
 			 <div id="Password" class="tabcontent">
@@ -119,7 +123,7 @@ require_once 'functions.php';
 						</div>
 
 						<input type="hidden" name="hidden_id">
-						<button class="form-btn" name="npass">SAVE CHANGES</button>
+						<button class="form-btn" name="updatePass">SAVE CHANGES</button>
 						<button class="form-btn-cancel">CANCEL</button>
 					</form>
 				</div>

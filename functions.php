@@ -437,13 +437,20 @@ function countCartItems($conn, $user_id)
 function updatePass($conn, $cpass, $conpass, $npass, $password)
 {
 	try {
-		$password = $_POST['password'];
-		$confirm_password = $_POST['confirm_password']; 
+		$npass = $_POST['npass'];
+		$conpass = $_POST['conpass']; 
 
-		if($password == $confirm_password){
+		if($npass == $conpass){
+			
+		
+		} elseif($count > 0) {
+			return array(
+				'status' => false,
+				'message' => 'password requires 6 characters'
+			);
 
-			$stmt = $conn->prepare("UPDATE password SET password = :npass WHERE id=:id");
-			$stmt->execute([':npass' => password_hash($password), ':id'=> $id]);
+			$stmt = $conn->prepare("UPDATE users SET password = :npass WHERE $user_id=:user_id");
+			$stmt->execute([':npass' => password_hash($password), ':id'=> $user_id]);
 		} else {
 			echo "error";
 		}
@@ -452,6 +459,109 @@ function updatePass($conn, $cpass, $conpass, $npass, $password)
 	}
 }
 
+function updateEmail($conn, $email, $newmail, $cmail)
+{
+	try {
+		$user_id = $_POST['user_id'];
+		$email = $_POST['newmail'];
+		$cmail = $_POST['cmail']; 
+
+		if($cmail == $newmail){
+
+			$stmt = $conn->prepare("UPDATE users SET newemail = :email WHERE $user_id=:user_id");
+			$pdo->prepare($sql)->execute($data);
+		} else {
+			echo "error";
+		}
+	} catch (PDOException  $error) {
+		return  "<strong>ERROR: </strong> " . $error->getMessage();
+	}
+}
+
+// function updateName($conn, $fname, $lname, $contact)
+// {
+// 	try {
+// 		// $user_id = $_POST['user_id'];
+// 		// $fname = $_POST['fname'];
+// 		// $lname = $_POST['lname'];
+// 		// $phone = $_POST['contact']; 
+// 		$data = [
+// 			'fname' => $fname,
+// 			'lname' => $lname,
+// 			'contact' => $phone,
+// 			'user_id' => $user_id,
+// 		];
+// 		$sql = "UPDATE users SET fname=:fname, lname=:lname, contact=:phone WHERE $user_id=:id";
+// 		$stmt= $pdo->prepare($sql);
+// 		$stmt->execute($data);
+
+// 	} catch (PDOException  $error) {
+// 		return  "<strong>ERROR: </strong> " . $error->getMessage();
+// 	}
+// }
+
+function updateName($conn, $fname, $lname, $contact)
+{
+try{
+
+$sql = $sql = "UPDATE `users` SET `fname` = :fname,  
+`lname` = :lname, `contact` = :phone WHERE `user_id` = :user_id";
+
+ $statement = $conn->prepare($sql);
+ $statement->bindValue(":fname", $fname);
+ $statement->bindValue(":lname", $lname);
+ $statement->bindValue(":contact", $phone);
+ $count = $statement->execute();
+
+  $conn = null;        // Disconnect
+}
+catch(PDOException $e) {
+  echo $e->getMessage();
+}
+}
+
+
+
+// if (isset($_POST['updateInfo'])) {
+
+// 	$user_id = $_POST['user_id'];
+
+// 	$fname = $_POST['fname'];
+
+// 	$lname = $_POST['lname'];
+
+// 	$phone = $_POST['phone'];
+
+// 	$sql = "UPDATE `users` SET `fname`='$fname',`lname`='$lname',`phone`='$phone' WHERE `user_id`='$user_id'"; 
+
+// 	$result = $conn->query($sql); 
+
+// 	if ($result == TRUE) {
+
+// 		echo "Record updated successfully.";
+
+// 	}else{
+
+// 		echo "Error:" . $sql . "<br>" . $conn->error;
+
+// 	}
+
+// } 
+function updateInfo($conn, $fname, $lname, $contact)
+{
+	global $conn;
+
+	// Construct the SQL query
+	$stmt = $conn->prepare("UPDATE users SET (fname, lname, phone) VALUES (:fname, :lname, :phone)");
+			$stmt->execute(array(':fname' => $fname, ':lname' => $lname, ':phone' => $phone));
+
+			$_SESSION['registered'] = true;
+			return array(
+				'status' => true,
+			);
+	// Execute the query
+	$stmt->execute();
+}
 
 
 ?>
