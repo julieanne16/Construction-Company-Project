@@ -8,17 +8,17 @@ if (session_status() == PHP_SESSION_NONE) {
 // require_once 'changepass.php';
 require_once 'functions.php';
 
-if (isset($_POST['update'])) {
-	$id = $_POST["id"];
-	$where = array("id" => $id);
-	$fname = $_POST['fname'];
-	$lname = $_POST['lname'];
-	$email = $_POST['email'];
-	$password = $_POST['password'];
+// if (isset($_POST['update'])) {
+// 	$id = $_POST["id"];
+// 	$where = array("id" => $id);
+// 	$fname = $_POST['fname'];
+// 	$lname = $_POST['lname'];
+// 	$email = $_POST['email'];
+// 	$password = $_POST['password'];
 
 
-	// 	$res = $editUsers->update_record('users',$where,['first_name'=>$fname,'last_name'=>$lname,'email'=>$email,'passord'=>$password]);
-}
+// 	// 	$res = $editUsers->update_record('users',$where,['first_name'=>$fname,'last_name'=>$lname,'email'=>$email,'passord'=>$password]);
+// }
 ?>
 
 
@@ -51,6 +51,8 @@ if (isset($_POST['update'])) {
 				<div class="form">
 					<form id="updateUser" method="POST">
 						<div class="form-group">
+						<input type="hidden" name="user_id" value="<?= $user_id['user_id']; ?>">
+
 							<label>First Name *</label>
 							<input type="fname" name="fname" placeholder="First Name">
 						</div>
@@ -60,7 +62,7 @@ if (isset($_POST['update'])) {
 						</div>
 						<div class="form-group">
 							<label>Contact Number *</label>
-							<input type="contact" name="contact" placeholder="Contact Number">
+							<input type="phone" name="phone" placeholder="Contact Number">
 						</div>
 
 						<div class="form-group">
@@ -70,25 +72,13 @@ if (isset($_POST['update'])) {
 						<div class="form-group">
 							<label>New Email Address *</label>
 							<input type="new-email" name="new-email" placeholder="New Email Address">
-						</div>
-
-						<p>Password must be atleast 6 characters</p>
-						<div class="form-group">
-							<label>Current Password *</label>
-							<input type="password" name="c-pass" placeholder="Current Password">
-						</div>
-						<div class="form-group">
-							<label>New Password *</label>
-							<input type="password" name="n-pass" placeholder="New Password">
-						</div>
-						<div class="form-group">
-							<label>Confirm New Password *</label>
-							<input type="password" name="con-pass" placeholder="Confirm New Password">
-						</div>
-
-						<button class="form-btn" name="updateUser">SAVE CHANGES</button>
+						</div> 
+						
+						<input type="hidden" name="hidden_id">
+						<button class="form-btn" name="">SAVE CHANGES</button>
 						<button class="form-btn-cancel">CANCEL</button>
-						<input type="hidden" name="update">
+
+						
 					</form>
 				</div>
 			</div>
@@ -97,47 +87,47 @@ if (isset($_POST['update'])) {
 			<!-- Email Content -->
 			<!-- <div id="Email" class="tabcontent">
 				<div class="form">
-					<form method="POST">
+				<form method="POST">
 						<div class="form-group">
 							<label>Current Email Address *</label>
-							<input type="email" name="email" placeholder="Current Email Address">
+							<input type="email" name="cmail" placeholder="Current Email Address">
 						</div>
 						<div class="form-group">
 							<label>New Email Address *</label>
-							<input type="new-email" name="new-email" placeholder="New Email Address">
+							<input type="newmail" name="newmail" placeholder="New Email Address">
 						</div>
 
 						<input type="hidden" name="hidden_id">
-						<button class="form-btn" name="editEmail">SAVE CHANGES</button>
+						<button class="form-btn" name="updateEmail">SAVE CHANGES</button>
 						<button class="form-btn-cancel">CANCEL</button>
 					</form>
 				</div>
-			</div> -->
+			</div>	 -->
 
 			<!-- Password Content -->
-			<!-- <div id="Password" class="tabcontent">
+			 <div id="Password" class="tabcontent">
 				<div class="form">
 					<form method="POST">
 						<p>Password must be atleast 6 characters</p>
 						<div class="form-group">
 							<label>Current Password *</label>
-							<input type="password" name="c-pass" placeholder="Current Password">
+							<input type="password" name="cpass" placeholder="Current Password">
 						</div>
 						<div class="form-group">
 							<label>New Password *</label>
-							<input type="password" name="n-pass" placeholder="New Password">
+							<input type="password" name="npass" placeholder="New Password">
 						</div>
 						<div class="form-group">
 							<label>Confirm New Password *</label>
-							<input type="password" name="con-pass" placeholder="Confirm New Password">
+							<input type="password" name="conpass" placeholder="Confirm New Password">
 						</div>
 
 						<input type="hidden" name="hidden_id">
-						<button class="form-btn" name="editPass">SAVE CHANGES</button>
+						<button class="form-btn" name="updatePass">SAVE CHANGES</button>
 						<button class="form-btn-cancel">CANCEL</button>
 					</form>
 				</div>
-			</div> -->
+			</div>
 		</div>
 
 	</div>

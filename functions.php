@@ -219,35 +219,35 @@ function checkOut($user_id)
 	}
 }
 
-function editPass($conn, $password)
-{
-	try {
+// function editPass($conn, $password)
+// {
+// 	try {
 
-		$current_password = $_POST['c-pass'];
-		$password1 = $_POST['n-pass'];
-		$password2 = $_POST['con-pass'];
+// 		$current_password = $_POST['c-pass'];
+// 		$password1 = $_POST['n-pass'];
+// 		$password2 = $_POST['con-pass'];
 
-		if ($password1 != $password2) {
-			return array(
-				'status' => false,
-				'message' => 'Password does not match'
-			);
-		} else {
+// 		if ($password1 != $password2) {
+// 			return array(
+// 				'status' => false,
+// 				'message' => 'Password does not match'
+// 			);
+// 		} else {
 
 
-			$hashed_password = password_hash($password, PASSWORD_BCRYPT);
-			$stmt = $conn->prepare("UPDATE users SET password = :password WHERE id =id");
-			$stmt->execute(array(':password' => $hashed_password));
+// 			$hashed_password = password_hash($password, PASSWORD_BCRYPT);
+// 			$stmt = $conn->prepare("UPDATE users SET password = :password WHERE id =id");
+// 			$stmt->execute(array(':password' => $hashed_password));
 
-			$_SESSION['registered'] = true;
-			return array(
-				'status' => true,
-			);
-		}
-	} catch (PDOException  $error) {
-		return  "<strong>ERROR: </strong> " . $error->getMessage();
-	}
-}
+// 			$_SESSION['registered'] = true;
+// 			return array(
+// 				'status' => true,
+// 			);
+// 		}
+// 	} catch (PDOException  $error) {
+// 		return  "<strong>ERROR: </strong> " . $error->getMessage();
+// 	}
+// }
 
 // Fetch function
 function filter($conn, $category)
@@ -316,59 +316,252 @@ function countCartItems($conn, $user_id)
 		return  "<strong>ERROR: </strong> " . $error->getMessage();
 	}
 }
-function editEmail($conn, $email)
+// function editEmail($conn, $email)
+// {
+// 	try {
+// 		// Check if email is already registered
+// 		$stmt = $conn->prepare("SELECT COUNT(*) FROM users WHERE email = :email");
+// 		$stmt->execute(array(':email' => $email));
+// 		$count = $stmt->fetchColumn();
+
+// 		// Email is already registered
+// 		if ($count > 0) {
+// 			return array(
+// 				'status' => false,
+// 				'message' => 'This email is already registered'
+// 			);
+// 		} else {
+// 			// Email is not registered, insert new user into database
+
+// 			$hashed_password = password_hash($password, PASSWORD_BCRYPT);
+// 			$stmt = $conn->prepare("UPDATE INTO users (email) VALUES (:email");
+// 			$stmt->execute(array(':email' => $email));
+
+// 			$_SESSION['registered'] = true;
+// 			return array(
+// 				'status' => true,
+// 			);
+// 		}
+// 	} catch (PDOException  $error) {
+// 		return  "<strong>ERROR: </strong> " . $error->getMessage();
+// 	}
+// }
+
+// function updatUser($conn, $fname, $lname)
+// {
+// 	try {	
+
+// 		$data = [
+// 			'fname' => $fname,
+// 			'lname' => $lname,
+// 		];
+// 		$sql = "UPDATE users SET fname=:fname, lname=:lname WHERE id=:id";
+// 		$stmt= $pdo->prepare($sql);
+// 		$stmt->execute($data);
+
+// 			// $stmt = $conn->prepare("INSERT INTO users (fname, lname) VALUES (:fname, :lname");
+// 			// $stmt->execute(array(':fname' => $fname, ':lname' => $lname));
+
+
+// 			// $_SESSION['registered'] = true;
+// 			// return array(
+// 			// 	'status' => true,
+// 			// );
+		
+// 	} catch (PDOException  $error) {
+// 		return  "<strong>ERROR: </strong> " . $error->getMessage();
+// 	}
+// }
+
+// if(isset($_POST['update_User']))
+// {
+//     // $user_id = $_POST['user_id'];	
+//     $fname = $_POST['fname'];
+// 	$lname = $_POST['lname'];
+// 	$phone = $_POST['contact'];
+// 	$cemail = $_POST['email'];
+//     $email = $_POST['new-email'];
+//     $pasword = $_POST['c-pass'];
+// 	$npass = $_POST['n-pass'];
+// 	$conpass = $_POST['con-pass'];
+
+//     try {
+
+//         $query = "UPDATE users SET fname=:fname, lname=:lname, contact=:phone, new-email=:email, con-pass=:password WHERE id=:user_id LIMIT 1";
+//         $statement = $conn->prepare($query);
+
+//         $data = [
+//             ':fname' => $fname,
+// 			':lname' => $lname,        
+//             ':contact' => $phone,
+// 			':cemail' => $cemail,
+// 			':new-email' => $email,
+//             ':c-pass' => $password,
+// 			':n-pass' => $npass,
+// 			':con-pass' => $conpass,
+//             // ':user_id' => $user_id
+//         ];
+//         $query_execute = $statement->execute($data);
+			
+// 			if ($_POST["n-pass"] === $_POST["con-pass"]){
+// 				// success!
+// 			}
+// 			elseif($count > 0) {
+// 					return array(
+// 						'status' => false,
+// 						'message' => 'This email is already registered'
+// 					);
+// 			}
+// 			else {
+// 				// failed :(
+// 			}
+
+//         if($query_execute)
+//         {
+//             $_SESSION['message'] = "Updated Successfully";
+//             header('Location: index.php');
+//             exit(0);
+//         }
+//         else
+//         {
+//             $_SESSION['message'] = "Not Updated";
+//             header('Location: index.php');
+//             exit(0);
+//         }
+
+//     } catch (PDOException $e) {
+//         echo $e->getMessage();
+//     }
+// }
+
+function updatePass($conn, $cpass, $conpass, $npass, $password)
 {
 	try {
-		// Check if email is already registered
-		$stmt = $conn->prepare("SELECT COUNT(*) FROM users WHERE email = :email");
-		$stmt->execute(array(':email' => $email));
-		$count = $stmt->fetchColumn();
+		$npass = $_POST['npass'];
+		$conpass = $_POST['conpass']; 
 
-		// Email is already registered
-		if ($count > 0) {
+		if($npass == $conpass){
+			
+		
+		} elseif($count > 0) {
 			return array(
 				'status' => false,
-				'message' => 'This email is already registered'
+				'message' => 'password requires 6 characters'
 			);
+
+			$stmt = $conn->prepare("UPDATE users SET password = :npass WHERE $user_id=:user_id");
+			$stmt->execute([':npass' => password_hash($password), ':id'=> $user_id]);
 		} else {
-			// Email is not registered, insert new user into database
-
-			$hashed_password = password_hash($password, PASSWORD_BCRYPT);
-			$stmt = $conn->prepare("UPDATE INTO users (email) VALUES (:email");
-			$stmt->execute(array(':email' => $email));
-
-			$_SESSION['registered'] = true;
-			return array(
-				'status' => true,
-			);
+			echo "error";
 		}
 	} catch (PDOException  $error) {
 		return  "<strong>ERROR: </strong> " . $error->getMessage();
 	}
 }
 
-function updatUser($conn, $fname, $lname)
+function updateEmail($conn, $email, $newmail, $cmail)
 {
-	try {	
+	try {
+		$user_id = $_POST['user_id'];
+		$email = $_POST['newmail'];
+		$cmail = $_POST['cmail']; 
 
-		$data = [
-			'fname' => $fname,
-			'lname' => $lname,
-		];
-		$sql = "UPDATE users SET fname=:fname, lname=:lname WHERE id=:id";
-		$stmt= $pdo->prepare($sql);
-		$stmt->execute($data);
+		if($cmail == $newmail){
 
-			// $stmt = $conn->prepare("INSERT INTO users (fname, lname) VALUES (:fname, :lname");
-			// $stmt->execute(array(':fname' => $fname, ':lname' => $lname));
-
-
-			// $_SESSION['registered'] = true;
-			// return array(
-			// 	'status' => true,
-			// );
-		
+			$stmt = $conn->prepare("UPDATE users SET newemail = :email WHERE $user_id=:user_id");
+			$pdo->prepare($sql)->execute($data);
+		} else {
+			echo "error";
+		}
 	} catch (PDOException  $error) {
 		return  "<strong>ERROR: </strong> " . $error->getMessage();
 	}
 }
+
+// function updateName($conn, $fname, $lname, $contact)
+// {
+// 	try {
+// 		// $user_id = $_POST['user_id'];
+// 		// $fname = $_POST['fname'];
+// 		// $lname = $_POST['lname'];
+// 		// $phone = $_POST['contact']; 
+// 		$data = [
+// 			'fname' => $fname,
+// 			'lname' => $lname,
+// 			'contact' => $phone,
+// 			'user_id' => $user_id,
+// 		];
+// 		$sql = "UPDATE users SET fname=:fname, lname=:lname, contact=:phone WHERE $user_id=:id";
+// 		$stmt= $pdo->prepare($sql);
+// 		$stmt->execute($data);
+
+// 	} catch (PDOException  $error) {
+// 		return  "<strong>ERROR: </strong> " . $error->getMessage();
+// 	}
+// }
+
+function updateName($conn, $fname, $lname, $contact)
+{
+try{
+
+$sql = $sql = "UPDATE `users` SET `fname` = :fname,  
+`lname` = :lname, `contact` = :phone WHERE `user_id` = :user_id";
+
+ $statement = $conn->prepare($sql);
+ $statement->bindValue(":fname", $fname);
+ $statement->bindValue(":lname", $lname);
+ $statement->bindValue(":contact", $phone);
+ $count = $statement->execute();
+
+  $conn = null;        // Disconnect
+}
+catch(PDOException $e) {
+  echo $e->getMessage();
+}
+}
+
+
+
+// if (isset($_POST['updateInfo'])) {
+
+// 	$user_id = $_POST['user_id'];
+
+// 	$fname = $_POST['fname'];
+
+// 	$lname = $_POST['lname'];
+
+// 	$phone = $_POST['phone'];
+
+// 	$sql = "UPDATE `users` SET `fname`='$fname',`lname`='$lname',`phone`='$phone' WHERE `user_id`='$user_id'"; 
+
+// 	$result = $conn->query($sql); 
+
+// 	if ($result == TRUE) {
+
+// 		echo "Record updated successfully.";
+
+// 	}else{
+
+// 		echo "Error:" . $sql . "<br>" . $conn->error;
+
+// 	}
+
+// } 
+function updateInfo($conn, $fname, $lname, $contact)
+{
+	global $conn;
+
+	// Construct the SQL query
+	$stmt = $conn->prepare("UPDATE users SET (fname, lname, phone) VALUES (:fname, :lname, :phone)");
+			$stmt->execute(array(':fname' => $fname, ':lname' => $lname, ':phone' => $phone));
+
+			$_SESSION['registered'] = true;
+			return array(
+				'status' => true,
+			);
+	// Execute the query
+	$stmt->execute();
+}
+
+
+?>
