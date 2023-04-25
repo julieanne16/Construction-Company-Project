@@ -65,17 +65,17 @@ require_once 'functions.php';
 							<input type="phone" name="phone" placeholder="Contact Number">
 						</div>
 
-						<!-- <div class="form-group">
+						<div class="form-group">
 							<label>Current Email Address *</label>
 							<input type="email" name="email" placeholder="Current Email Address">
 						</div>
 						<div class="form-group">
 							<label>New Email Address *</label>
 							<input type="new-email" name="new-email" placeholder="New Email Address">
-						</div> -->
+						</div> 
 						
 						<input type="hidden" name="hidden_id">
-						<button class="form-btn" name="updateName">SAVE CHANGES</button>
+						<button class="form-btn" name="">SAVE CHANGES</button>
 						<button class="form-btn-cancel">CANCEL</button>
 
 						
@@ -85,9 +85,9 @@ require_once 'functions.php';
 
 
 			<!-- Email Content -->
-			<div id="Email" class="tabcontent">
+			<!-- <div id="Email" class="tabcontent">
 				<div class="form">
-					<form method="POST">
+				<form method="POST">
 						<div class="form-group">
 							<label>Current Email Address *</label>
 							<input type="email" name="cmail" placeholder="Current Email Address">
@@ -102,7 +102,7 @@ require_once 'functions.php';
 						<button class="form-btn-cancel">CANCEL</button>
 					</form>
 				</div>
-			</div>
+			</div>	 -->
 
 			<!-- Password Content -->
 			 <div id="Password" class="tabcontent">
