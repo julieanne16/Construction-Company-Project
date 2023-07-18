@@ -5,10 +5,10 @@ This is a collaborative project developed for our internship. The Construction S
 ### Screenshots of the project
 
 ![](./snipshots/s1.PNG)
-![](./snipshots/ss_2.png)
-![](./snipshots/ss_3.png)
-![](./snipshots/ss_4.png)
-![](./snipshots/ss_5.png)
-![](./snipshots/ss_6.png)
-![](./snipshots/ss_7.png)
-![](./snipshots/ss_8.png)
+![](./snipshots/s2.PNG)
+![](./snipshots/s3.PNG)
+![](./snipshots/s4.PNG)
+![](./snipshots/s5.PNG)
+![](./snipshots/s6.PNG)
+![](./snipshots/s7.PNG)
+![](./snipshots/s8.PNG)
