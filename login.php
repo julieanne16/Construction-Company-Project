@@ -5,38 +5,21 @@ if (session_status() == PHP_SESSION_NONE) {
 	session_start();
 }
 
+require_once 'db/connection.php';
+require_once 'db/functions.php';
 
-require_once 'functions.php';
-
-
-if (isset($_POST['email']) && isset($_POST['password'])) {
-
-	$email = trim($_POST['email']);
-	$password = trim($_POST['password']);
-
-	// sanitize email input
-	$email = filter_var($email, FILTER_SANITIZE_EMAIL);
-
-	// sanitize password
-	$password = htmlspecialchars($password, ENT_QUOTES);
-
-	$account = login($conn, $email, $password);
-
-	echo json_encode($account);
-	exit;
-}
 ?>
-
 
 <?php require_once 'includes/header.php'; ?>
 <?php require_once 'includes/navbar.php'; ?>
 
-<section class="forms">
+<section class="forms mt">
+
 	<div class="container">
-		<h1>SIGN IN</h1>
-		<p>Please fill your email and password to login</p>
 
 		<form id="login" method="POST">
+			<h1>SIGN IN</h1>
+			<p class="subheader">Please fill your email and password to login</p>
 
 			<!-- Show message if error -->
 			<div class="invalid-form"></div>
@@ -55,7 +38,9 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 			<button type="submit" name="login" id="loginBtn" class="form-btn">SIGN IN</button>
 			<p>Don't have an account? <a href="register.php">Sign Up here</a> </p>
 		</form>
+
 	</div>
+
 </section>
 
 <?php require_once 'includes/footer.php' ?>

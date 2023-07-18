@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 04, 2023 at 09:36 AM
+-- Generation Time: May 02, 2023 at 01:09 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -29,9 +29,11 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `cart` (
   `cart_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
+  `user_id` varchar(100) NOT NULL,
   `product_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
+  `price` int(11) NOT NULL,
+  `total` int(11) NOT NULL,
   `date_added` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -39,96 +41,162 @@ CREATE TABLE `cart` (
 -- Dumping data for table `cart`
 --
 
-INSERT INTO `cart` (`cart_id`, `user_id`, `product_id`, `quantity`, `date_added`) VALUES
-(49, 3, 3, 1, '2023-03-10 18:22:35'),
-(59, 2, 1, 15, '2023-04-03 14:09:28'),
-(60, 2, 4, 7, '2023-04-03 14:09:44'),
-(61, 2, 5, 7, '2023-04-03 14:09:44'),
-(62, 2, 8, 4, '2023-04-03 14:09:46'),
-(63, 2, 9, 3, '2023-04-03 14:09:47'),
-(64, 2, 7, 27, '2023-04-03 14:16:08'),
-(65, 2, 6, 5, '2023-04-03 14:16:09'),
-(66, 2, 3, 2, '2023-04-03 14:17:58'),
-(67, 2, 12, 2, '2023-04-03 14:38:23'),
-(68, 2, 11, 2, '2023-04-03 14:38:24'),
-(69, 2, 10, 3, '2023-04-03 14:38:25'),
-(70, 6, 1, 2, '2023-04-03 14:45:12'),
-(71, 6, 4, 2, '2023-04-03 14:45:16'),
-(72, 6, 5, 4, '2023-04-03 14:45:19'),
-(73, 6, 3, 3, '2023-04-03 14:45:20'),
-(74, 6, 7, 4, '2023-04-03 14:45:22'),
-(75, 6, 8, 4, '2023-04-03 14:45:24'),
-(76, 6, 9, 8, '2023-04-03 14:45:25'),
-(77, 6, 10, 3, '2023-04-03 14:47:01'),
-(78, 6, 11, 7, '2023-04-03 14:47:02'),
-(79, 6, 12, 5, '2023-04-03 14:47:05'),
-(80, 8, 1, 4, '2023-04-03 14:50:05'),
-(81, 8, 4, 11, '2023-04-03 14:50:14'),
-(82, 8, 5, 3, '2023-04-03 14:52:59'),
-(83, 8, 9, 4, '2023-04-03 14:53:02'),
-(84, 8, 8, 3, '2023-04-03 14:53:03'),
-(85, 8, 7, 5, '2023-04-03 14:53:04'),
-(86, 8, 12, 40, '2023-04-03 14:53:10'),
-(87, 8, 11, 38, '2023-04-03 14:53:14'),
-(88, 8, 10, 6, '2023-04-03 14:53:16'),
-(89, 8, 6, 20, '2023-04-03 14:54:39'),
-(90, 8, 3, 4, '2023-04-03 15:09:01'),
-(91, 7, 4, 6, '2023-04-03 15:47:03'),
-(92, 7, 5, 1, '2023-04-03 15:47:06'),
-(93, 7, 3, 2, '2023-04-03 15:47:07'),
-(94, 7, 1, 1, '2023-04-03 15:47:08'),
-(95, 7, 8, 1, '2023-04-03 15:47:09'),
-(96, 7, 12, 1, '2023-04-03 16:33:33'),
-(97, 7, 11, 1, '2023-04-03 16:33:34'),
-(98, 6, 6, 1, '2023-04-04 05:32:50'),
-(99, 5, 3, 4, '2023-04-04 09:09:47'),
-(100, 5, 12, 2, '2023-04-04 09:14:31'),
-(101, 5, 6, 8, '2023-04-04 09:32:37'),
-(102, 5, 7, 8, '2023-04-04 09:32:39'),
-(103, 5, 4, 3, '2023-04-04 10:02:01'),
-(104, 5, 5, 3, '2023-04-04 10:02:03'),
-(105, 5, 11, 1, '2023-04-04 10:02:11'),
-(106, 5, 10, 2, '2023-04-04 10:02:12'),
-(107, 5, 8, 2, '2023-04-04 10:02:15'),
-(108, 5, 9, 4, '2023-04-04 10:02:16'),
-(109, 5, 1, 2, '2023-04-04 10:02:21'),
-(110, 9, 1, 1, '2023-04-04 15:18:07'),
-(111, 9, 3, 2, '2023-04-04 15:18:19'),
-(112, 9, 7, 15, '2023-04-04 15:35:34');
+INSERT INTO `cart` (`cart_id`, `user_id`, `product_id`, `quantity`, `price`, `total`, `date_added`) VALUES
+(23, '3', 4, 13, 274, 3562, '2023-04-28 10:22:34'),
+(29, '1iq32gg5bspok0tvokbpl2ugbg', 4, 2, 274, 548, '2023-04-28 11:12:27'),
+(35, '3', 9, 1, 1800, 1800, '2023-04-28 11:50:24');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `checkout`
+-- Table structure for table `category`
 --
 
-CREATE TABLE `checkout` (
+CREATE TABLE `category` (
+  `id` int(11) NOT NULL,
+  `cat_name` varchar(50) NOT NULL,
+  `cat_img` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`id`, `cat_name`, `cat_img`) VALUES
+(1, 'gravel', 'gravel-sack.png'),
+(2, 'cement', 'cement-sack.png'),
+(3, 'pipes', 'metal-pipes.png'),
+(4, 'paint', 'paint-bucket.png'),
+(5, 'plyboard', 'plyboard.png'),
+(6, 'cinderblock', 'cinderblock.png');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` int(11) NOT NULL,
   `order_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
+  `receivers_name` varchar(100) NOT NULL,
   `product_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
+  `price` int(11) NOT NULL,
+  `total` int(11) NOT NULL,
+  `shipping_fee` int(11) NOT NULL DEFAULT 100,
+  `order_status` varchar(20) NOT NULL DEFAULT 'processing',
+  `address` varchar(100) NOT NULL,
+  `payment_opt` varchar(100) NOT NULL,
   `purchase_date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `checkout`
+-- Dumping data for table `orders`
 --
 
-INSERT INTO `checkout` (`order_id`, `user_id`, `product_id`, `quantity`, `purchase_date`) VALUES
-(9, 3, 4, 1, '2023-03-10 17:58:00'),
-(10, 3, 3, 1, '2023-03-10 17:58:00'),
-(11, 3, 2, 1, '2023-03-10 18:05:28'),
-(12, 3, 1, 1, '2023-03-10 18:05:28'),
-(13, 3, 5, 1, '2023-03-10 18:05:28'),
-(14, 3, 6, 1, '2023-03-10 18:05:28'),
-(15, 3, 2, 2, '2023-03-10 18:05:43'),
-(16, 3, 4, 2, '2023-03-10 18:14:11'),
-(17, 2, 3, 1, '2023-03-10 18:37:20'),
-(18, 2, 7, 2, '2023-03-10 18:38:24'),
-(19, 2, 7, 1, '2023-03-10 18:38:45'),
-(20, 4, 6, 1, '2023-03-10 18:44:24'),
-(21, 4, 2, 4, '2023-03-10 18:44:24'),
-(22, 4, 3, 1, '2023-03-10 18:44:24');
+INSERT INTO `orders` (`id`, `order_id`, `user_id`, `receivers_name`, `product_id`, `quantity`, `price`, `total`, `shipping_fee`, `order_status`, `address`, `payment_opt`, `purchase_date`) VALUES
+(1, 1011, 1, 'Jerome Populi', 4, 1, 274, 274, 100, 'processing', 'Calabalabaan, Munoz City', 'cod', '2023-04-28 07:21:58'),
+(2, 1011, 1, 'Jerome Populi', 7, 2, 1680, 3360, 100, 'processing', 'Calabalabaan, Munoz City', 'cod', '2023-04-28 07:21:58'),
+(3, 1012, 1, 'Jerome Gaming', 4, 4, 274, 1096, 100, 'processing', 'Calabalabaan, Munoz City', 'cod', '2023-04-28 07:32:08'),
+(4, 1012, 1, 'Jerome Gaming', 7, 2, 1680, 3360, 100, 'processing', 'Calabalabaan, Munoz City', 'cod', '2023-04-28 07:32:08'),
+(5, 1013, 3, 'Jerome Nel Populi', 3, 2, 280, 560, 100, 'processing', 'Calabalabaan, Munoz City', 'cod', '2023-04-28 07:46:49'),
+(6, 1013, 3, 'Jerome Nel Populi', 4, 3, 274, 822, 100, 'processing', 'Calabalabaan, Munoz City', 'cod', '2023-04-28 07:46:49'),
+(7, 1014, 3, 'Jerome Nel Populi', 4, 1, 274, 274, 100, 'processing', 'Calabalabaan, Munoz City', 'cod', '2023-04-28 07:50:46'),
+(8, 1015, 3, ' ', 4, 2, 274, 548, 100, 'processing', '', 'cod', '2023-04-28 07:54:15'),
+(9, 1015, 3, ' ', 5, 1, 290, 290, 100, 'processing', '', 'cod', '2023-04-28 07:54:15'),
+(10, 1016, 3, 'Jerome Nel Populi', 4, 1, 274, 274, 100, 'processing', 'Baler, Aurora', 'gcash - 0964342', '2023-04-28 07:55:11'),
+(11, 1016, 3, 'Jerome Nel Populi', 9, 1, 1800, 1800, 100, 'processing', 'Baler, Aurora', 'gcash - 0964342', '2023-04-28 07:55:11'),
+(12, 1016, 3, 'Jerome Nel Populi', 7, 1, 1680, 1680, 100, 'processing', 'Baler, Aurora', 'gcash - 0964342', '2023-04-28 07:55:11'),
+(13, 1017, 3, 'Jerome Nel Populi', 4, 1, 274, 274, 100, 'processing', 'Calabalabaan, Munoz City', 'gcash - 0964342', '2023-04-28 07:57:16'),
+(14, 1017, 3, 'Jerome Nel Populi', 9, 1, 1800, 1800, 100, 'processing', 'Calabalabaan, Munoz City', 'gcash - 0964342', '2023-04-28 07:57:16'),
+(15, 1018, 3, 'Jerome Nel Populi', 4, 15, 274, 4110, 100, 'processing', 'Calabalabaan, Munoz City', 'cod', '2023-04-28 08:24:39'),
+(16, 1019, 3, 'Jerome Nel Populi', 5, 1, 290, 290, 100, 'processing', 'Calabalabaan, Munoz City', 'gcash - 98989', '2023-04-28 08:28:10'),
+(17, 1019, 3, 'Jerome Nel Populi', 4, 8, 274, 2192, 100, 'processing', 'Calabalabaan, Munoz City', 'gcash - 98989', '2023-04-28 08:28:10'),
+(18, 1020, 3, ' ', 8, 2, 2000, 4000, 100, 'processing', '', 'cod', '2023-04-28 10:12:52'),
+(19, 1020, 3, ' ', 3, 1, 280, 280, 100, 'processing', '', 'cod', '2023-04-28 10:12:52'),
+(20, 1020, 3, ' ', 5, 1, 290, 290, 100, 'processing', '', 'cod', '2023-04-28 10:12:52'),
+(21, 1020, 3, ' ', 7, 2, 1680, 3360, 100, 'processing', '', 'cod', '2023-04-28 10:12:52'),
+(22, 1020, 3, ' ', 12, 2, 2450, 4900, 100, 'processing', '', 'cod', '2023-04-28 10:12:52'),
+(23, 1021, 1, 'Jerome Populi', 4, 3, 274, 822, 100, 'processing', 'Calabalabaan, Munoz City', 'cod', '2023-04-28 11:12:15'),
+(24, 1021, 1, 'Jerome Populi', 5, 2, 290, 580, 100, 'processing', 'Calabalabaan, Munoz City', 'cod', '2023-04-28 11:12:15'),
+(25, 1021, 1, 'Jerome Populi', 3, 1, 280, 280, 100, 'processing', 'Calabalabaan, Munoz City', 'cod', '2023-04-28 11:12:15');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders_id_seq`
+--
+
+CREATE TABLE `orders_id_seq` (
+  `next_not_cached_value` bigint(21) NOT NULL,
+  `minimum_value` bigint(21) NOT NULL,
+  `maximum_value` bigint(21) NOT NULL,
+  `start_value` bigint(21) NOT NULL COMMENT 'start value when sequences is created or value if RESTART is used',
+  `increment` bigint(21) NOT NULL COMMENT 'increment value',
+  `cache_size` bigint(21) UNSIGNED NOT NULL,
+  `cycle_option` tinyint(1) UNSIGNED NOT NULL COMMENT '0 if no cycles are allowed, 1 if the sequence should begin a new cycle when maximum_value is passed',
+  `cycle_count` bigint(21) NOT NULL COMMENT 'How many cycles have been done'
+) ENGINE=InnoDB;
+
+--
+-- Dumping data for table `orders_id_seq`
+--
+
+INSERT INTO `orders_id_seq` (`next_not_cached_value`, `minimum_value`, `maximum_value`, `start_value`, `increment`, `cache_size`, `cycle_option`, `cycle_count`) VALUES
+(1000, 1, 9223372036854775806, 1000, 1, 1000, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order_info`
+--
+
+CREATE TABLE `order_info` (
+  `order_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `order_info`
+--
+
+INSERT INTO `order_info` (`order_id`) VALUES
+(1000),
+(1001),
+(1002),
+(1003),
+(1004),
+(1005),
+(1006),
+(1007),
+(1008),
+(1009),
+(1010),
+(1011),
+(1012),
+(1013),
+(1014),
+(1015),
+(1016),
+(1017),
+(1018),
+(1019),
+(1020),
+(1021);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pending`
+--
+
+CREATE TABLE `pending` (
+  `user_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `price` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -140,7 +208,7 @@ CREATE TABLE `products` (
   `product_id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
   `price` decimal(10,0) NOT NULL,
-  `quantity` int(11) NOT NULL,
+  `stocks` int(11) NOT NULL,
   `description` varchar(255) NOT NULL,
   `img` varchar(50) NOT NULL,
   `category` varchar(30) NOT NULL
@@ -150,18 +218,18 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`product_id`, `name`, `price`, `quantity`, `description`, `img`, `category`) VALUES
-(1, 'ordinary portland cement 40kg', '261', 0, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, pariatur.', 'cement-sack.png', 'cement'),
-(3, 'portland pozzolona cement 40kg', '280', 0, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, pariatur.', 'cement-sack.png', 'cement'),
-(4, 'rapid hardening cement 40kg', '274', 0, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, pariatur.', 'cement-sack.png', 'cement'),
-(5, 'low heat cement 40kg', '290', 0, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, pariatur.', 'cement-sack.png', 'cement'),
-(6, 'mexican beach pebble 3/4\" (1 cbm)', '1550', 0, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, quo.', 'gravel-sack.png', 'gravel'),
-(7, 'pea gravel 3/8\" (1 cbm)', '1680', 0, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, quo.', 'gravel-sack.png', 'gravel'),
-(8, 'carbon steel pipe 1m', '2000', 0, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, cupiditate.', 'metal-pipes.png', 'pipes'),
-(9, 'cast iron pipe 1m', '1800', 0, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, cupiditate.', 'metal-pipes.png', 'pipes'),
-(10, 'galvanized steel pipe 1m', '3000', 0, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, cupiditate.', 'metal-pipes.png', 'pipes'),
-(11, 'enamel paint 1gal', '2500', 0, '', 'paint-bucket.png', 'paint'),
-(12, 'oil paint 1gal', '2450', 0, '', 'paint-bucket.png', 'paint');
+INSERT INTO `products` (`product_id`, `name`, `price`, `stocks`, `description`, `img`, `category`) VALUES
+(1, 'ordinary portland cement 40kg', '261', 50000, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, pariatur.', 'cement-sack.png', 'cement'),
+(3, 'portland pozzolona cement 40kg', '280', 49969, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, pariatur.', 'cement-sack.png', 'cement'),
+(4, 'rapid hardening cement 40kg', '274', 49821, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, pariatur.', 'cement-sack.png', 'cement'),
+(5, 'low heat cement 40kg', '290', 49950, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, pariatur.', 'cement-sack.png', 'cement'),
+(6, 'mexican beach pebble 3/4\" (1 cbm)', '1550', 49985, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, quo.', 'gravel-sack.png', 'gravel'),
+(7, 'pea gravel 3/8\" (1 cbm)', '1680', 49966, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, quo.', 'gravel-sack.png', 'gravel'),
+(8, 'carbon steel pipe 1m', '2000', 49949, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, cupiditate.', 'metal-pipes.png', 'pipes'),
+(9, 'cast iron pipe 1m', '1800', 49969, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, cupiditate.', 'metal-pipes.png', 'pipes'),
+(10, 'galvanized steel pipe 1m', '3000', 49996, 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, cupiditate.', 'metal-pipes.png', 'pipes'),
+(11, 'enamel paint 1gal', '2500', 49981, '', 'paint-bucket.png', 'paint'),
+(12, 'oil paint 1gal', '2450', 49956, '', 'paint-bucket.png', 'paint');
 
 -- --------------------------------------------------------
 
@@ -171,8 +239,11 @@ INSERT INTO `products` (`product_id`, `name`, `price`, `quantity`, `description`
 
 CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
+  `profile` varchar(20) NOT NULL,
   `fname` varchar(50) NOT NULL,
   `lname` varchar(50) NOT NULL,
+  `phone` varchar(20) NOT NULL,
+  `address` varchar(100) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -181,17 +252,10 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `fname`, `lname`, `email`, `password`) VALUES
-(1, 'Jerome', 'Populi', 'jeromerandom@gmail.com', '$2y$10$zX4asCShpPfNKcKhQLh.weLy8uBZbkkphyhElPUe/fITNzVu0Fj1O'),
-(2, 'Cathleen', 'Avilla', 'cat@gmail.com', '$2y$10$0yHSbfZHG36N3aevXrCksOTfDpbT7liETk3KQ1PnejfvODMyL5oii'),
-(3, '', '', '', '$2y$10$22ObfwJ6pLDlhjUKkYVyBeCC2g7u63ko54eldQO.KDudXzTKSbOz6'),
-(4, 'Jerome', 'Populi', 'sean@gmail.com', '$2y$10$XNkuQZAYK3aFXOiDZ27qNudEtJaini/RRGZQ5ZeBYnDDbAbUVfGha'),
-(5, 'Naruto', 'Uzumaki', 'naruto@gmail.com', '$2y$10$xTz7sib6V827g7cFEASYt.7BH71RM2w0af4JeQoknIuVJjlJrfNdm'),
-(6, 'Jerome', 'Nel', 'jerome@gmail.com', '$2y$10$qZdMuKztDq3lSErqWPQZSeRGZ75C6dtK39Sm3Z6lA.XVk/9Y54waC'),
-(7, 'Sean', 'Centro', 'sean123@gmail.com', '$2y$10$8P774NYTWB4Q4VTa3VRsPe.N4xMyiaLFLs23jAC8ARwsdY3ZY1CBy'),
-(8, 'Kelly', 'Centro', 'kelly@gmail.com', '$2y$10$RH2B9Z2fwc5828SgjlZn5elgTPYCYdBYY3sbz324XPgukTQZAUrGi'),
-(9, 'Jerome', 'Nel', 'jerome1234@gmail.com', '$2y$10$uj0/ZU48p3nlJSYHJ3EFeuQodSrQheRsczp4inN6mVHZabhe77LfK'),
-(10, 'Jerome', 'Nel', 'jerome123456@gmail.com', '$2y$10$/FnfUkhu7m8g07QaU75s2OxId/q12.xpHqDicwz49EO0ZrpyGl5rq');
+INSERT INTO `users` (`user_id`, `profile`, `fname`, `lname`, `phone`, `address`, `email`, `password`) VALUES
+(1, '', 'Jerome', 'Populi', '', 'Calabalabaan, Munoz City', 'jerome@gmail.com', '$2y$10$1drS2sg2w.MiB9ahFZabP.K0a/QcA05CT.WRwhku5pM84sEPLreU2'),
+(2, '', 'Jerome', 'Gaming', '', 'Calabalabaan, Munoz City', 'casasasasat123@gmail.com', '$2y$10$JgVbIXLxG57DgU5g246nkuJ.bqSu9fMZHDGbCcSQj/crWSnMWphJS'),
+(3, '', 'Jerome Nel', 'Populi', '09913437315', 'Calabalabaan, Munoz City', 'nel@gmail.com', '$2y$10$l4B9bKP.Wbqf3a8bB3cx3uGppmsPlE1X5agRlQo8FI46/UezEtrAO');
 
 --
 -- Indexes for dumped tables
@@ -204,10 +268,16 @@ ALTER TABLE `cart`
   ADD PRIMARY KEY (`cart_id`);
 
 --
--- Indexes for table `checkout`
+-- Indexes for table `category`
 --
-ALTER TABLE `checkout`
-  ADD PRIMARY KEY (`order_id`);
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `products`
@@ -229,13 +299,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
--- AUTO_INCREMENT for table `checkout`
+-- AUTO_INCREMENT for table `category`
 --
-ALTER TABLE `checkout`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+ALTER TABLE `category`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -247,7 +323,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

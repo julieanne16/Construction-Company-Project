@@ -5,32 +5,20 @@ if (session_status() == PHP_SESSION_NONE) {
 	session_start();
 }
 
-require_once 'functions.php';
-
-if (isset($_POST['registration'])) {
-	$fname = $_POST['fname'];
-	$lname = $_POST['lname'];
-	$email = $_POST['email'];
-	$password = $_POST['password'];
-
-	$new_account = register($conn, $fname, $lname, $email, $password);
-
-	echo json_encode($new_account);
-	exit;
-}
+require_once 'db/connection.php';
+require_once 'db/functions.php';
 
 ?>
-
-
 
 <?php require_once 'includes/header.php'; ?>
 <?php require_once 'includes/navbar.php'; ?>
 
-<section class="forms">
+<section class="forms mt">
+
 	<div class="container">
-		<h1>SIGN UP</h1>
-		<p>Please fill out the form to register</p>
 		<form id="register" method="POST">
+			<h1>SIGN UP</h1>
+			<p class="subheader">Please fill out the form to register</p>
 			<input type="hidden" name="registration">
 
 			<!-- Show message if error -->
@@ -56,6 +44,12 @@ if (isset($_POST['registration'])) {
 			</div>
 
 			<div class="form-group">
+				<label class="address">Address</label>
+				<input type="text" class="form-control" id="address" name="address" placeholder="Full Address">
+				<span class="invalid-feedback"></span>
+			</div>
+
+			<div class="form-group">
 				<label class="password">Password</label>
 				<input type="password" class="form-control" id="password" name="password" placeholder="*******">
 				<span class="invalid-feedback"></span>
@@ -68,7 +62,7 @@ if (isset($_POST['registration'])) {
 			</div>
 
 			<div class="form-group">
-				<div class="wrap">
+				<div class="wrap flex-center">
 					<div class="captcha-wrap">
 						<span id="captcha"></span>
 					</div>
@@ -79,17 +73,18 @@ if (isset($_POST['registration'])) {
 			</div>
 
 			<div class="form-group terms">
-				<div class="form-terms">
+				<div class="form-terms flex-center">
 					<input type="checkbox" name="terms" id="terms">
-					<p>I agree to the <a href="terms-and-conditions.php" target="_blank">terms and conditions</a></p>
+					<p>I have read and agree to the <a href="terms_and_conditions.php">Terms & Conditions</a></p>
 				</div>
 				<span class="invalid-feedback"></span>
 			</div>
 
 			<button type="submit" name="register" class="form-btn">SIGN UP</button>
-			<p>Already have an account? <a href="login.php">Sign In here</a></p>
+			<p>Have an account? <a href="login.php">Sign In here</a></p>
 		</form>
 	</div>
+
 </section>
 
 
